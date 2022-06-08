@@ -54,7 +54,7 @@ class Publication extends Model
     public static $imgSizes = [
         // 'micro' => [120, 76],
         // 'small' => [160, 102],
-        'medium' => [320, 320],
+        'medium' => [340, 255],
         // 'large' => [685, 480],
     ];
 

@@ -28,40 +28,42 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             PagesTableSeeder::class,
             StaticTextsTableSeeder::class,
-            RegionsTableSeeder::class,
-            WarehousesTableSeeder::class,
+            // RegionsTableSeeder::class,
+            // WarehousesTableSeeder::class,
 
             BannersTableSeeder::class,
             // PromotionsTableSeeder::class,
 
-            InstallmentPlansTableSeeder::class,
+            // InstallmentPlansTableSeeder::class,
             // GendersTableSeeder::class,
-            CategoriesTableSeeder::class,
-            BrandsTableSeeder::class,
+            // CategoriesTableSeeder::class,
+            // BrandsTableSeeder::class,
+            PartnersTableSeeder::class,
             // RubricsTableSeeder::class,
 
-            AttributesTableSeeder::class,
-            AttributeValuesTableSeeder::class,
+            // AttributesTableSeeder::class,
+            // AttributeValuesTableSeeder::class,
 
-            ProductsTableSeeder::class,
+            // ProductsTableSeeder::class,
             PublicationsTableSeeder::class,
-            ShippingMethodSeeder::class,
+            ServicesTableSeeder::class,
+            // ShippingMethodSeeder::class,
 
             // PricelistsTableSeeder::class,
 
             // ArticlesTableSeeder::class,
             // NewsTableSeeder::class,
 
-//            VacanciesTableSeeder::class,
-//            CVsTableSeeder::class,
-//
-//            GalleriesTableSeeder::class,
-//            PhotosTableSeeder::class,
-//
-//            ReviewsTableSeeder::class,
+            VacanciesTableSeeder::class,
+            // CVsTableSeeder::class,
+
+            GalleriesTableSeeder::class,
+
+            ReviewsTableSeeder::class,
             // FixedCompaniesTableSeeder::class,
 
             // PollsTableSeeder::class,
+            EmployeesTableSeeder::class,
 
         ]);
     }

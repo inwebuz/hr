@@ -8,6 +8,7 @@ use App\Banner;
 use App\Brand;
 use App\Category;
 use App\Company;
+use App\Employee;
 use App\Gallery;
 use App\Gender;
 use App\InstallmentPlan;
@@ -627,7 +628,7 @@ class DataRowsTableSeeder extends StandardSeeder
             'h1_name' => [
                 'method' => 'textRow',
                 'data' => [
-                    'display_name' => 'H1 название',
+                    'display_name' => __('seeders.data_rows.h1_name'),
                 ],
             ],
         ];
@@ -671,6 +672,12 @@ class DataRowsTableSeeder extends StandardSeeder
                     'display_name' => __('seeders.data_rows.featured'),
                 ],
             ],
+            'h1_name' => [
+                'method' => 'textRow',
+                'data' => [
+                    'display_name' => __('seeders.data_rows.h1_name'),
+                ],
+            ],
         ];
         $this->saveRows($dataType, $rows);
     }
@@ -701,6 +708,67 @@ class DataRowsTableSeeder extends StandardSeeder
             ],
             'order' => [
                 'method' => 'orderRow',
+            ],
+            'slug' => [
+                'method' => 'hiddenRow',
+            ],
+            'body' => [
+                'method' => 'hiddenRow',
+            ],
+            'background' => [
+                'method' => 'hiddenRow',
+            ],
+            'images' => [
+                'method' => 'hiddenRow',
+            ],
+            'is_featured' => [
+                'method' => 'statusRow',
+                'data' => [
+                    'display_name' => __('seeders.data_rows.featured'),
+                ],
+            ],
+        ];
+        $this->saveRows($dataType, $rows);
+    }
+
+    protected function employeesRows()
+    {
+        $dataType = DataType::where('slug', 'employees')->firstOrFail();
+
+        $this->saveMainRows($dataType);
+        $this->saveStandardRows($dataType, [], ['name', 'image', 'slug', 'body']);
+
+        $imageThumbs = [];
+        foreach (Employee::$imgSizes as $key => $value) {
+            $imageThumbs[] = [
+                'name' => $key,
+                'width' => $value[0],
+                'height' => $value[1],
+            ];
+        }
+
+        // specific rows
+        $rows = [
+            'image' => [
+                'method' => 'imageRow',
+                'data' => [
+                    'details' => $this->image(1000, $imageThumbs),
+                ],
+            ],
+            'order' => [
+                'method' => 'orderRow',
+            ],
+            'slug' => [
+                'method' => 'hiddenRow',
+            ],
+            'body' => [
+                'method' => 'hiddenRow',
+            ],
+            'background' => [
+                'method' => 'hiddenRow',
+            ],
+            'images' => [
+                'method' => 'hiddenRow',
             ],
         ];
         $this->saveRows($dataType, $rows);
@@ -1113,7 +1181,7 @@ class DataRowsTableSeeder extends StandardSeeder
             'h1_name' => [
                 'method' => 'textRow',
                 'data' => [
-                    'display_name' => 'H1 название',
+                    'display_name' => __('seeders.data_rows.h1_name'),
                 ],
             ],
 			'product_group_id' => [
@@ -1183,7 +1251,7 @@ class DataRowsTableSeeder extends StandardSeeder
             'h1_name' => [
                 'method' => 'textRow',
                 'data' => [
-                    'display_name' => 'H1 название',
+                    'display_name' => __('seeders.data_rows.h1_name'),
                 ],
             ],
         ];
@@ -2154,12 +2222,19 @@ class DataRowsTableSeeder extends StandardSeeder
         $dataType = DataType::where('slug', 'services')->firstOrFail();
 
         $this->saveMainRows($dataType);
-        $this->saveStandardRows($dataType, [], ['status', 'image']);
-        $this->saveSeoRows($dataType);
+        $this->saveStandardRows($dataType, [], ['image']);
 
         $imageThumbs = [];
+        $iconImageThumbs = [];
         foreach (Service::$imgSizes as $key => $value) {
             $imageThumbs[] = [
+                'name' => $key,
+                'width' => $value[0],
+                'height' => $value[1],
+            ];
+        }
+        foreach (Service::$iconImgSizes as $key => $value) {
+            $iconImageThumbs[] = [
                 'name' => $key,
                 'width' => $value[0],
                 'height' => $value[1],
@@ -2168,72 +2243,20 @@ class DataRowsTableSeeder extends StandardSeeder
 
         // specific rows
         $rows = [
-            'user_id' => [
-                'method' => 'hiddenRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.user'),
-                    'edit' => 1,
-                    'add' => 1,
-                    'delete' => 1,
-                ],
-            ],
-            'service_belongsto_user_relationship' => [
-                'method' => 'relationshipRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.user'),
-                    'details' => $this->relationship(User::class, 'users', 'belongsTo', 'user_id'),
-                ],
-            ],
-            'company_id' => [
-                'method' => 'hiddenRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.company'),
-                    'edit' => 1,
-                    'add' => 1,
-                    'delete' => 1,
-                ],
-            ],
-            'service_belongsto_company_relationship' => [
-                'method' => 'relationshipRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.company'),
-                    'details' => $this->relationship(Company::class, 'companies', 'belongsTo', 'company_id'),
-                ],
-            ],
-            'serrubric_id' => [
-                'method' => 'hiddenRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.rubric'),
-                    'details' => $this->required(),
-                    'edit' => 1,
-                    'add' => 1,
-                    'delete' => 1,
-                ],
-            ],
-            'service_belongsto_serrubric_relationship' => [
-                'method' => 'relationshipRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.rubric'),
-                    'details' => $this->relationship(Serrubric::class, 'serrubrics', 'belongsTo', 'serrubric_id', 'id', 'full_name'),
-                ],
-            ],
-            'status' => [
-                'method' => 'statusRow'
-            ],
-            'price' => [
-                'method' => 'priceRow',
-            ],
-            'price_from' => [
-                'method' => 'hiddenNumberRow',
-            ],
-            'price_to' => [
-                'method' => 'hiddenNumberRow',
-            ],
             'image' => [
                 'method' => 'imageRow',
                 'data' => [
                     'details' => $this->image(1000, $imageThumbs),
                 ],
+            ],
+            'icon' => [
+                'method' => 'imageRow',
+                'data' => [
+                    'details' => $this->image(1000, $iconImageThumbs),
+                ],
+            ],
+            'order' => [
+                'method' => 'orderRow',
             ],
             'background' => [
                 'method' => 'hiddenRow',
@@ -2241,8 +2264,11 @@ class DataRowsTableSeeder extends StandardSeeder
             'images' => [
                 'method' => 'hiddenRow',
             ],
-            'featured' => [
-                'method' => 'hiddenRow',
+            'is_featured' => [
+                'method' => 'statusRow',
+                'data' => [
+                    'display_name' => __('seeders.data_rows.featured'),
+                ],
             ],
         ];
         $this->saveRows($dataType, $rows);
@@ -2360,66 +2386,36 @@ class DataRowsTableSeeder extends StandardSeeder
         $dataType = DataType::where('slug', 'vacancies')->firstOrFail();
 
         $this->saveMainRows($dataType);
-        $this->saveStandardRows($dataType, [], ['slug', 'image', 'status']);
+        $this->saveStandardRows($dataType, [], ['image']);
         $this->saveSeoRows($dataType);
 
-        $vacancyTypes = array_combine(Vacancy::$types, Vacancy::$types);
         $rows = [
-            'user_id' => [
+            'location' => [
                 'method' => 'hiddenRow',
                 'data' => [
-                    'display_name' => __('seeders.data_rows.user'),
-                    'edit' => 1,
-                    'add' => 1,
-                    'delete' => 1,
+                    'display_name' => __('seeders.data_rows.location'),
                 ],
             ],
-            'vacancy_belongsto_user_relationship' => [
-                'method' => 'relationshipRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.user'),
-                    'details' => $this->relationship(User::class, 'users', 'belongsTo', 'user_id', 'id', 'name', 'users'),
-                    'order' => 10,
-                ],
-            ],
-            'company_id' => [
+            'brand' => [
                 'method' => 'hiddenRow',
                 'data' => [
-                    'display_name' => __('seeders.data_rows.company'),
-                    'edit' => 1,
-                    'add' => 1,
-                    'delete' => 1,
+                    'display_name' => __('seeders.data_rows.brand'),
                 ],
             ],
-            'vacancy_belongsto_company_relationship' => [
-                'method' => 'relationshipRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.company'),
-                    'details' => $this->relationship(Company::class, 'companies', 'belongsTo', 'company_id', 'id', 'name', 'companies'),
-                    'order' => 10,
-                ],
-            ],
-            'salary_from' => [
-                'method' => 'numberRow',
+            'salary' => [
+                'method' => 'textRow',
                 'data' => [
                     'display_name' => __('seeders.data_rows.salary_from'),
                 ],
             ],
-            'salary_to' => [
-                'method' => 'numberRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.salary_to'),
-                ],
+            'images' => [
+                'method' => 'hiddenRow',
             ],
-            'type' => [
-                'method' => 'dropdownRow',
+            'background' => [
+                'method' => 'hiddenRow',
                 'data' => [
-                    'display_name' => __('seeders.data_rows.type'),
-                    'details' => $this->dropdown(array_values($vacancyTypes)[0], $vacancyTypes),
+                    'display_name' => __('seeders.data_rows.background'),
                 ],
-            ],
-            'status' => [
-                'method' => 'statusRow'
             ],
         ];
         $this->saveRows($dataType, $rows);
@@ -2429,50 +2425,8 @@ class DataRowsTableSeeder extends StandardSeeder
     {
         $dataType = DataType::where('slug', 'galleries')->firstOrFail();
 
-        $this->saveMainRows($dataType);
-
-        $rows = [
-            'name' => [
-                'method' => 'titleRow',
-            ],
-            'company_id' => [
-                'method' => 'hiddenRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.company'),
-                    'edit' => 1,
-                    'add' => 1,
-                    'delete' => 1,
-                    'required' => 1,
-                    'details' => $this->required(),
-                ],
-            ],
-            'gallery_belongsto_company_relationship' => [
-                'method' => 'relationshipRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.company'),
-                    'details' => $this->relationship(Company::class, 'companies', 'belongsTo', 'company_id', 'id', 'name', 'companies'),
-                    'order' => 10,
-                    'required' => 1,
-                ],
-            ],
-            'order' => [
-                'method' => 'hiddenNumberRow',
-            ],
-            'status' => [
-                'method' => 'statusRow'
-            ],
-        ];
-        $this->saveRows($dataType, $rows);
-    }
-
-    protected function photosRows()
-    {
-        $dataType = DataType::where('slug', 'photos')->firstOrFail();
-
-        $this->saveMainRows($dataType);
-
         $imageThumbs = [];
-        foreach (Photo::$imgSizes as $key => $value) {
+        foreach (Gallery::$imgSizes as $key => $value) {
             $imageThumbs[] = [
                 'name' => $key,
                 'width' => $value[0],
@@ -2480,24 +2434,11 @@ class DataRowsTableSeeder extends StandardSeeder
             ];
         }
 
+        $this->saveMainRows($dataType);
+
         $rows = [
-            'gallery_id' => [
-                'method' => 'hiddenRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.gallery'),
-                    'edit' => 1,
-                    'add' => 1,
-                    'delete' => 1,
-                    'details' => $this->required(),
-                ],
-            ],
-            'photo_belongsto_gallery_relationship' => [
-                'method' => 'relationshipRow',
-                'data' => [
-                    'display_name' => __('seeders.data_rows.gallery'),
-                    'details' => $this->relationship(Gallery::class, 'galleries', 'belongsTo', 'gallery_id', 'id', 'name', 'galleries'),
-                    'order' => 10,
-                ],
+            'name' => [
+                'method' => 'titleRow',
             ],
             'image' => [
                 'method' => 'imageRow',
@@ -2506,11 +2447,19 @@ class DataRowsTableSeeder extends StandardSeeder
                     'browse' => 1,
                 ],
             ],
+            'images' => [
+                'method' => 'imageRow',
+                'data' => [
+                    'display_name' => __('seeders.data_rows.gallery'),
+                    'type' => 'multiple_images',
+                    'details' => $this->image(1000, $imageThumbs),
+                ],
+            ],
             'order' => [
-                'method' => 'hiddenNumberRow',
+                'method' => 'orderRow',
             ],
             'status' => [
-                'method' => 'statusRow',
+                'method' => 'statusRow'
             ],
         ];
         $this->saveRows($dataType, $rows);

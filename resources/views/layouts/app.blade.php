@@ -28,7 +28,20 @@
         $assetsVersion = env('ASSETS_VERSION', 1);
     @endphp
 
-    <link rel="stylesheet" href="{{ asset('css/main.css?v=' . $assetsVersion) }}">
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/themify-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/elegant-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/flaticon-set.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/magnific-popup.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/bootsnav.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" />
+    <!-- ========== End Stylesheet ========== -->
     <link rel="stylesheet" href="{{ asset('css/custom.css?v=' . $assetsVersion) }}">
 
     {{-- <link rel="stylesheet" href="{{ asset('css/vendor.css?v=' . $assetsVersion) }}">
@@ -44,8 +57,9 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
+    {!! setting('site.google_analytics_code') !!}
+    {!! setting('site.yandex_metrika_code') !!}
     {!! setting('site.facebook_pixel_code') !!}
-
     {!! setting('site.jivochat_code') !!}
 
 </head>
@@ -62,16 +76,29 @@
     @yield('after_footer_blocks')
 
     @include('partials.preloader')
-	
-    <script src="{{ asset('js/main.js?v=' . $assetsVersion) }}"></script>
+
+    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.appear.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/modernizr.custom.13711.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/js/progress-bar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/js/count-to.js') }}"></script>
+    <script src="{{ asset('assets/js/YTPlayer.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootsnav.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('js/custom.js?v=' . $assetsVersion) }}"></script>
 
     {{-- <script src="{{ asset('js/app.js?v=' . $assetsVersion) }}"></script> --}}
 
     @yield('scripts')
 
-    {!! setting('site.google_analytics_code') !!}
-    {!! setting('site.yandex_metrika_code') !!}
     {!! setting('site.inweb_widget_code') !!}
 
     @yield('microdata')

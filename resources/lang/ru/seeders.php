@@ -58,6 +58,7 @@ return [
         'first_name' => 'Имя',
         'gallery' => 'Галерея',
         'gender' => 'Пол',
+        'h1_name' => 'H1 название',
         'icon' => 'Иконка',
         'id' => 'ID',
         'in_stock' => 'В наличии',

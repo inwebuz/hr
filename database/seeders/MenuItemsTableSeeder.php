@@ -174,10 +174,6 @@ class MenuItemsTableSeeder extends Seeder
                 'icon' => 'voyager-photos',
             ],
             [
-                'slug' => 'photos',
-                'icon' => 'voyager-photo',
-            ],
-            [
                 'slug' => 'reviews',
                 'icon' => 'voyager-bubble',
             ],
@@ -249,6 +245,10 @@ class MenuItemsTableSeeder extends Seeder
                 'title' => 'Настройки доставки',
                 'slug' => 'delivery_settings',
                 'icon' => 'voyager-truck',
+            ],
+            [
+                'slug' => 'employees',
+                'icon' => 'voyager-people',
             ],
             [
                 'slug' => 'partners',

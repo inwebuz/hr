@@ -12,6 +12,7 @@ use App\BrandCategoryText;
 use App\Category;
 use App\Company;
 use App\CV;
+use App\Employee;
 use App\FixedCompany;
 use App\Gallery;
 use App\Gender;
@@ -224,13 +225,6 @@ class DataTypesTableSeeder extends Seeder
                 'icon'                  => 'voyager-receipt',
                 'model_name'            => Service::class,
                 'server_side'           => 1,
-                'details'               => [
-                    "order_column" => null,
-                    "order_display_column" => null,
-                    "order_direction" => "desc",
-                    "default_search_key" => null,
-                    "scope" => null
-                ],
             ],
             [
                 'slug'                  => 'specializations',
@@ -303,22 +297,6 @@ class DataTypesTableSeeder extends Seeder
                 'display_name_plural'   => __('seeders.data_types.gallery.plural'),
                 'icon'                  => 'voyager-photos',
                 'model_name'            => Gallery::class,
-            ],
-            [
-                'slug'                  => 'photos',
-                'name'                  => 'photos',
-                'display_name_singular' => __('seeders.data_types.photo.singular'),
-                'display_name_plural'   => __('seeders.data_types.photo.plural'),
-                'icon'                  => 'voyager-photo',
-                'model_name'            => Photo::class,
-                'server_side'           => 1,
-                'details'               => [
-                    "order_column" => null,
-                    "order_display_column" => null,
-                    "order_direction" => "desc",
-                    "default_search_key" => null,
-                    "scope" => null
-                ],
             ],
             [
                 'slug'                  => 'reviews',
@@ -474,6 +452,15 @@ class DataTypesTableSeeder extends Seeder
                 'icon'                  => 'voyager-categories',
                 'model_name'            => BrandCategoryText::class,
 				'server_side'           => 1,
+            ],
+            [
+                'slug'                  => 'employees',
+                'name'                  => 'employees',
+                'display_name_singular' => __('seeders.data_types.employee.singular'),
+                'display_name_plural'   => __('seeders.data_types.employee.plural'),
+                'icon'                  => 'voyager-people',
+                'model_name'            => Employee::class,
+                // 'server_side'           => 1,
             ],
             [
                 'slug'                  => 'partners',

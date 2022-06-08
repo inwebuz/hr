@@ -136,7 +136,7 @@ class Brand extends Model
             $lang = app()->getLocale();
         }
         $slug = $this->getTranslatedAttribute('slug', $lang) ?: $this->slug;
-        $url = 'brand/' . $this->id . '-' . $slug;
+        $url = 'brands/' . $this->id . '-' . $slug;
         return LaravelLocalization::localizeURL($url, $lang);
     }
 

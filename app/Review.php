@@ -16,13 +16,6 @@ class Review extends Model
     const STATUS_ACTIVE = 1;
     const STATUS_PENDING = 2;
 
-    /**
-     * List of statuses.
-     *
-     * @var array
-     */
-    public static $statuses = [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_PENDING];
-
     protected $guarded = [];
 
     public function reviewable()
