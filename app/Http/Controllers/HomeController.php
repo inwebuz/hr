@@ -36,8 +36,6 @@ class HomeController extends Controller
 
         $page = Page::where('id', 1)->withTranslation($locale)->firstOrFail();
         $pageAbout = Page::where('id', 3)->withTranslation($locale)->firstOrFail();
-        $pageDiscounted = Page::where('id', 12)->withTranslation($locale)->firstOrFail();
-        $pageInstallments = Page::where('id', 5)->withTranslation($locale)->firstOrFail();
 
         // $currentRegionID = Helper::getCurrentRegionID();
         // $currentRegion = Helper::getCurrentRegion();
@@ -54,16 +52,16 @@ class HomeController extends Controller
         //     ];
         // }
 
-        $promotionProducts = Product::active()
-            ->promotion()
-            ->with(['categories' => function($query) use ($locale) {
-                $query->withTranslation($locale);
-            }])
-            ->with('installmentPlans')
-            ->withTranslation($locale)
-            ->latest()
-            ->take(3)
-            ->get();
+        // $promotionProducts = Product::active()
+        //     ->promotion()
+        //     ->with(['categories' => function($query) use ($locale) {
+        //         $query->withTranslation($locale);
+        //     }])
+        //     ->with('installmentPlans')
+        //     ->withTranslation($locale)
+        //     ->latest()
+        //     ->take(3)
+        //     ->get();
 
         // $latestViewedProducts = collect();
         // $latestViewedProductIDs = Cache::get('latest_viewed_products_ids');
@@ -103,7 +101,7 @@ class HomeController extends Controller
         // articles
         $articles = Publication::articles()->active()->withTranslation($locale)->latest()->take(4)->get();
 
-        return view('home', compact('page', 'pageAbout', 'pageDiscounted', 'pageInstallments', 'slides', 'articles', 'promotionProducts'));
+        return view('home', compact('page', 'pageAbout', 'slides', 'articles'));
     }
 
     public function latestProducts(Category $category)

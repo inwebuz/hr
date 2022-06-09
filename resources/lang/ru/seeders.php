@@ -150,6 +150,7 @@ return [
         'url' => 'Ссылка',
         'used_for_filter' => 'Использовать для фильтра',
         'user' => 'Пользователь',
+        'vacancy_category' => 'Категория вакансии',
         'video' => 'Видео',
         'video_code' => 'Код видео',
         'video_mp4' => 'Видео в формате mp4',
@@ -394,6 +395,10 @@ return [
             'singular' => 'Вакансия',
             'plural' => 'Вакансии',
         ],
+        'vacancy_category' => [
+            'singular' => 'Категория вакансии',
+            'plural' => 'Категории вакансий',
+        ],
         'video' => [
             'singular' => 'Видео',
             'plural' => 'Видео',
@@ -473,6 +478,7 @@ return [
         'user_applications' => 'Заявки',
         'users' => 'Пользователи',
         'vacancies' => 'Вакансии',
+        'vacancy_categories' => 'Категории вакансий',
         'videos' => 'Видео',
         'warehouses' => 'Склады',
     ],

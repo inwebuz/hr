@@ -21,8 +21,10 @@ class PublicationsTableSeeder extends Seeder
         DB::table('publications')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        Publication::factory()->count(10)->create([
-            'user_id' => 3,
+        Publication::factory()->count(3)->create([
+            'name' => 'Исследование предпочтений на рынке соискателей',
+            'slug' => Str::slug('Исследование предпочтений на рынке соискателей'),
+            'description' => 'В ноябре 2019 года мы с командой рекрутеров начали проводить исследование'
         ]);
         // Publication::factory()->count(50)->create();
 

@@ -53,6 +53,7 @@ return [
         'subscribers'       => false,
         'user_applications' => false,
         'vacancies'         => true,
+        'vacancy_categories' => true,
         'videos'            => false,
         'warehouses'        => false,
     ],

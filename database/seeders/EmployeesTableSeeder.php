@@ -20,12 +20,15 @@ class EmployeesTableSeeder extends Seeder
         DB::table('employees')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        for ($i = 1; $i <= 12; $i++) {
+        $firstname = ['Ульмас', 'Анастасия', 'Насиба', 'Эльвина', 'Виталий', 'Людмила', 'Дмитрий', 'Умида', 'Елена', ];
+        $lastname = ['Абдусаттаров', 'Абдуллаева', 'Бахтиярова', 'Бикиняева', 'Богатов', 'Гердман', 'Горбунов', 'Дашкинова', 'Латыпова', ];
+
+        for ($i = 0; $i < 9; $i++) {
             Employee::create([
-                'last_name' => $i,
-                'first_name' => $i,
-                'patronymic' => $i,
-                'image' => 'employees/' . $i . '.jpg',
+                'last_name' => $lastname[$i],
+                'first_name' => $firstname[$i],
+                'patronymic' => '',
+                'image' => 'employees/0' . ($i + 1) . '.jpg',
             ]);
         }
 

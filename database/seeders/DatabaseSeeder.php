@@ -54,6 +54,7 @@ class DatabaseSeeder extends Seeder
             // ArticlesTableSeeder::class,
             // NewsTableSeeder::class,
 
+            VacancyCategoriesTableSeeder::class,
             VacanciesTableSeeder::class,
             // CVsTableSeeder::class,
 

@@ -20,11 +20,29 @@ class ServicesTableSeeder extends Seeder
         DB::table('services')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        for ($i = 1; $i <= 3; $i++) {
+        $services = [
+            'Подбор персонала',
+            'Адаптация персонала',
+            'Массовый подбор',
+            'Технический подбор',
+            'Executive Search',
+            'IT-подбор',
+            'Корпоративная культура',
+            'Оценка сотрудников',
+            'Обучение сотрудников',
+            'Карьерный коучинг',
+            'HR-бренд',
+        ];
+
+        foreach ($services as $key => $name) {
             Service::create([
-                'name' => $i,
-                'slug' => Str::slug($i),
-                'image' => 'services/' . $i . '.jpg',
+                'name' => $name,
+                'slug' => Str::slug($name),
+                'image' => 'services/0' . ($key % 3 + 1) . '.jpg',
+                'icon' => 'services/icon-0' . ($key % 3 + 1) . '.png',
+                'order' => $key * 10,
+                'is_featured' => $key < 3 ? 1 : 0,
+                'status' => 1,
             ]);
         }
 

@@ -30,6 +30,7 @@ use App\Shop;
 use App\User;
 use App\UserApplication;
 use App\Vacancy;
+use App\VacancyCategory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -687,7 +688,7 @@ class DataRowsTableSeeder extends StandardSeeder
         $dataType = DataType::where('slug', 'partners')->firstOrFail();
 
         $this->saveMainRows($dataType);
-        $this->saveStandardRows($dataType, [], ['image', 'slug', 'body']);
+        $this->saveStandardRows($dataType, [], ['image']);
 
         $imageThumbs = [];
         foreach (Partner::$imgSizes as $key => $value) {
@@ -708,12 +709,6 @@ class DataRowsTableSeeder extends StandardSeeder
             ],
             'order' => [
                 'method' => 'orderRow',
-            ],
-            'slug' => [
-                'method' => 'hiddenRow',
-            ],
-            'body' => [
-                'method' => 'hiddenRow',
             ],
             'background' => [
                 'method' => 'hiddenRow',
@@ -2381,6 +2376,36 @@ class DataRowsTableSeeder extends StandardSeeder
         $this->saveRows($dataType, $rows);
     }
 
+
+
+    protected function vacancyCategoriesRows()
+    {
+        $dataType = DataType::where('slug', 'vacancy_categories')->firstOrFail();
+
+        $this->saveMainRows($dataType);
+        $this->saveStandardRows($dataType, [], ['image', 'body']);
+
+        // specific rows
+        $rows = [
+            'image' => [
+                'method' => 'hiddenRow',
+            ],
+            'order' => [
+                'method' => 'orderRow',
+            ],
+            'body' => [
+                'method' => 'hiddenRow',
+            ],
+            'background' => [
+                'method' => 'hiddenRow',
+            ],
+            'images' => [
+                'method' => 'hiddenRow',
+            ],
+        ];
+        $this->saveRows($dataType, $rows);
+    }
+
     protected function vacanciesRows()
     {
         $dataType = DataType::where('slug', 'vacancies')->firstOrFail();
@@ -2390,6 +2415,23 @@ class DataRowsTableSeeder extends StandardSeeder
         $this->saveSeoRows($dataType);
 
         $rows = [
+            'vacancy_category_id' => [
+                'method' => 'hiddenRow',
+                'data' => [
+                    'display_name' => __('seeders.data_rows.vacancy_category'),
+                    'edit' => 1,
+                    'add' => 1,
+                    'delete' => 1,
+                ],
+            ],
+            'vacancy_belongsto_vacancy_category_relationship' => [
+                'method' => 'relationshipRow',
+                'data' => [
+                    'display_name' => __('seeders.data_rows.vacancy_category'),
+                    'details' => $this->relationship(VacancyCategory::class, 'vacancy_categories', 'belongsTo', 'vacancy_category_id', 'id', 'name'),
+                    'browse' => 1
+                ],
+            ],
             'location' => [
                 'method' => 'hiddenRow',
                 'data' => [
@@ -2614,6 +2656,12 @@ class DataRowsTableSeeder extends StandardSeeder
             'name' => [
                 'method' => 'nameRow',
                 'browse' => 1,
+            ],
+            'position' => [
+                'method' => 'textRow',
+                'data' => [
+                    'display_name' => 'Должность',
+                ],
             ],
             'body' => [
                 // 'method' => 'bodyRow',

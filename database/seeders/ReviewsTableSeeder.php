@@ -29,8 +29,9 @@ class ReviewsTableSeeder extends Seeder
         Review::create([
             'reviewable_type' => Page::class,
             'reviewable_id' => 1,
-            'name' => $faker->name(),
-            'body' => $faker->paragraph(),
+            'name' => 'Максим',
+            'position' => 'директор студии',
+            'body' => 'Руководство компании INWEB выражает благодарность компании HR Baraka Group за квалифицированный подбор персонала. Мы искали системного администратора, но получилось так, что у нас некому оценить квалификацию и мы решили обратиться в агентство. Довольны всем, от согласования договора, до выхода кандидата.',
             'status' => 1,
             'rating' => 5,
         ]);

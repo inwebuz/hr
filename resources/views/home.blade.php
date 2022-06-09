@@ -15,37 +15,45 @@
 
 <!-- Start Banner
     ============================================= -->
-<div class="banner-area inc-video video-bg-live bg-cover" style="background-image: url(assets/img/2440x1578.png);">
-    <div class="player" data-property="{videoURL:'gOqlwlQjVis',containment:'.video-bg-live', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:3, opacity:1, quality:'default'}"></div>
+    <div class="banner-area text-center text-big top-pad-50">
+        <div id="bootcarousel" class="carousel text-light slide animate_text" data-ride="carousel">
 
-    <div id="bootcarousel" class="carousel text-light slide animate_text" data-ride="carousel">
-
-        <!-- Indicators for slides -->
-        <div class="carousel-indicator">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ol class="carousel-indicators right">
-                            <li data-target="#bootcarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#bootcarousel" data-slide-to="1"></li>
-                        </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner carousel-zoom">
+                <div class="carousel-item active">
+                    <div class="slider-thumb bg-fixed" style="background-image: url(assets/img/2440x1578.png);"></div>
+                    <div class="box-table">
+                        <div class="box-cell shadow dark-hard">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-10 offset-lg-1">
+                                        <div class="content">
+                                            <h2 data-animation="animated zoomInLeft">Business <span>Planning</span></h2>
+                                            <p class="animated slideInRight">
+                                                Coming merits and was talent enough far. Sir joy northward sportsmen education. Discovery incommode earnestly no he commanded.
+                                            </p>
+                                            <a data-animation="animated zoomInUp" class="btn btn-gradient effect btn-md" href="#">Discover More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="box-table shadow dark">
-                    <div class="box-cell">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-8 offset-lg-4">
-                                    <div class="content">
-                                        <h4 data-animation="animated zoomInRight">Include more sales</h4>
-                                        <h2 data-animation="animated slideInRight">We Provide Business Planing <span>Solution</span></h2>
-                                        <a data-animation="animated zoomInUp" class="btn btn-theme effect btn-md" href="#">Discover More</a>
+                <div class="carousel-item">
+                    <div class="slider-thumb bg-fixed" style="background-image: url(assets/img/2440x1578.png);"></div>
+                    <div class="box-table">
+                        <div class="box-cell shadow dark-hard">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-10 offset-lg-1">
+                                        <div class="content">
+                                            <h2 data-animation="animated slideInDown">Achiving <span>Success</span></h2>
+                                            <p class="animated slideInRight">
+                                                Coming merits and was talent enough far. Sir joy northward sportsmen education. Discovery incommode earnestly no he commanded.
+                                            </p>
+                                            <a data-animation="animated zoomInUp" class="btn btn-gradient effect btn-md" href="#">Discover More</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -53,29 +61,19 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
-                <div class="box-table shadow dark">
-                    <div class="box-cell">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-8 offset-lg-4">
-                                    <div class="content">
-                                        <h4 data-animation="animated zoomInRight">More convenient</h4>
-                                        <h2 data-animation="animated slideInUp">Find Value And Build Some <span>Confidence</span></h2>
-                                        <a data-animation="animated zoomInUp" class="btn btn-theme effect btn-md" href="#">Discover More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Wrapper for slides -->
+            <!-- End Wrapper for slides -->
 
+            <!-- Left and right controls -->
+            <a class="left carousel-control light" href="#bootcarousel" data-slide="prev">
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control light" href="#bootcarousel" data-slide="next">
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
     </div>
-</div>
-<!-- End Banner -->
+    <!-- End Banner -->
 
 <!-- Star Services Area
 ============================================= -->

@@ -16,78 +16,27 @@ class BannersTableSeeder extends Seeder
     {
         // slide
         Banner::create([
-            'name' => 'Лучшие цены',
+            'name' => 'HR Baraka Group',
             'description_top' => '',
-            'description' => 'Оплата при получении',
+            'description' => 'The Art of Achieving the Impossible',
             'description_bottom' => '',
             'button_text' => 'Подробнее',
             'type' => 'slide',
-            'image' => 'banners/slide-01.png',
+            'image' => 'banners/slide-01.jpg',
             'url' => '#',
             'status' => '1',
         ]);
         Banner::create([
-            'name' => 'Лучшие цены',
+            'name' => 'HR Baraka Group 2',
             'description_top' => '',
-            'description' => 'Оплата при получении',
+            'description' => 'The Art of Achieving the Impossible 2',
             'description_bottom' => '',
             'button_text' => 'Подробнее',
             'type' => 'slide',
-            'image' => 'banners/slide-02.png',
+            'image' => 'banners/slide-02.jpg',
             'url' => '#',
             'status' => '1',
         ]);
-
-        Banner::create([
-            'name' => 'Инструменты',
-            'description_top' => '',
-            'description' => '',
-            'description_bottom' => '',
-            'button_text' => '',
-            'type' => 'category_top',
-            'image' => 'banners/category-01.png',
-            'url' => '#',
-            'status' => '1',
-            'category_id' => 205,
-        ]);
-        Banner::create([
-            'name' => 'Инструменты',
-            'description_top' => '',
-            'description' => '100+ товаров',
-            'description_bottom' => '',
-            'button_text' => '',
-            'type' => 'category_bottom',
-            'image' => 'banners/category-02.png',
-            'url' => '#',
-            'status' => '1',
-            'category_id' => 205,
-        ]);
-
-        Banner::create([
-            'name' => 'Инструменты',
-            'description_top' => '',
-            'description' => '',
-            'description_bottom' => '',
-            'button_text' => '',
-            'type' => 'category_top',
-            'image' => 'banners/category-03.png',
-            'url' => '#',
-            'status' => '1',
-            'category_id' => 206,
-        ]);
-        Banner::create([
-            'name' => 'Инструменты',
-            'description_top' => '',
-            'description' => '100+ товаров',
-            'description_bottom' => '',
-            'button_text' => '',
-            'type' => 'category_bottom',
-            'image' => 'banners/category-04.png',
-            'url' => '#',
-            'status' => '1',
-            'category_id' => 206,
-        ]);
-
 
         // home
         // Banner::create([
@@ -110,42 +59,42 @@ class BannersTableSeeder extends Seeder
         // ]);
 
         // middle
-        Banner::create([
-            'name' => 'middle 01',
-            // 'text_color' => '#fff',
-            'description_top' => '',
-            'description' => '',
-            'description_bottom' => '',
-            'button_text' => '',
-            'type' => 'middle_1',
-            'image' => 'banners/middle-01.jpg',
-            'url' => '#',
-            'status' => '1',
-        ]);
-        Banner::create([
-            'name' => 'middle 02',
-            // 'text_color' => '#fff',
-            'description_top' => '',
-            'description' => '',
-            'description_bottom' => '',
-            'button_text' => '',
-            'type' => 'middle_2',
-            'image' => 'banners/middle-02.jpg',
-            'url' => '#',
-            'status' => '1',
-        ]);
-        Banner::create([
-            'name' => 'middle 03',
-            // 'text_color' => '#fff',
-            'description_top' => '',
-            'description' => '',
-            'description_bottom' => '',
-            'button_text' => '',
-            'type' => 'middle_3',
-            'image' => 'banners/middle-03.jpg',
-            'url' => '#',
-            'status' => '1',
-        ]);
+        // Banner::create([
+        //     'name' => 'middle 01',
+        //     // 'text_color' => '#fff',
+        //     'description_top' => '',
+        //     'description' => '',
+        //     'description_bottom' => '',
+        //     'button_text' => '',
+        //     'type' => 'middle_1',
+        //     'image' => 'banners/middle-01.jpg',
+        //     'url' => '#',
+        //     'status' => '1',
+        // ]);
+        // Banner::create([
+        //     'name' => 'middle 02',
+        //     // 'text_color' => '#fff',
+        //     'description_top' => '',
+        //     'description' => '',
+        //     'description_bottom' => '',
+        //     'button_text' => '',
+        //     'type' => 'middle_2',
+        //     'image' => 'banners/middle-02.jpg',
+        //     'url' => '#',
+        //     'status' => '1',
+        // ]);
+        // Banner::create([
+        //     'name' => 'middle 03',
+        //     // 'text_color' => '#fff',
+        //     'description_top' => '',
+        //     'description' => '',
+        //     'description_bottom' => '',
+        //     'button_text' => '',
+        //     'type' => 'middle_3',
+        //     'image' => 'banners/middle-03.jpg',
+        //     'url' => '#',
+        //     'status' => '1',
+        // ]);
 
         // sidebar
         // Banner::create([
@@ -173,30 +122,30 @@ class BannersTableSeeder extends Seeder
         //     'status' => '1',
         // ]);
 
-        Banner::create([
-            'name' => 'Middle Slide 01',
-            // 'text_color' => '#fff',
-            'description_top' => '',
-            'description' => '',
-            'description_bottom' => '',
-            'button_text' => '',
-            'type' => 'middle_slide',
-            'image' => 'banners/middle-slide-01.jpg',
-            'url' => '#',
-            'status' => '1',
-        ]);
+        // Banner::create([
+        //     'name' => 'Middle Slide 01',
+        //     // 'text_color' => '#fff',
+        //     'description_top' => '',
+        //     'description' => '',
+        //     'description_bottom' => '',
+        //     'button_text' => '',
+        //     'type' => 'middle_slide',
+        //     'image' => 'banners/middle-slide-01.jpg',
+        //     'url' => '#',
+        //     'status' => '1',
+        // ]);
 
-        Banner::create([
-            'name' => 'Middle Slide 02',
-            // 'text_color' => '#fff',
-            'description_top' => '',
-            'description' => '',
-            'description_bottom' => '',
-            'button_text' => '',
-            'type' => 'middle_slide',
-            'image' => 'banners/middle-slide-02.jpg',
-            'url' => '#',
-            'status' => '1',
-        ]);
+        // Banner::create([
+        //     'name' => 'Middle Slide 02',
+        //     // 'text_color' => '#fff',
+        //     'description_top' => '',
+        //     'description' => '',
+        //     'description_bottom' => '',
+        //     'button_text' => '',
+        //     'type' => 'middle_slide',
+        //     'image' => 'banners/middle-slide-02.jpg',
+        //     'url' => '#',
+        //     'status' => '1',
+        // ]);
     }
 }

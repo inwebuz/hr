@@ -1,108 +1,79 @@
 @php
 $siteTitle = setting('site.title');
 $phone = setting('contact.phone');
+$phone2 = setting('contact.phone2');
 $email = setting('contact.email');
 $map = setting('contact.map');
 $telegram = setting('contact.telegram');
 @endphp
 
-<footer class="bg-dark text-light">
+<footer class="bg-blue text-white">
     <div class="container">
         <div class="f-items default-padding">
             <div class="row">
                 <div class="col-lg-4 col-md-6 item">
                     <div class="f-item about">
-                        <img src="assets/img/logo-light.png" alt="Logo">
+                        <a href="{{ Route('home') }}" class="d-block">
+                            <img src="{{ $logoLight }}" alt="{{ $siteTitle }}">
+                        </a>
                         <p>
-                            Excellence decisively nay man yet impression for contrasted remarkably. There spoke happy for you are out. Fertile how old address did showing.
+                            {{ $footerText }}
                         </p>
-                        <form action="#">
-                            <input type="email" placeholder="Your Email" class="form-control" name="email">
-                            <button type="submit"> <i class="arrow_right"></i></button>
-                        </form>
+
+                        <div class="mt-5">
+                            <ul class="list-unstyled list-inline footer-social">
+                                @include('partials.social_list')
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 item">
-                    <div class="f-item link">
-                        <h4 class="widget-title">Quick LInk</h4>
-                        <ul>
-                            <li>
-                                <a href="#"><i class="fas fa-angle-right"></i> Home</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fas fa-angle-right"></i> About us</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fas fa-angle-right"></i> Compnay History</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fas fa-angle-right"></i> Features</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fas fa-angle-right"></i> Blog Page</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fas fa-angle-right"></i> Login</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <div class="col-lg-1 d-none d-lg-block"></div>
                 <div class="col-lg-3 col-md-6 item">
                     <div class="f-item link">
-                        <h4 class="widget-title">Community</h4>
+                        <h4 class="widget-title">{{ __('main.information') }}</h4>
                         <ul>
+                            @foreach ($footerMenuItems as $item)
                             <li>
-                                <a href="#"><i class="fas fa-angle-right"></i> Career</a>
+                                <a href="{{ $item->url }}">{{ $item->name }}</a>
                             </li>
-                            <li>
-                                <a href="#"><i class="fas fa-angle-right"></i> Leadership</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fas fa-angle-right"></i> Strategy</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fas fa-angle-right"></i> Services</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fas fa-angle-right"></i> History</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fas fa-angle-right"></i> Components</a>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
+                <div class="col-lg-1 d-none d-lg-block"></div>
                 <div class="col-lg-3 col-md-6 item">
                     <div class="f-item contact-widget">
-                        <h4 class="widget-title">Contact Info</h4>
+                        <h4 class="widget-title">{{ __('main.nav.contacts') }}</h4>
                         <div class="address">
                             <ul>
                                 <li>
-                                    <div class="icon">
-                                        <i class="fas fa-home"></i>
-                                    </div>
                                     <div class="content">
-                                        <strong>Address:</strong>
-                                        5919 Trussville Crossings Pkwy, Birmingham
+                                        {{ $address }}
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="icon">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
+
+                                @if ($email)
+                                <li class="mb-0">
                                     <div class="content">
-                                        <strong>Email:</strong>
-                                        <a href="mailto:info@validtheme.com">info@validtheme.com</a>
+                                        <a href="mailto:{{ $email }}" class="text-green2">{{ $email }}</a>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="icon">
-                                        <i class="fas fa-phone"></i>
-                                    </div>
+                                @endif
+
+                                <li class="mb-0">
+                                    @if ($phone)
                                     <div class="content">
-                                        <strong>Phone:</strong>
-                                        <a href="tel:2151234567">+123 34598768</a>
+                                        <a href="tel:{{ Helper::phone($phone) }}">{{ $phone }}</a>
                                     </div>
+                                    @endif
+                                </li>
+                                <li>
+                                    @if ($phone2)
+                                    <div class="content">
+                                        <a href="tel:{{ Helper::phone($phone2) }}">{{ $phone2 }}</a>
+                                    </div>
+                                    @endif
                                 </li>
                             </ul>
                         </div>
@@ -117,18 +88,12 @@ $telegram = setting('contact.telegram');
             <div class="footer-bottom-box">
                 <div class="row">
                     <div class="col-lg-6">
-                        <p>&copy; Copyright 2021. All Rights Reserved by <a href="#">validthemes</a></p>
+                        <p class="text-white">&copy; {{ date('Y') }} <strong>{{ $siteTitle }}</strong>. {{ __('main.all_rights_reserved') }}</p>
                     </div>
                     <div class="col-lg-6 text-right link">
                         <ul>
                             <li>
-                                <a href="#">Terms</a>
-                            </li>
-                            <li>
-                                <a href="#">Privacy</a>
-                            </li>
-                            <li>
-                                <a href="#">Support</a>
+                                <a href="https://inweb.uz" target="_blank" class="developer text-white font-weight-light">{{ __('main.developer') }} - <img src="/images/devlogo-light.png" alt="Inweb.uz" style="width: 14px;vertical-align: -2px;margin: 0;"></a>
                             </li>
                         </ul>
                     </div>
@@ -217,7 +182,7 @@ $telegram = setting('contact.telegram');
                     </ul>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a class="footer-logo text-light" href="https://inweb.uz" target="_blank">
+                    <a class="footer-logo text-white" href="https://inweb.uz" target="_blank">
                         <p>{{ __('main.developer') }} —</p>
                         <img src="{{ asset('images/devlogo-light.png') }}" alt="Inweb.uz">
                     </a>

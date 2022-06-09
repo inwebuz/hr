@@ -26,10 +26,43 @@ class StaticTextsTableSeeder extends Seeder
         // }
 
         // no_products_text
+        // StaticText::factory()->create([
+        //     'name' => 'Текст нет товаров',
+        //     'description' => 'Нет товаров',
+        //     'key' => 'no_products_text',
+        // ]);
+
         StaticText::factory()->create([
-            'name' => 'Текст нет товаров',
-            'description' => 'Нет товаров',
-            'key' => 'no_products_text',
+            'name' => 'Обращение СЕО',
+            'description' => '<p>Мы с радостью беремся за проект любой сложности.
+            Ведь наш девиз – искусство достигать невозможное!</p><p>Мы стремимся создать среду, в которой каждый сотрудник будет уверен в завтрашнем дне и имеет все возможности для раскрытия своего потенциала и карьерного роста!</p>',
+            'key' => 'home_seo',
+            'image' => 'static_texts/home-seo.jpg',
+        ]);
+
+        StaticText::factory()->create([
+            'name' => 'Пашазаде Андрей Андреевич',
+            'description' => 'Основатель компании',
+            'key' => 'founder',
+            'image' => 'static_texts/sign.png',
+        ]);
+
+        StaticText::factory()->create([
+            'name' => 'Отзывы наших клиентов',
+            'description' => 'HR Baraka Group предлагает клиентам решения по аутсорсингу HR-функций и бизнес-процессов, рекрутменту и консалтингу',
+            'key' => 'reviews',
+        ]);
+
+        StaticText::factory()->create([
+            'name' => 'Новости и статьи',
+            'description' => 'HR Baraka Group предлагает клиентам решения по аутсорсингу HR-функций и бизнес-процессов, рекрутменту и консалтингу',
+            'key' => 'news',
+        ]);
+
+        StaticText::factory()->create([
+            'name' => 'Футер',
+            'description' => 'Любая информация на сайте защищена авторским правом. Копирование информации с сайта в любых целях запрещено.',
+            'key' => 'footer_text',
         ]);
 
         // 404
@@ -37,34 +70,35 @@ class StaticTextsTableSeeder extends Seeder
             'name' => '404',
             'description' => 'Страница не найдена',
             'key' => '404_page',
-            'image' => 'static_texts/404-img.png'
+            'image' => 'static_texts/404-img.png',
         ]);
 
         // principles
-        // StaticText::factory()->create([
-        //     'name' => 'Бесплатная доставка',
-        //     'description' => 'По Ташкенту',
-        //     'key' => 'principle_1',
-        //     'image' => 'static_texts/principle-01.png'
-        // ]);
-        // StaticText::factory()->create([
-        //     'name' => 'Онлайн оплата',
-        //     'description' => 'Принимаем Payme, Click',
-        //     'key' => 'principle_2',
-        //     'image' => 'static_texts/principle-02.png'
-        // ]);
-        // StaticText::factory()->create([
-        //     'name' => 'Возник вопрос?',
-        //     'description' => '+99890 850-55-50',
-        //     'key' => 'principle_3',
-        //     'image' => 'static_texts/principle-03.png'
-        // ]);
-        // StaticText::factory()->create([
-        //     'name' => 'Рассрочка 0%',
-        //     'description' => 'Без предоплаты ',
-        //     'key' => 'principle_4',
-        //     'image' => 'static_texts/principle-04.png'
-        // ]);
+        StaticText::factory()->create([
+            'name' => 'Принцип 1',
+            'description' => 'Забота - бережное отношение и внимание к каждому — основа успеха нашей команды',
+            'key' => 'principle_1',
+        ]);
+        StaticText::factory()->create([
+            'name' => 'Принцип 2',
+            'description' => 'Доверие - позволяет нам открыться друг другу, а значит, действовать сплоченно и решать любые задач',
+            'key' => 'principle_2',
+        ]);
+        StaticText::factory()->create([
+            'name' => 'Принцип 3',
+            'description' => 'Опережение технологии, инновации, стремление к новому и активность позволяют нам всегда быть на шаг впереди рынка',
+            'key' => 'principle_3',
+        ]);
+        StaticText::factory()->create([
+            'name' => 'Принцип 4',
+            'description' => 'Достижение мы нацелены на достижение максимального результата',
+            'key' => 'principle_4',
+        ]);
+        StaticText::factory()->create([
+            'name' => 'Принцип  5',
+            'description' => 'Верность в любой ситуации мы остаемся верны себе, поэтому мы верны компании',
+            'key' => 'principle_5',
+        ]);
 
         // steps
         // StaticText::factory()->create([
@@ -95,7 +129,7 @@ class StaticTextsTableSeeder extends Seeder
         StaticText::factory()->create([
             'name' => 'Адрес',
             'key' => 'contact_address',
-            'description' => 'Узбекистан, г. Ташкент, Алмазарский район, Уста-ширин 125 ф',
+            'description' => '100097, г.Ташкент просп. Бунедкор, 50 ',
         ]);
 
         StaticText::factory()->create([
@@ -104,35 +138,35 @@ class StaticTextsTableSeeder extends Seeder
             'description' => 'Пн-Вс: 9:00 - 18:00',
         ]);
 
-        StaticText::factory()->create([
-            'name' => 'Доставка (страница товара)',
-            'key' => 'delivery_text',
-            'description' => 'Описание ...',
-        ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Доставка (страница товара)',
+        //     'key' => 'delivery_text',
+        //     'description' => 'Описание ...',
+        // ]);
 
-        StaticText::factory()->create([
-            'name' => 'Бесплатная доставка (страница товара)',
-            'key' => 'free_delivery_text',
-            'description' => 'Бесплатная <a href="/page/7-dostavka">доставка</a> по Ташкенту',
-        ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Бесплатная доставка (страница товара)',
+        //     'key' => 'free_delivery_text',
+        //     'description' => 'Бесплатная <a href="/page/7-dostavka">доставка</a> по Ташкенту',
+        // ]);
 
-        StaticText::factory()->create([
-            'name' => 'Способы получения (страница товара)',
-            'key' => 'receive_methods_text',
-            'description' => 'Способы получения: самовывоз, <a href="/page/7-dostavka">доставка</a>',
-        ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Способы получения (страница товара)',
+        //     'key' => 'receive_methods_text',
+        //     'description' => 'Способы получения: самовывоз, <a href="/page/7-dostavka">доставка</a>',
+        // ]);
 
-        StaticText::factory()->create([
-            'name' => 'Оплата (страница товара)',
-            'key' => 'payment_text',
-            'description' => 'Описание ...',
-        ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Оплата (страница товара)',
+        //     'key' => 'payment_text',
+        //     'description' => 'Описание ...',
+        // ]);
 
-        StaticText::factory()->create([
-            'name' => 'Гарантия (страница товара)',
-            'key' => 'guarantee_text',
-            'description' => 'Описание ...',
-        ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Гарантия (страница товара)',
+        //     'key' => 'guarantee_text',
+        //     'description' => 'Описание ...',
+        // ]);
 
         /*
         StaticText::factory()->create([
@@ -204,133 +238,133 @@ class StaticTextsTableSeeder extends Seeder
 
         */
 
-        // SEO meta text Product
-        StaticText::factory()->create([
-            'name' => 'Meta title товара. Шаблоны: {name}, {price}, {brand_name}, {year}',
-            'key' => 'seo_template_product_seo_title',
-            'description' => 'Product meta title {name}, {price}, {brand_name}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Meta description товара. Шаблоны: {name}, {price}, {brand_name}, {year}',
-            'key' => 'seo_template_product_meta_description',
-            'description' => 'Product meta description {name}, {price}, {brand_name}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Meta keywords товара. Шаблоны: {name}, {price}, {brand_name}, {year}',
-            'key' => 'seo_template_product_meta_keywords',
-            'description' => 'Product meta keywords {name}, {price}, {brand_name}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'H1 товара. Шаблоны: {name}, {price}, {brand_name}, {year}',
-            'key' => 'seo_template_product_h1_name',
-            'description' => 'Product page h1 text {name}, {price}, {brand_name}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Короткое описание товара. Шаблоны: {name}, {price}, {brand_name}, {year}',
-            'key' => 'seo_template_product_description',
-            'description' => 'Product page description text {name}, {price}, {brand_name}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Полное описание товара. Шаблоны: {name}, {price}, {brand_name}, {year}',
-            'key' => 'seo_template_product_body',
-            'description' => 'Product page body text {name}, {price}, {brand_name}, {year}',
-        ]);
+        // // SEO meta text Product
+        // StaticText::factory()->create([
+        //     'name' => 'Meta title товара. Шаблоны: {name}, {price}, {brand_name}, {year}',
+        //     'key' => 'seo_template_product_seo_title',
+        //     'description' => 'Product meta title {name}, {price}, {brand_name}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Meta description товара. Шаблоны: {name}, {price}, {brand_name}, {year}',
+        //     'key' => 'seo_template_product_meta_description',
+        //     'description' => 'Product meta description {name}, {price}, {brand_name}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Meta keywords товара. Шаблоны: {name}, {price}, {brand_name}, {year}',
+        //     'key' => 'seo_template_product_meta_keywords',
+        //     'description' => 'Product meta keywords {name}, {price}, {brand_name}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'H1 товара. Шаблоны: {name}, {price}, {brand_name}, {year}',
+        //     'key' => 'seo_template_product_h1_name',
+        //     'description' => 'Product page h1 text {name}, {price}, {brand_name}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Короткое описание товара. Шаблоны: {name}, {price}, {brand_name}, {year}',
+        //     'key' => 'seo_template_product_description',
+        //     'description' => 'Product page description text {name}, {price}, {brand_name}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Полное описание товара. Шаблоны: {name}, {price}, {brand_name}, {year}',
+        //     'key' => 'seo_template_product_body',
+        //     'description' => 'Product page body text {name}, {price}, {brand_name}, {year}',
+        // ]);
 
-        // SEO meta text Brand
-        StaticText::factory()->create([
-            'name' => 'Meta title бренда. Шаблоны: {name}, {products_quantity}, {year}',
-            'key' => 'seo_template_brand_seo_title',
-            'description' => 'Brand meta title {name}, {products_quantity}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Meta description бренда. Шаблоны: {name}, {products_quantity}, {year}',
-            'key' => 'seo_template_brand_meta_description',
-            'description' => 'Brand meta description {name}, {products_quantity}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Meta keywords бренда. Шаблоны: {name}, {products_quantity}, {year}',
-            'key' => 'seo_template_brand_meta_keywords',
-            'description' => 'Brand meta keywords {name}, {products_quantity}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'H1 бренда. Шаблоны: {name}, {products_quantity}, {year}',
-            'key' => 'seo_template_brand_h1_name',
-            'description' => 'Brand page h1 text {name}, {products_quantity}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Короткое описание бренда. Шаблоны: {name}, {products_quantity}, {year}',
-            'key' => 'seo_template_brand_description',
-            'description' => 'Brand page description text {name}, {products_quantity}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Полное описание бренда. Шаблоны: {name}, {products_quantity}, {year}',
-            'key' => 'seo_template_brand_body',
-            'description' => 'Brand page body text {name}, {products_quantity}, {year}',
-        ]);
+        // // SEO meta text Brand
+        // StaticText::factory()->create([
+        //     'name' => 'Meta title бренда. Шаблоны: {name}, {products_quantity}, {year}',
+        //     'key' => 'seo_template_brand_seo_title',
+        //     'description' => 'Brand meta title {name}, {products_quantity}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Meta description бренда. Шаблоны: {name}, {products_quantity}, {year}',
+        //     'key' => 'seo_template_brand_meta_description',
+        //     'description' => 'Brand meta description {name}, {products_quantity}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Meta keywords бренда. Шаблоны: {name}, {products_quantity}, {year}',
+        //     'key' => 'seo_template_brand_meta_keywords',
+        //     'description' => 'Brand meta keywords {name}, {products_quantity}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'H1 бренда. Шаблоны: {name}, {products_quantity}, {year}',
+        //     'key' => 'seo_template_brand_h1_name',
+        //     'description' => 'Brand page h1 text {name}, {products_quantity}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Короткое описание бренда. Шаблоны: {name}, {products_quantity}, {year}',
+        //     'key' => 'seo_template_brand_description',
+        //     'description' => 'Brand page description text {name}, {products_quantity}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Полное описание бренда. Шаблоны: {name}, {products_quantity}, {year}',
+        //     'key' => 'seo_template_brand_body',
+        //     'description' => 'Brand page body text {name}, {products_quantity}, {year}',
+        // ]);
 
-        // SEO meta text Category
-        StaticText::factory()->create([
-            'name' => 'Meta title категории. Шаблоны: {name}, {products_quantity}, {min_price}, {max_price}, {year}',
-            'key' => 'seo_template_category_seo_title',
-            'description' => 'Category meta title {name}, {products_quantity}, {min_price}, {max_price}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Meta description категории. Шаблоны: {name}, {products_quantity}, {min_price}, {max_price}, {year}',
-            'key' => 'seo_template_category_meta_description',
-            'description' => 'Category meta description {name}, {products_quantity}, {min_price}, {max_price}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Meta keywords категории. Шаблоны: {name}, {products_quantity}, {min_price}, {max_price}, {year}',
-            'key' => 'seo_template_category_meta_keywords',
-            'description' => 'Category meta keywords {name}, {products_quantity}, {min_price}, {max_price}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'H1 категории. Шаблоны: {name}, {products_quantity}, {min_price}, {max_price}, {year}',
-            'key' => 'seo_template_category_h1_name',
-            'description' => 'Category page h1 text {name}, {products_quantity}, {min_price}, {max_price}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Короткое описание категории. Шаблоны: {name}, {products_quantity}, {min_price}, {max_price}, {year}',
-            'key' => 'seo_template_category_description',
-            'description' => 'Category page description text {name}, {products_quantity}, {min_price}, {max_price}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Полное описание категории. Шаблоны: {name}, {products_quantity}, {min_price}, {max_price}, {year}',
-            'key' => 'seo_template_category_body',
-            'description' => 'Category page body text {name}, {products_quantity}, {min_price}, {max_price}, {year}',
-        ]);
+        // // SEO meta text Category
+        // StaticText::factory()->create([
+        //     'name' => 'Meta title категории. Шаблоны: {name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        //     'key' => 'seo_template_category_seo_title',
+        //     'description' => 'Category meta title {name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Meta description категории. Шаблоны: {name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        //     'key' => 'seo_template_category_meta_description',
+        //     'description' => 'Category meta description {name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Meta keywords категории. Шаблоны: {name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        //     'key' => 'seo_template_category_meta_keywords',
+        //     'description' => 'Category meta keywords {name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'H1 категории. Шаблоны: {name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        //     'key' => 'seo_template_category_h1_name',
+        //     'description' => 'Category page h1 text {name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Короткое описание категории. Шаблоны: {name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        //     'key' => 'seo_template_category_description',
+        //     'description' => 'Category page description text {name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Полное описание категории. Шаблоны: {name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        //     'key' => 'seo_template_category_body',
+        //     'description' => 'Category page body text {name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        // ]);
 
-        // SEO meta text Brand Category
-        StaticText::factory()->create([
-            'name' => 'Meta title категории бренда. Шаблоны: {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
-            'key' => 'seo_template_brand_category_seo_title',
-            'description' => 'Brand category meta title {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Meta description категории бренда. Шаблоны: {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
-            'key' => 'seo_template_brand_category_meta_description',
-            'description' => 'Brand category meta description {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Meta keywords категории бренда. Шаблоны: {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
-            'key' => 'seo_template_brand_category_meta_keywords',
-            'description' => 'Brand category meta keywords {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'H1 категории бренда. Шаблоны: {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
-            'key' => 'seo_template_brand_category_h1_name',
-            'description' => 'Brand category page h1 text {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Короткое описание категории бренда. Шаблоны: {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
-            'key' => 'seo_template_brand_category_description',
-            'description' => 'Brand category page description text {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
-        ]);
-        StaticText::factory()->create([
-            'name' => 'Полное описание категории бренда. Шаблоны: {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
-            'key' => 'seo_template_brand_category_body',
-            'description' => 'Brand category page body text {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
-        ]);
+        // // SEO meta text Brand Category
+        // StaticText::factory()->create([
+        //     'name' => 'Meta title категории бренда. Шаблоны: {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        //     'key' => 'seo_template_brand_category_seo_title',
+        //     'description' => 'Brand category meta title {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Meta description категории бренда. Шаблоны: {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        //     'key' => 'seo_template_brand_category_meta_description',
+        //     'description' => 'Brand category meta description {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Meta keywords категории бренда. Шаблоны: {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        //     'key' => 'seo_template_brand_category_meta_keywords',
+        //     'description' => 'Brand category meta keywords {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'H1 категории бренда. Шаблоны: {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        //     'key' => 'seo_template_brand_category_h1_name',
+        //     'description' => 'Brand category page h1 text {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Короткое описание категории бренда. Шаблоны: {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        //     'key' => 'seo_template_brand_category_description',
+        //     'description' => 'Brand category page description text {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        // ]);
+        // StaticText::factory()->create([
+        //     'name' => 'Полное описание категории бренда. Шаблоны: {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        //     'key' => 'seo_template_brand_category_body',
+        //     'description' => 'Brand category page body text {brand_name}, {category_name}, {products_quantity}, {min_price}, {max_price}, {year}',
+        // ]);
 
         /*
 

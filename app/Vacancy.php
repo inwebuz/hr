@@ -44,6 +44,11 @@ class Vacancy extends Model
         return $this->morphMany(Search::class, 'searchable');
     }
 
+    public function vacancyCategory()
+    {
+        return $this->belongsTo(VacancyCategory::class);
+    }
+
     /**
      * Get url
      */

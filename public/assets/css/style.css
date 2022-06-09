@@ -15,7 +15,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-weight: 400;
-    line-height: 28px;
+    line-height: 1.85;
     overflow-x: hidden;
     background-color: #ffffff;
     color: #666666;
@@ -33,7 +33,6 @@ h3,
 h4,
 h5,
 h6 {
-    color: #232323;
     font-weight: normal;
     line-height: 1.2;
     letter-spacing: 0;
@@ -103,7 +102,6 @@ iframe {
 }
 
 p {
-    color: #666666;
     margin: 0 0 15px;
     text-transform: none;
     font-weight: 400;
@@ -462,7 +460,6 @@ input {
 .btn {
     display: inline-block;
     font-weight: 600;
-    text-transform: capitalize;
     -webkit-transition: all 0.35s ease-in-out;
     -moz-transition: all 0.35s ease-in-out;
     -ms-transition: all 0.35s ease-in-out;
@@ -471,7 +468,6 @@ input {
     overflow: hidden;
     border-radius: 8px;
     font-size: 15px;
-    text-transform: capitalize;
     letter-spacing: 0.5px;
 }
 
@@ -1236,7 +1232,6 @@ button:focus {
 .breadcrumb-area h1 {
     display: block;
     font-weight: 600;
-    text-transform: capitalize;
     font-size: 40px;
     margin-top: -10px;
     margin-bottom: 20px;
@@ -3461,7 +3456,6 @@ body,
     font-weight: 800;
     margin-top: -5px;
     position: relative;
-    text-transform: capitalize;
     z-index: 1;
     font-size: 20px;
     display: inline-block;
@@ -4455,7 +4449,6 @@ body,
 }
 
 .skill-items .progress-box h5 {
-    text-transform: capitalize;
     font-weight: 600;
     margin-bottom: 5px;
     text-align: left;
@@ -5544,7 +5537,6 @@ body,
     font-weight: 600;
     padding: 10px 20px;
     border-radius: 5px;
-    text-transform: capitalize;
     border: 1px solid #ffffff;
     box-shadow: 1px 4px 20px -2px rgb(0 0 0 / 10%);
 }
@@ -5695,7 +5687,6 @@ body,
     margin-bottom: 30px;
     margin-top: -5px;
     position: relative;
-    text-transform: capitalize;
     z-index: 1;
     font-size: 20px;
     display: inline-block;
@@ -5772,7 +5763,6 @@ body,
 
 .blog-area .sidebar .sidebar-item.category li a {
     display: flex;
-    text-transform: capitalize;
     font-weight: 600;
     color: #666666;
     align-items: center;
@@ -5826,7 +5816,6 @@ body,
 .sidebar-item.recent-post .meta-title {
     margin-bottom: 8px;
     font-weight: 600;
-    text-transform: capitalize;
     font-size: 13px;
 }
 
@@ -5849,7 +5838,6 @@ body,
     font-size: 14px;
     color: #999999;
     font-weight: 600;
-    text-transform: capitalize;
 }
 
 .sidebar-item.recent-post .meta-title a {
@@ -5937,7 +5925,6 @@ body,
 .sidebar-item.archives ul li a {
     display: inline-block;
     font-weight: 600;
-    text-transform: capitalize;
     z-index: 1;
     padding-left: 25px;
     font-size: 14px;
@@ -6021,7 +6008,6 @@ body,
     margin-top: 8px;
     margin-right: 5px;
     padding: 5px 25px;
-    text-transform: capitalize;
     font-size: 13px;
     border-radius: 30px;
     color: #666666;
@@ -6256,7 +6242,6 @@ body,
 .blog-area.single .post-pagi-area a {
     display: inline-block;
     font-weight: 600;
-    text-transform: capitalize;
     color: #999999;
     border-radius: 30px;
 }
@@ -6375,7 +6360,6 @@ body,
 .comments-area .comments-title h4 {
     font-weight: 600;
     margin-bottom: 30px;
-    text-transform: capitalize;
 }
 
 .comments-list .commen-item .content h3,
@@ -6383,7 +6367,6 @@ body,
 .comments-list .commen-item .content h5 {
     font-size: 16px;
     font-weight: 600;
-    text-transform: capitalize;
     margin-bottom: 0;
     display: flex;
     align-items: center;
@@ -6519,7 +6502,6 @@ body,
 .comments-form .title h4 {
     font-weight: 600;
     margin-bottom: 30px;
-    text-transform: capitalize;
 }
 
 .blog-area .contact-comments .comments {
@@ -7008,7 +6990,6 @@ form.white-popup-block .link-bottom a:hover {
 
 .error-page-area h2 {
     font-weight: 600;
-    text-transform: capitalize;
     margin-bottom: 25px;
 }
 
@@ -7081,7 +7062,6 @@ footer img {
 }
 
 footer .f-items .f-item.about {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
     padding-right: 40px;
     margin-right: 10px;
 }
@@ -7150,10 +7130,6 @@ footer .f-items .f-item form button i {
     top: 4px;
 }
 
-footer p {
-    color: #a0a2a6 !important;
-}
-
 footer a {
     font-weight: 500;
 }
@@ -7166,14 +7142,13 @@ footer .f-items .f-item.link li:last-child {
     margin-bottom: 0;
 }
 
-footer .f-items .f-item.link li a:hover {
-    color: #ffffff;
-    margin-left: 10px;
-}
-
 footer .f-items .f-item.link li a {
     font-weight: 400;
-    color: #a0a2a6;
+    color: #ffffff;
+}
+
+footer .f-items .f-item.link li a:hover {
+    margin-left: 10px;
 }
 
 footer .f-items .f-item.link li a i {
@@ -7188,7 +7163,7 @@ footer .f-items .f-item .address li {
 
 footer .f-items .f-item .address li .content,
 footer .f-items .f-item .address li .content a {
-    color: #a0a2a6;
+    color: #fff;
 }
 
 footer .f-items .f-item .address li i {
@@ -7253,23 +7228,21 @@ footer .footer-bottom li:first-child::before {
 }
 
 footer .footer-bottom-box {
-    padding: 50px 0;
-    padding-right: 80px;
+    padding: 18px 0;
     position: relative;
     z-index: 1;
 }
 
 footer .footer-bottom-box::after {
     position: absolute;
-    right: 0;
+    right: -100%;
     top: 0;
     content: "";
     height: 100%;
     width: 400%;
-    background: #24282b;
+    background-color: #1B89A0;
     z-index: -1;
     opacity: 0.8;
-    clip-path: polygon(0 0, 99% 0, 100% 100%, 10% 100%);
 }
 
 
@@ -7505,4 +7478,25 @@ footer .footer-bottom-box::after {
     .earna-preloader .animation-preloader .txt-loading {
         font: bold 2em "Poppins", sans-serif;
     }
+}
+.list-inline > li {
+    display: inline-block;
+}
+
+.footer-social > li > a {
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.bg-blue {
+    background-color: #1A3C83 !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+.text-green2 {
+    color: #08899e !important;
 }

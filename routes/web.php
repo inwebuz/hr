@@ -10,10 +10,12 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompareController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PaymentGatewayController;
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\ProductController;
@@ -22,11 +24,13 @@ use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TelegramBotController;
 use App\Http\Controllers\TestingController;
+use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\Voyager\DeliverySettingsController;
 use App\Http\Controllers\Voyager\ExportController;
 use App\Http\Controllers\Voyager\ImportController;
@@ -160,6 +164,23 @@ Route::group(
     // subscriber
     Route::post('subscriber/subscribe', [SubscriberController::class, 'subscribe'])->name('subscriber.subscribe');
     Route::get('subscriber/unsubscribe', [SubscriberController::class, 'unsubscribe'])->name('subscriber.unsubscribe');
+
+    // vacancies
+    Route::get('vacancies', [VacancyController::class, 'index'])->name('vacancies.index');
+    Route::get('vacancy-categories/{vacancyCategory}', [VacancyController::class, 'category'])->name('vacancies.category');
+    Route::get('vacancies/{vacancy}-{slug}', [VacancyController::class, 'show'])->name('vacancies.show');
+
+    // services
+    Route::get('services', [ServiceController::class, 'index'])->name('services.index');
+    Route::get('services/{vacancy}-{slug}', [ServiceController::class, 'show'])->name('services.show');
+
+    // employees
+    Route::get('employees', [EmployeeController::class, 'index'])->name('employees.index');
+    Route::get('employees/{vacancy}-{slug}', [EmployeeController::class, 'show'])->name('employees.show');
+
+    // partners
+    Route::get('partners', [PartnerController::class, 'index'])->name('partners.index');
+    Route::get('partners/{vacancy}-{slug}', [PartnerController::class, 'show'])->name('partners.show');
 
     // brand view
     Route::get('brands', [BrandController::class, 'index'])->name('brands.index');

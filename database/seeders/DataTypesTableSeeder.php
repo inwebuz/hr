@@ -275,6 +275,14 @@ class DataTypesTableSeeder extends Seeder
                 'model_name'            => Video::class,
             ],
             [
+                'slug'                  => 'vacancy_categories',
+                'name'                  => 'vacancy_categories',
+                'display_name_singular' => __('seeders.data_types.vacancy_category.singular'),
+                'display_name_plural'   => __('seeders.data_types.vacancy_category.plural'),
+                'icon'                  => 'voyager-categories',
+                'model_name'            => Gender::class,
+            ],
+            [
                 'slug'                  => 'vacancies',
                 'name'                  => 'vacancies',
                 'display_name_singular' => __('seeders.data_types.vacancy.singular'),

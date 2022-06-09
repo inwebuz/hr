@@ -20,11 +20,11 @@ class PartnersTableSeeder extends Seeder
         DB::table('partners')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        for ($i = 1; $i <= 12; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             Partner::create([
                 'name' => $i,
                 'slug' => Str::slug($i),
-                'image' => 'partners/' . $i . '.jpg',
+                'image' => 'partners/' . ($i < 10 ? '0' : '') . $i . '.jpg',
             ]);
         }
 

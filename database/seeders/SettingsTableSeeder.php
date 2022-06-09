@@ -17,7 +17,7 @@ class SettingsTableSeeder extends Seeder
             $setting->fill([
                 'display_name' => __('seeders.settings.site.title'),
                 //'value'        => __('seeders.settings.site.title'),
-                'value'        => 'HR',
+                'value'        => 'HR Baraka Group',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
@@ -257,7 +257,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('seeders.settings.contact.email'),
-                'value'        => 'info@hr.uz',
+                'value'        => 'info@hrbarakagroup.uz',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
@@ -269,7 +269,19 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('seeders.settings.contact.phone'),
-                'value'        => '+998 55 503 88 00',
+                'value'        => '+99871 123-45-67',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 2,
+                'group'        => 'Contact',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('contact.phone2');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('seeders.settings.contact.phone') . ' 2',
+                'value'        => '+99871 123-45-67',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 2,
@@ -381,6 +393,18 @@ class SettingsTableSeeder extends Seeder
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 22,
+                'group'        => 'Contact',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('contact.youtube');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('seeders.settings.contact.youtube'),
+                'value'        => __('seeders.settings.contact.youtube_value'),
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 23,
                 'group'        => 'Contact',
             ])->save();
         }

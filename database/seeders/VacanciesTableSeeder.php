@@ -25,6 +25,7 @@ class VacanciesTableSeeder extends Seeder
                 'name' => $i,
                 'slug' => Str::slug($i),
                 'image' => 'vacancies/' . $i . '.jpg',
+                'vacancy_category_id' => mt_rand(1, 10),
             ]);
         }
 

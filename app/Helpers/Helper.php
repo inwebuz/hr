@@ -8,8 +8,11 @@ use App\Category;
 use App\Page;
 use App\Region;
 use App\Review;
+use App\Service;
 use App\Setting;
 use App\StaticText;
+use App\Vacancy;
+use App\VacancyCategory;
 use Exception;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Carbon;
@@ -107,6 +110,17 @@ class Helper
             foreach ($pages as $page) {
                 $item = new MenuItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url));
                 $subPages = $page->pages;
+                if ($page->slug == 'services') {
+                    $services = Service::active()->orderBy('order')->withTranslation($locale)->get();
+                    foreach ($services as $service) {
+                        $item->addItem(new MenuItem(new LinkItem($service->getTranslatedAttribute('name'), $service->url)));
+                    }
+                } elseif ($page->slug == 'vacancies') {
+                    $vacancyCategories = VacancyCategory::active()->orderBy('order')->withTranslation($locale)->get();
+                    foreach ($vacancyCategories as $vacancyCategory) {
+                        $item->addItem(new MenuItem(new LinkItem($vacancyCategory->getTranslatedAttribute('name'), $vacancyCategory->url)));
+                    }
+                }
                 if (!$subPages->isEmpty()) {
                     foreach ($subPages as $subPage) {
                         $subPageItem = new MenuItem(new LinkItem($subPage->getTranslatedAttribute('name'), $subPage->url));

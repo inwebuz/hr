@@ -37,16 +37,6 @@ class Footer extends Component
 
         $footerMenuItems = Helper::menuItems('footer');
 
-        $menuBuyers = menu('Покупателям', '_json');
-        if (!$menuBuyers->isEmpty()) {
-            $menuBuyers->load('translations');
-        }
-
-        $menuUseful = menu('Полезное', '_json');
-        if (!$menuUseful->isEmpty()) {
-            $menuUseful->load('translations');
-        }
-
         $siteLogo = setting('site.logo');
         $siteLightLogo = setting('site.logo_light');
         $logo = $siteLogo ? Voyager::image($siteLogo) : '/img/logo.png';
@@ -54,6 +44,7 @@ class Footer extends Component
 
         $address = Helper::staticText('contact_address', 300)->getTranslatedAttribute('description');
         $workHours = Helper::staticText('work_hours', 300)->getTranslatedAttribute('description');
+        $footerText = Helper::staticText('footer_text', 300)->getTranslatedAttribute('description');
 
         // $categories = Helper::categories();
 
@@ -67,6 +58,6 @@ class Footer extends Component
         $wishlistQuantity = app('wishlist')->getTotalQuantity();
         $compareQuantity = app('compare')->getTotalQuantity();
 
-        return view('components.footer', compact('footerMenuItems', 'menuUseful', 'menuBuyers', 'pages', 'logo', 'logoLight', 'address', 'workHours', 'cartQuantity', 'wishlistQuantity', 'compareQuantity'));
+        return view('components.footer', compact('footerMenuItems', 'pages', 'logo', 'logoLight', 'address', 'workHours', 'footerText', 'cartQuantity', 'wishlistQuantity', 'compareQuantity'));
     }
 }

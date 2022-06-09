@@ -1,9 +1,9 @@
 /* ===================================================================
-    
+
     Author          : Valid Theme
     Template Name   : Earna - Consulting Business Template
     Version         : 1.0
-    
+
 * ================================================================= */
 
 (function($) {
@@ -23,13 +23,13 @@
             live: true // act on asynchronously loaded content (default is true)
         });
         wow.init();
-        
+
 
         /* ==================================================
             # Tooltip Init
         ===============================================*/
-        $('[data-toggle="tooltip"]').tooltip(); 
-        
+        $('[data-toggle="tooltip"]').tooltip();
+
 
 
         /* ==================================================
@@ -216,8 +216,8 @@
             ]
         });
 
-        
-        
+
+
         /* ==================================================
             # Projects Carousel
          ===============================================*/
@@ -368,23 +368,19 @@
     }); // end document ready function
 
 
-    /* ==================================================
-        Preloader Init
-     ===============================================*/
-    function loader() {
-        $(window).on('load', function () {
-            $('#earna-preloader').addClass('loaded');
-            $("#loading").fadeOut(500);
-            // Una vez haya terminado el preloader aparezca el scroll
-
-            if ($('#earna-preloader').hasClass('loaded')) {
-                // Es para que una vez que se haya ido el preloader se elimine toda la seccion preloader
-                $('#preloader').delay(900).queue(function () {
-                    $(this).remove();
-                });
-            }
-        });
-    }
-    loader();
+    // function loader() {
+    //     $(window).on('load', function () {
+    //         $('#earna-preloader').addClass('loaded');
+    //         $("#loading").fadeOut(500);
+    //         // Una vez haya terminado el preloader aparezca el scroll
+    //         if ($('#earna-preloader').hasClass('loaded')) {
+    //             // Es para que una vez que se haya ido el preloader se elimine toda la seccion preloader
+    //             $('#preloader').delay(900).queue(function () {
+    //                 $(this).remove();
+    //             });
+    //         }
+    //     });
+    // }
+    // loader();
 
 })(jQuery); // End jQuery

@@ -75,7 +75,7 @@
 
     @yield('after_footer_blocks')
 
-    @include('partials.preloader')
+    {{-- @include('partials.preloader') --}}
 
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('assets/js/popper.min.js') }}"></script>
@@ -93,6 +93,7 @@
     <script src="{{ asset('assets/js/YTPlayer.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootsnav.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('js/imask.js') }}"></script>
     <script src="{{ asset('js/custom.js?v=' . $assetsVersion) }}"></script>
 
     {{-- <script src="{{ asset('js/app.js?v=' . $assetsVersion) }}"></script> --}}

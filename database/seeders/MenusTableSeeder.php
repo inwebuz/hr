@@ -18,28 +18,28 @@ class MenusTableSeeder extends Seeder
             'name' => 'admin',
         ]);
 
-        Menu::create([
-            'name' => 'Категории',
-        ]);
+        // Menu::create([
+        //     'name' => 'Категории',
+        // ]);
 
-        Menu::create([
-            'name' => 'Покупателям',
-        ]);
+        // Menu::create([
+        //     'name' => 'Покупателям',
+        // ]);
 
-        Menu::create([
-            'name' => 'Полезное',
-        ]);
+        // Menu::create([
+        //     'name' => 'Полезное',
+        // ]);
 
-        Menu::create([
-            'name' => 'Популярные товары',
-        ]);
+        // Menu::create([
+        //     'name' => 'Популярные товары',
+        // ]);
 
-        Menu::create([
-            'name' => 'Акции и скидки',
-        ]);
+        // Menu::create([
+        //     'name' => 'Акции и скидки',
+        // ]);
 
-        Menu::create([
-            'name' => 'Новинки на сайте',
-        ]);
+        // Menu::create([
+        //     'name' => 'Новинки на сайте',
+        // ]);
     }
 }
