@@ -62,13 +62,6 @@ class Header extends Component
         //     }
         // }
 
-        $menuCategories = menu('Категории', '_json');
-        if (!$menuCategories->isEmpty()) {
-            $menuCategories->load('translations');
-        }
-
-        $menuCatalog = Helper::categories('menu');
-
         // $issetRegionID = Cookie::get('region_id');
         // $currentRegion = Helper::getCurrentRegion();
 
@@ -83,6 +76,6 @@ class Header extends Component
             ];
         }
 
-        return view('components.header', compact('headerMenuItems', 'menuCategories', 'menuCatalog', 'cartQuantity', 'wishlistQuantity', 'compareQuantity', 'pageContact', 'logo', 'logoLight', 'switcher', 'activeLanguageRegional', 'q', 'address', 'workHours', 'badEye'));
+        return view('components.header', compact('headerMenuItems', 'cartQuantity', 'wishlistQuantity', 'compareQuantity', 'pageContact', 'logo', 'logoLight', 'switcher', 'activeLanguageRegional', 'q', 'address', 'workHours', 'badEye'));
     }
 }
