@@ -6,31 +6,27 @@
 
 @section('content')
 
+@include('partials.page_top', ['title' => $page->getTranslatedAttribute('name')])
 
-<main class="main">
-
-    <section class="content-header">
-        <div class="container">
-            @include('partials.breadcrumbs')
-        </div>
-    </section>
-
-    <div class="container py-4 py-lg-5">
-        <h1>{{ $page->getTranslatedAttribute('name') }}</h1>
+<div class="py-4">
+    <div class="container">
         <div class="text-block">
-            {!! $page->getTranslatedAttribute('body') !!}
+            {!! $page->body !!}
         </div>
     </div>
 
-	<div class="container">
-        @can('edit', $page)
+    @if ($page->id == 3)
+        <x-principles></x-principles>
+    @endif
+
+    @can('edit', $page)
+	    <div class="container">
             <div class="my-4">
                 <a href="{{ url('admin/pages/' . $page->id . '/edit') }}" class="btn btn-lg btn-primary"
                     target="_blank">Редактировать (ID: {{ $page->id }})</a>
             </div>
-        @endcan
-    </div>
-
-</main>
+        </div>
+    @endcan
+</div>
 
 @endsection

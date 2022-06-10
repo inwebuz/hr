@@ -7,8 +7,17 @@
     </div>
 </a> --}}
 
-<div class="news-item radius-10">
-    <span class="news-item__date">{{ Helper::formatDate($publication->created_at) }}</span>
-    <a href="{{ $publication->url }}" class="news-item__link">{{ $publication->getTranslatedAttribute('name') }}</a>
-    <p class="text-overflow-four-line">{{ $publication->getTranslatedAttribute('description') }}</p>
+<div class="item">
+    <div class="thumb">
+        <a href="{{ $publication->url }}" class="d-block">
+            <img src="{{ $publication->medium_img }}" class="img-fluid" alt="{{ $publication->getTranslatedAttribute('name') }}">
+        </a>
+        <div class="date">{{ Helper::formatDate($publication->created_at) }}</div>
+    </div>
+    <div class="info">
+        <h4>
+            <a href="{{ $publication->url }}">{{ $publication->getTranslatedAttribute('name') }}</a>
+        </h4>
+        <p>{{ $publication->getTranslatedAttribute('description') }}</p>
+    </div>
 </div>

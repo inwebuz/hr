@@ -298,10 +298,10 @@ Route::group(
     Route::post('password/phone/verify', [ForgotPasswordController::class, 'passwordPhoneVerify'])->middleware('throttle:10,60');
 
     // regular pages
-    Route::get('page/{page}-{slug}', [PageController::class, 'index'])->name('page');
+    Route::get('pages/{page}-{slug}', [PageController::class, 'show'])->name('pages.show');
     Route::get('guestbook', [PageController::class, 'guestbook'])->name('guestbook');
     // Route::get('{slug}', [PageController::class, 'index'])->name('page');
-    Route::get('page/{page}-{slug}/print', [PageController::class, 'print'])->name('page.print');
+    Route::get('pages/{page}-{slug}/print', [PageController::class, 'print'])->name('page.print');
 
     // category view
     Route::get('categories', [CategoryController::class, 'index'])->name('categories');

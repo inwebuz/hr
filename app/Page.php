@@ -133,7 +133,7 @@ class Page extends Model
         } elseif(Route::has($this->slug . '.index')) {
             $url = route($this->slug . '.index');
         } else {
-            $url = 'page/' . $this->id . '-' . $slug;
+            $url = 'pages/' . $this->id . '-' . $slug;
             // $url = $slug;
         }
         return LaravelLocalization::localizeURL($url, $lang);

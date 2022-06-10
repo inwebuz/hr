@@ -26,8 +26,6 @@
             </div>
         </div>
 
-        <x-categories></x-categories>
-
         {{-- <div class="text-center">
             <br>
             <br>

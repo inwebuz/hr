@@ -14,688 +14,231 @@
 @endif
 
 <!-- Start Banner
-    ============================================= -->
-    <div class="banner-area text-center text-big top-pad-50">
-        <div id="bootcarousel" class="carousel text-light slide animate_text" data-ride="carousel">
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner carousel-zoom">
-                <div class="carousel-item active">
-                    <div class="slider-thumb bg-fixed" style="background-image: url(assets/img/2440x1578.png);"></div>
-                    <div class="box-table">
-                        <div class="box-cell shadow dark-hard">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-10 offset-lg-1">
-                                        <div class="content">
-                                            <h2 data-animation="animated zoomInLeft">Business <span>Planning</span></h2>
-                                            <p class="animated slideInRight">
-                                                Coming merits and was talent enough far. Sir joy northward sportsmen education. Discovery incommode earnestly no he commanded.
-                                            </p>
-                                            <a data-animation="animated zoomInUp" class="btn btn-gradient effect btn-md" href="#">Discover More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="slider-thumb bg-fixed" style="background-image: url(assets/img/2440x1578.png);"></div>
-                    <div class="box-table">
-                        <div class="box-cell shadow dark-hard">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-10 offset-lg-1">
-                                        <div class="content">
-                                            <h2 data-animation="animated slideInDown">Achiving <span>Success</span></h2>
-                                            <p class="animated slideInRight">
-                                                Coming merits and was talent enough far. Sir joy northward sportsmen education. Discovery incommode earnestly no he commanded.
-                                            </p>
-                                            <a data-animation="animated zoomInUp" class="btn btn-gradient effect btn-md" href="#">Discover More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Wrapper for slides -->
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control light" href="#bootcarousel" data-slide="prev">
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control light" href="#bootcarousel" data-slide="next">
-                <span class="sr-only">Next</span>
-            </a>
-
-        </div>
-    </div>
-    <!-- End Banner -->
-
-<!-- Star Services Area
 ============================================= -->
-<div class="default-services-area default-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <div class="site-heading text-center">
-                    <h4>Our Services</h4>
-                    <h2>What We Bring To You</h2>
-                    <div class="devider"></div>
-                    <p>
-                        While mirth large of on front. Ye he greater related adapted proceed entered an. Through it examine express promise no. Past add size game cold girl off how old
-                    </p>
+<div class="banner-area text-center text-big">
+    <div id="bootcarousel" class="carousel text-light slide animate_text" data-ride="carousel">
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner carousel-zoom">
+
+            @foreach ($slides as $key => $slide)
+            <div class="carousel-item @if($key == 0) active @endif">
+                <div class="slider-thumb bg-fixed" style="background-image: url({{ $slide->img }});"></div>
+                <div class="box-table">
+                    <div class="box-cell shadow dark-hard">
+                        <div class="container">
+                            <div class="content">
+                                <h2 data-animation="animated zoomInLeft">{{ $slide->getTranslatedAttribute('name') }}</h2>
+                                <p class="animated slideInRight">{{ $slide->getTranslatedAttribute('description') }}</p>
+                                @if ($slide->getTranslatedAttribute('button_text') && $slide->getTranslatedAttribute('url'))
+                                <a data-animation="animated zoomInUp" class="btn btn-outline-light effect btn-md" href="{{ $slide->getTranslatedAttribute('url') }}">{{ $slide->getTranslatedAttribute('button_text') }}</a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            @endforeach
         </div>
-    </div>
-    <div class="container">
-        <div class="services-items">
-            <div class="row">
-                <!-- Single Item -->
-                <div class="col-lg-4 col-md-6 single-item">
-                    <div class="item">
-                        <div class="info">
-                            <i class="flaticon-money"></i>
-                            <h4><a href="#">Financial Planning</a></h4>
-                            <p>
-                                Prevailed always tolerably discourse and loser assurance creatively coin applauded more uncommonly. Him everything trouble
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="col-lg-4 col-md-6 single-item">
-                    <div class="item">
-                        <div class="info">
-                            <i class="flaticon-budget"></i>
-                            <h4><a href="#">Investment Planning</a></h4>
-                            <p>
-                                Prevailed always tolerably discourse and loser assurance creatively coin applauded more uncommonly. Him everything trouble
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="col-lg-4 col-md-6 single-item">
-                    <div class="item">
-                        <div class="info">
-                            <i class="flaticon-money-1"></i>
-                            <h4><a href="#">Mutual Funds</a></h4>
-                            <p>
-                                Prevailed always tolerably discourse and loser assurance creatively coin applauded more uncommonly. Him everything trouble
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="col-lg-4 col-md-6 single-item">
-                    <div class="item">
-                        <div class="info">
-                            <i class="flaticon-funds"></i>
-                            <h4><a href="#">Saving & Investments</a></h4>
-                            <p>
-                                Prevailed always tolerably discourse and loser assurance creatively coin applauded more uncommonly. Him everything trouble
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="col-lg-4 col-md-6 single-item">
-                    <div class="item">
-                        <div class="info">
-                            <i class="flaticon-analysis"></i>
-                            <h4><a href="#">Markets Research</a></h4>
-                            <p>
-                                Prevailed always tolerably discourse and loser assurance creatively coin applauded more uncommonly. Him everything trouble
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="col-lg-4 col-md-6 single-item">
-                    <div class="item">
-                        <div class="info">
-                            <i class="flaticon-analytics-1"></i>
-                            <h4><a href="#">Report Analysis</a></h4>
-                            <p>
-                                Prevailed always tolerably discourse and loser assurance creatively coin applauded more uncommonly. Him everything trouble
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-            </div>
-        </div>
+        <!-- End Wrapper for slides -->
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control light" href="#bootcarousel" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+            <span class="sr-only">{{ __('main.previous') }}</span>
+        </a>
+        <a class="right carousel-control light" href="#bootcarousel" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+            <span class="sr-only">{{ __('main.next') }}</span>
+        </a>
+
     </div>
 </div>
-<!-- End Services Area -->
+<!-- End Banner -->
 
-<!-- Star About Area
+<!-- Start About
 ============================================= -->
-<div class="about-area bg-dark overflow-hidden text-light relative">
-    <!-- Fixed Shape -->
-    <div class="fixed-shape" style="background-image: url(assets/img/shape/8.png);"></div>
-    <!-- End Fixed Shape -->
+<div class="about-us-area default-padding bg-green2">
     <div class="container">
         <div class="about-items">
-            <div class="row">
-                <div class="col-lg-6 thumb order-lg-last" style="background-image: url(assets/img/2440x1578.png);">
-                    <div class="successr-ate">
-                        <div class="icon">
-                            <i class="flaticon-target"></i>
+            <div class="row align-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="{{ $homeSeo->img }}" class="img-fluid rounded-circle border-20-60" alt="{{ $homeSeo->getTranslatedAttribute('name') }}">
+                </div>
+                <div class="col-lg-6 info">
+                    <h2>{{ $homeSeo->getTranslatedAttribute('name') }}</h2>
+                    <div>
+                        {!! $homeSeo->getTranslatedAttribute('description') !!}
+                    </div>
+
+                    <div class="author">
+                        <div class="signature">
+                            <img src="{{ $founder->img }}" class="img-fluid" alt="{{ $founder->getTranslatedAttribute('name') }}">
                         </div>
-                        <div class="content">
-                            <h2>98%</h2>
-                            <span>Success Rate</span>
+                        <div class="intro">
+                            <h5 class="text-secondary font-weight-bold">{{ $founder->getTranslatedAttribute('name') }}</h5>
+                            <span class="text-green2 font-weight-semibold">{{ $founder->getTranslatedAttribute('description') }}</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-6 info">
-                    <h4>Who we are</h4>
-                    <h2>We Combine Technology <br> with Business Ideas</h2>
-                    <p>
-                        Friendly bachelor entrance to on by. Extremity as if breakfast agreement. Off now mistress provided out horrible opinions. Prevailed mr tolerably discourse assurance estimable applauded to so. Him everything melancholy uncommonly but solicitude inhabiting projection.
-                    </p>
-                    <ul>
-                        <li>
-                            <h5>First Working Prosses</h5>
-                            <p>
-                                Contrasted sufficient to unpleasant in in insensible favourable.
-                            </p>
-                        </li>
-                        <li>
-                            <h5>24/7 Live Support</h5>
-                            <p>
-                                Contrasted sufficient to unpleasant in in insensible favourable.
-                            </p>
-                        </li>
-                    </ul>
-                    <a class="btn btn-light effect btn-md" href="#">Discover More</a>
-                </div>
-
             </div>
         </div>
     </div>
 </div>
 <!-- End About Area -->
 
-<!-- Start Expertise Area
+<!-- Star Services Area
 ============================================= -->
-<div class="expertise-area default-padding">
-    <div class="container">
-        <!-- Item Heading -->
-        <div class="item-heading">
-            <div class="row">
-                <div class="col-lg-6 info">
-                    <h4>Our expertise</h4>
-                    <h2>We design brand, digital experience that engage the right customers</h2>
-                </div>
-                <div class="col-lg-6 right-info">
-                    <div class="skill-items">
-                        <!-- Progress Bar Start -->
-                        <div class="progress-box">
-                            <h5>Marketing</h5>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" data-width="88">
-                                    <span>88%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="progress-box">
-                            <h5>Social Assistant</h5>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" data-width="95">
-                                    <span>95%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="progress-box">
-                            <h5>Consulting</h5>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" data-width="70">
-                                    <span>70%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Progressbar -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Item Heading -->
-
-        <!-- Expertise Content -->
-        <div class="expertise-content text-light" style="background-image: url(assets/img/2440x1578.png);">
-            <div class="row">
-                <!-- Single Item -->
-                <div class="col-lg-4 single-item">
-                    <div class="item">
-                        <div class="content">
-                            <h4>Finance Restructuring</h4>
-                            <p>
-                                    Prevailed mr tolerably discourse assurance estimable more power.
-                            </p>
-                        </div>
-                        <a class="btn btn-sm" href="#">Know More</a>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="col-lg-4 single-item">
-                    <div class="item">
-                        <div class="content">
-                            <h4>Stocks & Trades</h4>
-                            <p>
-                                    Prevailed mr tolerably discourse assurance estimable more power.
-                            </p>
-                        </div>
-                        <a class="btn btn-sm" href="#">Know More</a>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="col-lg-4 single-item">
-                    <div class="item">
-                        <div class="content">
-                            <h4>International Markets</h4>
-                            <p>
-                                    Prevailed mr tolerably discourse assurance estimable more power.
-                            </p>
-                        </div>
-                        <a class="btn btn-sm" href="#">Know More</a>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-            </div>
-        </div>
-        <!-- Expertise Content -->
-
+<div class="thumb-services-area inc-thumbnail default-padding bottom-less">
+    <!-- Shape -->
+    <div class="right-shape">
+        <img src="{{ asset('assets/img/shape/9.png') }}" alt="Shape">
     </div>
-</div>
-<!-- End Expertise Area -->
-
-<!-- Star Partner Area
-============================================= -->
-<div class="partner-area overflow-hidden text-light">
-    <div class="container">
-        <div class="item-box red">
-            <div class="row align-center">
-                <div class="col-lg-6 info">
-                    <h2>We're Trusted by <span>2500+</span> <br> Professional Customer</h2>
-                    <p>
-                        Seeing rather her you not esteem men settle genius excuse. Deal say over you age from. Comparison new ham melancholy son themselves.
-                    </p>
-                </div>
-                <div class="col-lg-6 clients">
-                    <div class="partner-carousel owl-carousel owl-theme text-center">
-                        <div class="single-item">
-                            <a href="#"><img src="assets/img/150x80.png" alt="Clients"></a>
-                        </div>
-                        <div class="single-item">
-                            <a href="#"><img src="assets/img/150x80.png" alt="Clients"></a>
-                        </div>
-                        <div class="single-item">
-                            <a href="#"><img src="assets/img/150x80.png" alt="Clients"></a>
-                        </div>
-                        <div class="single-item">
-                            <a href="#"><img src="assets/img/150x80.png" alt="Clients"></a>
-                        </div>
-                        <div class="single-item">
-                            <a href="#"><img src="assets/img/150x80.png" alt="Clients"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Partner Area -->
-
-<!-- ("overflow-hidden-box overflow-hidden" helps you to ignore extra width for the circle shape)-->
-<div class="overflow-hidden-box overflow-hidden">
-    <!-- Star Team Area
-    ============================================= -->
-    <div class="team-area bg-gray default-padding bottom-less">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-                        <h4>Team Members</h4>
-                        <h2>Meet our experts</h2>
-                        <div class="devider"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="team-items text-center">
-                <div class="row">
-                    <!-- Single Item -->
-                    <div class="single-item col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/img/800x900.png" alt="Thumb">
-                                <div class="social">
-                                    <a href="#" class="share-icon facebook">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a href="#" class="share-icon twitter">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                    <a href="#" class="share-icon instagram">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </div>
-                                <div class="share">
-                                    <i class="fas fa-share-alt"></i>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <h4>Jessika Mahi</h4>
-                                    <span>Markteting Manager</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="single-item col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/img/800x900.png" alt="Thumb">
-                                <div class="social">
-                                    <a href="#" class="share-icon facebook">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a href="#" class="share-icon twitter">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                    <a href="#" class="share-icon instagram">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </div>
-                                <div class="share">
-                                    <i class="fas fa-share-alt"></i>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <h4>Munia Anchor</h4>
-                                    <span>Assistant Manager</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="single-item col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/img/800x900.png" alt="Thumb">
-                                <div class="social">
-                                    <a href="#" class="share-icon facebook">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a href="#" class="share-icon twitter">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                    <a href="#" class="share-icon instagram">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </div>
-                                <div class="share">
-                                    <i class="fas fa-share-alt"></i>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <h4>Ahel Natasha</h4>
-                                    <span>Executive Officer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Team Area -->
-
-    <!-- Star testimonials Area
-    ============================================= -->
-    <div class="testimonials-area bg-gray default-padding-bottom">
-        <!-- Fixed Shape -->
-        <div class="fixed-shape" style="background-image: url(assets/img/shape/10-red.png);"></div>
-        <!-- End Fixed Shape -->
-        <div class="container">
-            <div class="testimonial-items">
-                <div class="row align-center">
-                    <div class="col-lg-7 testimonials-content">
-                        <div class="testimonials-carousel owl-carousel owl-theme">
-                            <!-- Single Item -->
-                            <div class="item">
-                                <div class="info">
-                                    <p>
-                                        Otherwise concealed favourite frankness on be at dashwoods defective at. Sympathize interested simplicity at do projecting increasing terminated. As edward settle limits at in. Chamber reached do he nothing be.
-                                    </p>
-                                    <div class="provider">
-                                        <div class="thumb">
-                                            <img src="assets/img/100x100.png" alt="Author">
-                                        </div>
-                                        <div class="content">
-                                            <h4>Ahel Natasha</h4>
-                                            <span> Managing Director</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="item">
-                                <div class="info">
-                                    <p>
-                                        Otherwise concealed favourite frankness on be at dashwoods defective at. Sympathize interested simplicity at do projecting increasing terminated. As edward settle limits at in. Chamber reached do he nothing be.
-                                    </p>
-                                    <div class="provider">
-                                        <div class="thumb">
-                                            <img src="assets/img/100x100.png" alt="Author">
-                                        </div>
-                                        <div class="content">
-                                            <h4>Ahel Natasha</h4>
-                                            <span> Managing Director</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                        </div>
-                    </div>
-                    <div class="col-lg-5 info">
-                        <h4>Testimonials</h4>
-                        <h2>Check what our satisfied clients said</h2>
-                        <p>
-                            Why I say old chap that is, spiffing off his nut color blimey and guvnords geeza bloke knees up bobby sloshed arse
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End testimonials Area -->
-</div>
-<!-- End Overflow Hidden Box -->
-
-<!-- Start Gallery Area
-============================================= -->
-<div class="gallery-area overflow-hidden default-padding">
+    <!-- Shape -->
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <div class="site-heading text-center">
-                    <h4>Our Gallery</h4>
-                    <h2>Latest projects showcase</h2>
+                    <h2>{{ $servicesPage->getTranslatedAttribute('name') }}</h2>
+                    <p>{{ $servicesPage->getTranslatedAttribute('description') }}</p>
+                    {{-- <div class="divider"></div> --}}
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="case-items-area">
-            <div class="masonary">
-                <div id="portfolio-grid" class="gallery-items colums-3">
-                    <!-- Single Item -->
-                    <div class="pf-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/img/800x600.png" alt="Thumb">
+        <div class="services-items text-center">
+            <div class="row">
+                @foreach ($services as $service)
+                <div class="col-lg-4 col-md-6 single-item">
+                    <div class="item rounded-lg" style="background-image: url({{ $service->medium_img }});">
+                        <div class="info">
+                            <div class="svg-icon">
+                                {!! $service->icon !!}
                             </div>
-                            <div class="content">
-                                <div class="info">
-                                    <h4><a href="#">Startup Funding</a></h4>
-                                    <span>Finance, Assets</span>
-                                </div>
-                                <div class="button">
-                                    <a href="assets/img/800x800.png" class="item popup-gallery">
-                                        <i class="fas fa-plus"></i>
-                                    </a>
-                                </div>
+
+                            <h4><a href="{{ $service->url }}">{{ $service->getTranslatedAttribute('name') }}</a></h4>
+                            {{-- <p>{{ $service->getTranslatedAttribute('descriptino') }}</p> --}}
+
+                            <div class="bottom mt-5">
+                                <a href="{{ $service->url }}"><i class="fas fa-arrow-right"></i> {{ __('main.view_more') }}</a>
                             </div>
                         </div>
                     </div>
-                    <!-- End Single Item -->
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Services Area -->
 
-                    <!-- Single Item -->
-                    <div class="pf-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/img/800x800.png" alt="Thumb">
-                            </div>
-                            <div class="content">
-                                <div class="info">
-                                    <h4><a href="#">Accounting Advisory</a></h4>
-                                    <span>Creative, Minimal</span>
-                                </div>
-                                <div class="button">
-                                    <a href="assets/img/800x800.png" class="item popup-gallery">
-                                        <i class="fas fa-plus"></i>
-                                    </a>
+<!-- Start Contact Area
+============================================= -->
+@php
+    $phone = Helper::setting('contact.phone');
+    $phone2 = Helper::setting('contact.phone2');
+    $email = Helper::setting('contact.email');
+@endphp
+<div class="contact-area default-padding bg-theme inc-shape">
+    <div class="container">
+        <div class="row align-center">
+            <div class="col-lg-5 info">
+                <div class="content">
+                    <h2>{{ $writeUs->getTranslatedAttribute('name') }}</h2>
+                    <p>{{ $writeUs->getTranslatedAttribute('description') }}</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <p>
+                                @if ($phone)
+                                    <a href="tel:{{ Helper::phone($phone) }}" class="text-dark">{{ $phone }}</a>
+                                @endif
+                                @if ($phone2)
+                                    <br>
+                                    <a href="tel:{{ Helper::phone($phone2) }}" class="text-dark">{{ $phone2 }}</a>
+                                @endif
+                            </p>
+                        </li>
+                        <li>
+                            <i class="far fa-envelope"></i>
+                            <p>
+                                @if ($email)
+                                    <a href="mailto:{{ $email }}" class="text-primary">{{ $email }}</a>
+                                @endif
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 offset-lg-1 contact-form-box">
+                <div class="form-box">
+                    <form action="{{ route('contacts.send') }}" method="POST" class="contact-form">
+                        @csrf
+
+                        <div class="form-result"></div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="name" placeholder="{{ __('main.form.your_name') }}" type="text">
+                                    <span class="alert-error"></span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End Single Item -->
-
-                    <!-- Single Item -->
-                    <div class="pf-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/img/800x800.png" alt="Thumb">
-                            </div>
-                            <div class="content">
-                                <div class="info">
-                                    <h4><a href="#">Merger & Acquisition</a></h4>
-                                    <span>Benifits, Business</span>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="email" placeholder="{{ __('main.email') }}" type="email">
+                                    <span class="alert-error"></span>
                                 </div>
-                                <div class="button">
-                                    <a href="assets/img/800x800.png" class="item popup-gallery">
-                                        <i class="fas fa-plus"></i>
-                                    </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="phone_number" placeholder="{{ __('main.phone_number') }}" type="text">
+                                    <span class="alert-error"></span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End Single Item -->
-
-                    <!-- Single Item -->
-                    <div class="pf-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/img/800x800.png" alt="Thumb">
-                            </div>
-                            <div class="content">
-                                <div class="info">
-                                    <h4><a href="#">Assets For Technology</a></h4>
-                                    <span>Invest, Earning</span>
-                                </div>
-                                <div class="button">
-                                    <a href="assets/img/800x800.png" class="item popup-gallery">
-                                        <i class="fas fa-plus"></i>
-                                    </a>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group comments">
+                                    <textarea class="form-control" name="message" placeholder="{{ __('main.message') }}"></textarea>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Single Item -->
-
-                    <!-- Single Item -->
-                    <div class="pf-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/img/800x600.png" alt="Thumb">
-                            </div>
-                            <div class="content">
-                                <div class="info">
-                                    <h4><a href="#">Business Matching</a></h4>
-                                    <span>Finance, Assets</span>
-                                </div>
-                                <div class="button">
-                                    <a href="assets/img/800x800.png" class="item popup-gallery">
-                                        <i class="fas fa-plus"></i>
-                                    </a>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="text-white">{{ __('main.cv_pdf_or_docs') }}</label>
+                                    <input type="file" name="file" class="border-0">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Single Item -->
-
-                    <!-- Single Item -->
-                    <div class="pf-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/img/800x600.png" alt="Thumb">
-                            </div>
-                            <div class="content">
-                                <div class="info">
-                                    <h4><a href="#">Startup Funding</a></h4>
-                                    <span>Finance, Assets</span>
-                                </div>
-                                <div class="button">
-                                    <a href="assets/img/800x800.png" class="item popup-gallery">
-                                        <i class="fas fa-plus"></i>
-                                    </a>
-                                </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <button type="submit" name="submit" id="submit">
+                                    {{ __('main.to_send') }}
+                                </button>
                             </div>
                         </div>
-                    </div>
-                    <!-- Single Item -->
-
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- End Projects Area -->
+<!-- End Contact Area -->
 
 <!-- Start Blog
 ============================================= -->
-<div class="blog-area bg-gray default-padding bottom-less">
+<div class="blog-area bg-green2 default-padding bottom-less">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <div class="site-heading text-center">
-                    <h4>From the blog</h4>
-                    <h2>Latest News & Articles</h2>
+                    <h2>{{ $newsText->getTranslatedAttribute('name') }}</h2>
+                    <p>{{ $newsText->getTranslatedAttribute('description') }}</p>
                 </div>
             </div>
         </div>
@@ -703,106 +246,72 @@
     <div class="container">
         <div class="blog-items">
             <div class="row">
-                <!-- Single Item -->
+                @foreach ($news as $publication)
                 <div class="single-item col-lg-4 col-md-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <img src="assets/img/800x600.png" alt="Thumb">
-                            <div class="date">January 25, 2021</div>
-                        </div>
-
-                        <div class="info">
-                            <div class="meta">
-                                <ul>
-                                    <li>
-                                        <img src="assets/img/100x100.png" alt="Author">
-                                        <span>By </span>
-                                        <a href="#">John Baus</a>
-                                    </li>
-                                    <li>
-                                        <span>In </span>
-                                        <a href="#">Agency</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <h4>
-                                <a href="#">Discovery incommode earnestly commanded if.</a>
-                            </h4>
-                            <p>
-                                Easy mind life fact with see has bore ten. Parish any chatty can elinor direct for former. Up as meant widow equal an share.
-                            </p>
-                        </div>
-                    </div>
+                    @include('partials.publication_one')
                 </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="single-item col-lg-4 col-md-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <img src="assets/img/800x600.png" alt="Thumb">
-                            <div class="date">February 12, 2021</div>
-                        </div>
-                        <div class="info">
-                            <div class="meta">
-                                <ul>
-                                    <li>
-                                        <img src="assets/img/100x100.png" alt="Author">
-                                        <span>By </span>
-                                        <a href="#">Mohon Mark</a>
-                                    </li>
-                                    <li>
-                                        <span>In </span>
-                                        <a href="#">Creative</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <h4>
-                                <a href="#">Expression acceptance imprudence particular</a>
-                            </h4>
-                            <p>
-                                Easy mind life fact with see has bore ten. Parish any chatty can elinor direct for former. Up as meant widow equal an share.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="single-item col-lg-4 col-md-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <img src="assets/img/800x600.png" alt="Thumb">
-                            <div class="date">March 18, 2021</div>
-                        </div>
-                        <div class="info">
-                            <div class="meta">
-                                <ul>
-                                    <li>
-                                        <img src="assets/img/100x100.png" alt="Author">
-                                        <span>By </span>
-                                        <a href="#">Paul Tun</a>
-                                    </li>
-                                    <li>
-                                        <span>In </span>
-                                        <a href="#">Agency</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <h4>
-                                <a href="#">Provided so as doubtful on striking required point</a>
-                            </h4>
-                            <p>
-                                Easy mind life fact with see has bore ten. Parish any chatty can elinor direct for former. Up as meant widow equal an share.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
+                @endforeach
             </div>
         </div>
     </div>
 </div>
 <!-- End Blog Area -->
 
+<!-- Star testimonials Area
+============================================= -->
+<div class="testimonials-area bg-green2 default-padding-bottom">
+    <!-- Fixed Shape -->
+    <div class="fixed-shape" style="background-image: url(assets/img/shape/10-red.png);"></div>
+    <!-- End Fixed Shape -->
+    <div class="container">
+        <div class="testimonial-items">
+            <div class="row align-center">
+                <div class="col-lg-7 testimonials-content">
+                    <div class="testimonials-carousel owl-carousel owl-theme">
+                        @foreach ($reviews as $review)
+                        <div class="item">
+                            <div class="info">
+                                <p>{{ $review->body }}</p>
+                                <div class="provider">
+                                    <div class="thumb">
+                                        <img src="{{ asset('assets/img/100x100.png') }}" alt="Author">
+                                    </div>
+                                    <div class="content">
+                                        <strong>{{ $review->name }}</strong>
+                                        @if ($review->position)
+                                        <span>/ {{ $review->position }}</span>
+                                        @endif
 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="col-lg-5 info">
+                    <h2>{{ $reviewsText->getTranslatedAttribute('name') }}</h2>
+                    <p>{{ $reviewsText->getTranslatedAttribute('description') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End testimonials Area -->
+
+<!-- Star testimonials Area
+============================================= -->
+<div class="new-partners-area default-padding-bottom py-5">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-center">
+            @foreach ($partners as $partner)
+                <div class="new-partner-single text-center">
+                    <img src="{{ $partner->medium_img }}" alt="{{ $partner->getTranslatedAttribute('name') }}" class="img-fluid">
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+<!-- End testimonials Area -->
 
 @endsection

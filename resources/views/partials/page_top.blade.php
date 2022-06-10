@@ -1,24 +1,10 @@
-{{-- <div class="page-top" @if(!empty($bg)) style="background-image: url({{ $bg }})" @endif>
+<div class="breadcrumb-area text-center">
     <div class="container">
-        @include('partials.breadcrumbs')
-        <h1 class="page-header">{{ $title ?? $page->title ?? '' }}</h1>
-    </div>
-    @include('partials.waves')
-</div> --}}
-
-<!-- START SECTION BREADCRUMB -->
-<div class="breadcrumb_section bg_gray page-title-mini">
-    <div class="custom-container"><!-- STRART CONTAINER -->
-        <div class="row align-items-center">
-        	<div class="col-md-6">
-                <div class="page-title">
-            		<h1>{{ $title ?? '' }}</h1>
-                </div>
-            </div>
-            <div class="col-md-6 d-flex justify-content-md-end">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h1 class="text-secondary">{{ $title ?? '' }}</h1>
                 @include('partials.breadcrumbs')
             </div>
         </div>
-    </div><!-- END CONTAINER-->
+    </div>
 </div>
-<!-- END SECTION BREADCRUMB -->

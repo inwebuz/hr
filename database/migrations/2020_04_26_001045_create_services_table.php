@@ -18,7 +18,7 @@ class CreateServicesTable extends Migration
             $table->integer('order')->default(1);
             $table->string('name');
             $table->string('slug')->nullable();
-            $table->string('icon')->nullable();
+            $table->text('icon')->nullable();
             $table->string('image')->nullable();
             $table->string('background')->nullable();
             $table->text('images')->nullable();

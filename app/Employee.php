@@ -92,6 +92,11 @@ class Employee extends Model
         return $this->image ? Voyager::image($this->getThumbnail($this->image, 'large')) : asset('images/no-image.jpg');
     }
 
+    public function getFullNameAttribute()
+    {
+        return $this->getTranslatedAttribute('last_name') . ' ' . $this->getTranslatedAttribute('first_name');
+    }
+
     public function getURLAttribute()
     {
         return $this->getURL();

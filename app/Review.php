@@ -35,4 +35,9 @@ class Review extends Model
     {
         return $query->where('status', self::STATUS_ACTIVE);
     }
+
+    public function scopeMain($query)
+    {
+        return $query->where('reviewable_id', 1)->where('reviewable_type', 'App\Page');
+    }
 }

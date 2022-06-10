@@ -24,7 +24,10 @@ class PartnersTableSeeder extends Seeder
             Partner::create([
                 'name' => $i,
                 'slug' => Str::slug($i),
-                'image' => 'partners/' . ($i < 10 ? '0' : '') . $i . '.jpg',
+                'image' => 'partners/' . ($i < 10 ? '0' : '') . $i . '.png',
+                'is_featured' => 1,
+                'status' => 1,
+                'order' => $i * 10,
             ]);
         }
 

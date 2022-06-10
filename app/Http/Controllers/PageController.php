@@ -14,7 +14,7 @@ class PageController extends Controller
     /**
      * show single page
      */
-    public function index(Page $page, $slug)
+    public function show(Page $page, $slug)
     {
         $locale = app()->getLocale();
         // $page = Page::where('slug', $slug)->withTranslation($locale)->firstOrFail();
@@ -34,7 +34,7 @@ class PageController extends Controller
             $breadcrumbs->addItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url, LinkItem::STATUS_INACTIVE));
         }
 
-        return view('page.index', compact('breadcrumbs', 'page', 'siblingPages'));
+        return view('pages.show', compact('breadcrumbs', 'page', 'siblingPages'));
     }
 
     public function print(Page $page)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Employee;
 use App\Helpers\Breadcrumbs;
 use App\Helpers\Helper;
 use App\Helpers\LinkItem;
@@ -13,20 +14,14 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-    /**
-     * show products per page values
-     */
-    public $quantityPerPage = [32, 64, 128];
-    public $sorts = ['created_at-desc', 'price-asc', 'price-desc'];
-
     public function index()
     {
         $locale = app()->getLocale();
         $breadcrumbs = new Breadcrumbs();
-        $page = Page::where('slug', 'brands')->withTranslation($locale)->firstOrFail();
+        $page = Page::where('slug', 'employees')->withTranslation($locale)->firstOrFail();
         $breadcrumbs->addItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url, LinkItem::STATUS_INACTIVE));
-        $brands = Brand::active()->withTranslation($locale)->get();
-        return view('brands.index', compact('page', 'breadcrumbs', 'brands'));
+        $employees = Employee::active()->orderBy('order')->withTranslation($locale)->get();
+        return view('employees.index', compact('page', 'breadcrumbs', 'employees'));
     }
 
     public function show(Request $request, Brand $brand, $slug)

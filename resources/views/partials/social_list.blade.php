@@ -1,9 +1,9 @@
 
 @php
-    $telegram = setting('contact.telegram');
-    $facebook = setting('contact.facebook');
-    $instagram = setting('contact.instagram');
-    $youtube = setting('contact.youtube');
+    $telegram = Helper::setting('contact.telegram');
+    $facebook = Helper::setting('contact.facebook');
+    $instagram = Helper::setting('contact.instagram');
+    $youtube = Helper::setting('contact.youtube');
 @endphp
 @if ($telegram)
     {{-- <li><a class="social-btn telegram" href="{{ setting('contact.telegram') }}" title="Telegram" target="_blank" rel="nofollow"><i class="ion-paper-airplane fab fa-telegram-plane"></i></a></li> --}}

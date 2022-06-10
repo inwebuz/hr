@@ -21,11 +21,15 @@ class PublicationsTableSeeder extends Seeder
         DB::table('publications')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        Publication::factory()->count(3)->create([
-            'name' => 'Исследование предпочтений на рынке соискателей',
-            'slug' => Str::slug('Исследование предпочтений на рынке соискателей'),
-            'description' => 'В ноябре 2019 года мы с командой рекрутеров начали проводить исследование'
-        ]);
+        for ($i = 0; $i < 3; $i++) {
+            Publication::factory()->count(3)->create([
+                'name' => 'Исследование предпочтений на рынке соискателей ',
+                'slug' => Str::slug('Исследование предпочтений на рынке соискателей'),
+                'description' => 'В ноябре 2019 года мы с командой рекрутеров начали проводить исследование',
+                'image' => 'publications/0' . ($i + 1) . '.jpg',
+                'type' => Publication::TYPE_NEWS,
+            ]);
+        }
         // Publication::factory()->count(50)->create();
 
         // Publication::factory()->count(10)->create([

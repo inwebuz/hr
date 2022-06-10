@@ -1,7 +1,7 @@
 @php
-$phone = setting('contact.phone');
-$email = setting('contact.email');
-$siteTitle = setting('site.title')
+$phone = Helper::setting('contact.phone');
+$email = Helper::setting('contact.email');
+$siteTitle = Helper::setting('site.title')
 @endphp
 {{-- @if (auth()->check() && auth()->user()->isAdmin())
 <div class="py-3 px-3 text-light position-fixed"

@@ -1,10 +1,10 @@
 @php
-$siteTitle = setting('site.title');
-$phone = setting('contact.phone');
-$phone2 = setting('contact.phone2');
-$email = setting('contact.email');
-$map = setting('contact.map');
-$telegram = setting('contact.telegram');
+$siteTitle = Helper::setting('site.title');
+$phone = Helper::setting('contact.phone');
+$phone2 = Helper::setting('contact.phone2');
+$email = Helper::setting('contact.email');
+$map = Helper::setting('contact.map');
+$telegram = Helper::setting('contact.telegram');
 @endphp
 
 <footer class="bg-blue text-white">
@@ -103,94 +103,6 @@ $telegram = setting('contact.telegram');
     </div>
     <!-- End Footer Bottom -->
 </footer>
-
-{{-- <footer class="footer">
-    <div class="footer-top">
-        <div class="container">
-            <div class="row footer-top__wrap">
-                <div class="col-lg-6 footer-contacts mb-3 mb-lg-0">
-                    <div class="logo">
-                        <a href="{{ route('home') }}">
-                            <img src="{{ $logoLight }}" alt="{{ $siteTitle }}">
-                        </a>
-                    </div>
-                    <a href="tel:{{ Helper::phone($phone) }}" class="phone-link">{{ $phone }}</a>
-                    <a href="mailto:{{ $email }}" class="mail-link text-darkyellow">{{ $email }}</a>
-                    <a href="{{ route('contacts') }}" class="address-link text-darkyellow">{{ $address }}</a>
-                    <div class="map d-none d-lg-block">
-                        {!! $map !!}
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row h-100">
-                        <div class="col-sm-6 footer-nav mb-3 mb-lg-0">
-                            <h4 data-toggle="collapse">
-                                <span>{{ __('main.for_buyers') }}</span>
-                                <svg width="16" height="16" fill="#fff">
-                                    <use xlink:href="#arrow"></use>
-                                </svg>
-                            </h4>
-                            <ul class="footer-nav__list collapse">
-                                @foreach ($menuBuyers as $item)
-                                <li>
-                                    <a href="{{ $item->getTranslatedAttribute('url') }}">{{ $item->getTranslatedAttribute('title') }}</a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <div class="col-sm-6 footer-nav">
-                            <h4 data-toggle="collapse">
-                                <span>{{ __('main.useful') }}</span>
-                                <svg width="16" height="16" fill="#fff">
-                                    <use xlink:href="#arrow"></use>
-                                </svg>
-                            </h4>
-                            <ul class="footer-nav__list collapse">
-                                @foreach ($menuUseful as $item)
-                                <li>
-                                    <a href="{{ $item->getTranslatedAttribute('url') }}">{{ $item->getTranslatedAttribute('title') }}</a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <div class="col-12 footer-nav-bottom mt-auto d-none d-sm-block">
-                            <ul class="footer-nav-bottom__list">
-                                @foreach ($footerMenuItems as $item)
-                                    <li>
-                                        <a href="{{ $item->url }}">{{ $item->name }}</a>
-                                    </li>
-                                @endforeach
-                                <li class="ml-sm-auto">
-                                    <a href="#contact-modal" data-toggle="modal" class="btn secondary sm radius-4">{{ __('main.ask_a_question') }}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row footer-bottom__wrap">
-                <div class="col-lg-4 col-sm-6">
-                    <p class="copyright-text">&copy; 2020-{{ date('Y') }} <span class="text-darkyellow">{{ $siteTitle }}</span> | {{ __('main.all_rights_reserved') }}</p>
-                </div>
-                <div class="col-lg-4">
-                    <ul class="footer-social-list">
-                        @include('partials.social_list')
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="footer-logo text-white" href="https://inweb.uz" target="_blank">
-                        <p>{{ __('main.developer') }} —</p>
-                        <img src="{{ asset('images/devlogo-light.png') }}" alt="Inweb.uz">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer> --}}
 
 
 {{-- <div class="accept-cookie">

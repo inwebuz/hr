@@ -6,9 +6,12 @@ use App\Brand;
 use App\Category;
 use App\Helpers\Helper;
 use App\Page;
+use App\Partner;
 use App\Product;
 use App\Publication;
 use App\Region;
+use App\Review;
+use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
@@ -43,6 +46,20 @@ class HomeController extends Controller
 
         // slides
         $slides = Helper::banners('slide');
+
+        $founder = Helper::staticText('founder', 300);
+        $homeSeo = Helper::staticText('home_seo', 300);
+        $writeUs = Helper::staticText('write_us', 300);
+        $newsText = Helper::staticText('news', 300);
+        $reviewsText = Helper::staticText('reviews', 300);
+
+        $services = Service::active()->featured()->orderBy('order')->withTranslation($locale)->take(3)->get();
+        $servicesPage = Page::active()->where('slug', 'services')->withTranslation($locale)->firstOrFail();
+
+        $news = Publication::active()->news()->latest()->withTranslation($locale)->take(3)->get();
+        $reviews = Review::active()->main()->latest()->take(6)->get();
+
+        $partners = Partner::active()->featured()->orderBy('order')->withTranslation($locale)->take(10)->get();
 
         // $homeCategoriesProducts = [];
         // foreach ($homeCategories as $homeCategory) {
@@ -101,7 +118,7 @@ class HomeController extends Controller
         // articles
         $articles = Publication::articles()->active()->withTranslation($locale)->latest()->take(4)->get();
 
-        return view('home', compact('page', 'pageAbout', 'slides', 'articles'));
+        return view('home', compact('page', 'pageAbout', 'slides', 'articles', 'founder', 'homeSeo', 'services', 'servicesPage', 'writeUs', 'newsText', 'news', 'reviewsText', 'reviews', 'partners'));
     }
 
     public function latestProducts(Category $category)

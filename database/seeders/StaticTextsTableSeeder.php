@@ -60,6 +60,12 @@ class StaticTextsTableSeeder extends Seeder
         ]);
 
         StaticText::factory()->create([
+            'name' => 'Написать нам',
+            'description' => 'Вы можете отправить нам ваше резюме, заполнив форму',
+            'key' => 'write_us',
+        ]);
+
+        StaticText::factory()->create([
             'name' => 'Футер',
             'description' => 'Любая информация на сайте защищена авторским правом. Копирование информации с сайта в любых целях запрещено.',
             'key' => 'footer_text',

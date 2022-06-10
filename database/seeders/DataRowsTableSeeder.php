@@ -2244,10 +2244,16 @@ class DataRowsTableSeeder extends StandardSeeder
                     'details' => $this->image(1000, $imageThumbs),
                 ],
             ],
+            // 'icon' => [
+            //     'method' => 'imageRow',
+            //     'data' => [
+            //         'details' => $this->image(1000, $iconImageThumbs),
+            //     ],
+            // ],
             'icon' => [
-                'method' => 'imageRow',
+                'method' => 'textAreaRow',
                 'data' => [
-                    'details' => $this->image(1000, $iconImageThumbs),
+                    'display_name' => 'Иконка SVG',
                 ],
             ],
             'order' => [
