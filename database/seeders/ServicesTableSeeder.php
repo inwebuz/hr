@@ -44,6 +44,7 @@ class ServicesTableSeeder extends Seeder
                 'order' => $key * 10,
                 'is_featured' => $key < 3 ? 1 : 0,
                 'status' => 1,
+                'body' => 'Описание страницы ...',
             ]);
         }
 

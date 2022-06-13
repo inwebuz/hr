@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
@@ -21,6 +22,26 @@ class TelegramService
     }
 
     public function sendMessage($chat_id, $message, $parse_mode = 'Markdown', $otherParams = [])
+    {
+        $formData = [];
+        $formData['chat_id'] = $chat_id;
+        $formData['text'] = $message;
+        if (in_array($parse_mode, ['HTML', 'Markdown', 'MarkdownV2'])) {
+            $formData['parse_mode'] = $parse_mode;
+        }
+
+        if (is_array($otherParams) && count($otherParams)) {
+            $formData = array_merge($otherParams, $formData);
+        }
+
+        $params = [
+            'form_params' => $formData,
+        ];
+
+        return $this->send('POST', 'sendMessage', $params);
+    }
+
+    public function sendFile($chat_id, $file, $otherParams = [])
     {
         $formData = [];
         $formData['chat_id'] = $chat_id;
@@ -86,8 +107,10 @@ class TelegramService
     {
         try {
             return $this->client->request($method, $url, $params);
+        } catch (ClientException $e) {
+            return $e->getResponse();
         } catch (Throwable $e) {
-            // Log::debug($e);
+            // Log::debug($e->getMessage());
         }
         return false;
     }

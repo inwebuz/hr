@@ -25,7 +25,7 @@
             <div class="carousel-item @if($key == 0) active @endif">
                 <div class="slider-thumb bg-fixed" style="background-image: url({{ $slide->img }});"></div>
                 <div class="box-table">
-                    <div class="box-cell shadow dark-hard">
+                    <div class="box-cell e-shadow dark-hard">
                         <div class="container">
                             <div class="content">
                                 <h2 data-animation="animated zoomInLeft">{{ $slide->getTranslatedAttribute('name') }}</h2>
@@ -63,7 +63,7 @@
         <div class="about-items">
             <div class="row align-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="{{ $homeSeo->img }}" class="img-fluid rounded-circle border-20-60" alt="{{ $homeSeo->getTranslatedAttribute('name') }}">
+                    <img src="{{ $homeSeo->img }}" class="img-fluid rounded-circle border-white-20-60" alt="{{ $homeSeo->getTranslatedAttribute('name') }}">
                 </div>
                 <div class="col-lg-6 info">
                     <h2>{{ $homeSeo->getTranslatedAttribute('name') }}</h2>
@@ -87,7 +87,7 @@
 </div>
 <!-- End About Area -->
 
-<!-- Star Services Area
+<!-- Start Services Area
 ============================================= -->
 <div class="thumb-services-area inc-thumbnail default-padding bottom-less">
     <!-- Shape -->
@@ -111,20 +111,7 @@
             <div class="row">
                 @foreach ($services as $service)
                 <div class="col-lg-4 col-md-6 single-item">
-                    <div class="item rounded-lg" style="background-image: url({{ $service->medium_img }});">
-                        <div class="info">
-                            <div class="svg-icon">
-                                {!! $service->icon !!}
-                            </div>
-
-                            <h4><a href="{{ $service->url }}">{{ $service->getTranslatedAttribute('name') }}</a></h4>
-                            {{-- <p>{{ $service->getTranslatedAttribute('descriptino') }}</p> --}}
-
-                            <div class="bottom mt-5">
-                                <a href="{{ $service->url }}"><i class="fas fa-arrow-right"></i> {{ __('main.view_more') }}</a>
-                            </div>
-                        </div>
-                    </div>
+                    @include('partials.service_one')
                 </div>
                 @endforeach
             </div>
@@ -232,7 +219,7 @@
 
 <!-- Start Blog
 ============================================= -->
-<div class="blog-area bg-green2 default-padding bottom-less">
+<div class="blog-area bg-green2 default-padding bottom-less position-relative">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
@@ -257,61 +244,8 @@
 </div>
 <!-- End Blog Area -->
 
-<!-- Star testimonials Area
-============================================= -->
-<div class="testimonials-area bg-green2 default-padding-bottom">
-    <!-- Fixed Shape -->
-    <div class="fixed-shape" style="background-image: url(assets/img/shape/10-red.png);"></div>
-    <!-- End Fixed Shape -->
-    <div class="container">
-        <div class="testimonial-items">
-            <div class="row align-center">
-                <div class="col-lg-7 testimonials-content">
-                    <div class="testimonials-carousel owl-carousel owl-theme">
-                        @foreach ($reviews as $review)
-                        <div class="item">
-                            <div class="info">
-                                <p>{{ $review->body }}</p>
-                                <div class="provider">
-                                    <div class="thumb">
-                                        <img src="{{ asset('assets/img/100x100.png') }}" alt="Author">
-                                    </div>
-                                    <div class="content">
-                                        <strong>{{ $review->name }}</strong>
-                                        @if ($review->position)
-                                        <span>/ {{ $review->position }}</span>
-                                        @endif
+<x-reviews></x-reviews>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="col-lg-5 info">
-                    <h2>{{ $reviewsText->getTranslatedAttribute('name') }}</h2>
-                    <p>{{ $reviewsText->getTranslatedAttribute('description') }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End testimonials Area -->
-
-<!-- Star testimonials Area
-============================================= -->
-<div class="new-partners-area default-padding-bottom py-5">
-    <div class="container">
-        <div class="d-flex flex-wrap justify-content-center">
-            @foreach ($partners as $partner)
-                <div class="new-partner-single text-center">
-                    <img src="{{ $partner->medium_img }}" alt="{{ $partner->getTranslatedAttribute('name') }}" class="img-fluid">
-                </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-<!-- End testimonials Area -->
+<x-partners></x-partners>
 
 @endsection

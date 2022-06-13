@@ -450,7 +450,6 @@ nav.navbar.bootsnav ul.nav > li > a {
     font-size: 14px;
     letter-spacing: 0.06em;
     padding: 35px 15px;
-    text-transform: uppercase;
     font-weight: 700;
 }
 
@@ -1494,7 +1493,6 @@ nav.navbar.bootsnav {
         font-size: 13px;
         letter-spacing: 0.06em;
         padding: 35px 15px;
-        text-transform: uppercase;
         font-weight: 700;
     }
     nav.navbar.bootsnav ul.nav > li > a.active {
@@ -1653,7 +1651,6 @@ nav.navbar.bootsnav {
         color: #333333;
         font-weight: 600;
         font-size: 12px;
-        text-transform: uppercase;
     }
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li:last-child > a {
         border-bottom: none;
@@ -2324,14 +2321,14 @@ nav.navbar.bootsnav {
     .top-bar-area .logo {
         display: none;
     }
-    .top-bar-area.shadow::after {
+    .top-bar-area.e-shadow::after {
         display: none;
     }
     .top-bar-area .info {
         text-align: center;
     }
-    nav.navbar.shadow.navbar-inverse.bootsnav.navbar-transparent.dark,
-    nav.navbar.shadow.bootsnav.navbar-transparent.dark {
+    nav.navbar.e-shadow.navbar-inverse.bootsnav.navbar-transparent.dark,
+    nav.navbar.e-shadow.bootsnav.navbar-transparent.dark {
         background-color: #ffffff !important;
         border-bottom: medium none navy;
     }

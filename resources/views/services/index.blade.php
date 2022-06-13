@@ -8,21 +8,26 @@
 
 @include('partials.page_top', ['title' => $page->getTranslatedAttribute('name')])
 
-<!-- Start Team Area
+<!-- Start Services Area
 ============================================= -->
-<div class="team-area py-5">
+<div class="thumb-services-area inc-thumbnail py-5 position-relative">
+    <!-- Shape -->
+    <div class="right-shape">
+        <img src="{{ asset('assets/img/shape/9.png') }}" alt="Shape">
+    </div>
+    <!-- Shape -->
     <div class="container">
-        <div class="team-items text-center">
+        <div class="services-items text-center">
             <div class="row">
-                @foreach ($employees as $employee)
-                <div class="single-item col-lg-4 col-md-6">
-                    @include('partials.employee_one')
+                @foreach ($services as $service)
+                <div class="col-lg-4 col-md-6 single-item">
+                    @include('partials.service_one')
                 </div>
                 @endforeach
             </div>
         </div>
     </div>
 </div>
-<!-- End Team Area -->
+<!-- End Services Area -->
 
 @endsection

@@ -8,12 +8,14 @@
 
 @include('partials.page_top', ['title' => $page->getTranslatedAttribute('name')])
 
-<div class="py-4">
+<div class="py-5">
     <div class="container">
         <div class="text-block">
             {!! $page->body !!}
         </div>
     </div>
+
+</div>
 
     @if ($page->id == 3)
         <x-principles></x-principles>
@@ -27,6 +29,9 @@
             </div>
         </div>
     @endcan
-</div>
+
+    <x-reviews></x-reviews>
+
+    <x-partners></x-partners>
 
 @endsection

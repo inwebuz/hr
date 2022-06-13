@@ -689,6 +689,7 @@ class DataRowsTableSeeder extends StandardSeeder
 
         $this->saveMainRows($dataType);
         $this->saveStandardRows($dataType, [], ['image']);
+        $this->saveSeoRows($dataType);
 
         $imageThumbs = [];
         foreach (Partner::$imgSizes as $key => $value) {
@@ -732,6 +733,7 @@ class DataRowsTableSeeder extends StandardSeeder
 
         $this->saveMainRows($dataType);
         $this->saveStandardRows($dataType, [], ['name', 'image', 'slug', 'body']);
+        $this->saveSeoRows($dataType);
 
         $imageThumbs = [];
         foreach (Employee::$imgSizes as $key => $value) {
@@ -763,6 +765,12 @@ class DataRowsTableSeeder extends StandardSeeder
                 'method' => 'hiddenRow',
             ],
             'images' => [
+                'method' => 'hiddenRow',
+            ],
+            'phone_number' => [
+                'method' => 'hiddenRow',
+            ],
+            'email' => [
                 'method' => 'hiddenRow',
             ],
         ];
@@ -2390,6 +2398,7 @@ class DataRowsTableSeeder extends StandardSeeder
 
         $this->saveMainRows($dataType);
         $this->saveStandardRows($dataType, [], ['image', 'body']);
+        $this->saveSeoRows($dataType);
 
         // specific rows
         $rows = [
@@ -2464,6 +2473,9 @@ class DataRowsTableSeeder extends StandardSeeder
                 'data' => [
                     'display_name' => __('seeders.data_rows.background'),
                 ],
+            ],
+            'order' => [
+                'method' => 'hiddenRow',
             ],
         ];
         $this->saveRows($dataType, $rows);

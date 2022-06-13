@@ -66,7 +66,7 @@
 </head>
 <body class="@yield('body_class')">
 
-    @include('partials.svg')
+    {{-- @include('partials.svg') --}}
 
     <x-header />
 

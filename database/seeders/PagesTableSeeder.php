@@ -81,7 +81,7 @@ class PagesTableSeeder extends Seeder
         $page = Page::factory()->create([
             'name' => 'Вакансии',
             'slug' => 'vacancies',
-            'order' => 80,
+            'order' => 60,
             'show_in' => 1,
         ]);
 
@@ -110,7 +110,7 @@ class PagesTableSeeder extends Seeder
 
         $page = Page::factory()->create([
             'name' => 'Карьера',
-            'slug' => 'vacancies',
+            'slug' => Str::slug('Карьера'),
             'order' => 80,
             'show_in' => 1,
         ]);

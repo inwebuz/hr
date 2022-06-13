@@ -455,6 +455,80 @@ $(function () {
         }
     });
 
+    /* cv form */
+    $(".cv-form").on("submit", function (e) {
+        e.preventDefault();
+        let form = $(this);
+        let formHideBlock = form.find(".form-hide-blocks");
+        let sendUrl = form.attr("action");
+        let formData = new FormData(this);
+        // console.log(this);return;
+        // console.log(formData);return;
+        let button = form.find("[type=submit]");
+        let message = "";
+        $.ajax({
+            url: sendUrl,
+            method: "post",
+            dataType: "json",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                // clear message
+                form.find(".form-result").empty();
+                // disabel send button
+                button
+                    .addClass("disabled")
+                    .prop("disabled", true)
+                    .append(spinnerHTML());
+            },
+        })
+            .done(function (data) {
+                // console.log(data);
+                form.find("input[type=text], input[type=email], textarea").val(
+                    ""
+                );
+                message = `<div class="alert alert-success">
+                            ${data.message}
+                            </div>`;
+                form.find(".form-result").html(message);
+                formHideBlock.addClass("d-none");
+                if (data.redirect_url) {
+                    setTimeout(function () {
+                        location.href = data.redirect_url;
+                    }, 500);
+                }
+                // setTimeout(function(){
+                //     location.reload();
+                // }, 1000);
+            })
+            .fail(function (data) {
+                // console.log(data);
+                if (data.status == 422) {
+                    let result = data.responseJSON;
+                    let messageContent = result.message + "<br>";
+                    for (let i in result.errors) {
+                        messageContent +=
+                            "<span>" + result.errors[i] + "</span><br>";
+                    }
+
+                    message = `<div class="alert alert-danger">
+                            ${messageContent}
+                            </div>`;
+                    form.find(".form-result").html(message);
+                }
+            })
+            .always(function () {
+                // enable button
+                button
+                    .removeClass("disabled")
+                    .prop("disabled", false)
+                    .find(".spinner").remove();
+                // refreshCaptcha();
+            });
+    });
+
     /* subscriber form */
     $(".subscriber-form").on("submit", function (e) {
         e.preventDefault();

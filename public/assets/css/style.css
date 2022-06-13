@@ -33,7 +33,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: normal;
+    font-weight: 600;
     line-height: 1.2;
     letter-spacing: 0;
     margin: 0;
@@ -369,13 +369,13 @@ input {
     color: #ffffff;
 }
 
-.shadow {
+.e-shadow {
     position: relative;
     z-index: 1;
     box-shadow: inherit !important;
 }
 
-.shadow.dark::after {
+.e-shadow.dark::after {
     background: #000000 none repeat scroll 0 0;
     content: "";
     height: 100%;
@@ -387,7 +387,7 @@ input {
     z-index: -1;
 }
 
-.shadow.dark-hard::after {
+.e-shadow.dark-hard::after {
     background: #000000 none repeat scroll 0 0;
     content: "";
     height: 100%;
@@ -399,7 +399,7 @@ input {
     z-index: -1;
 }
 
-.shadow.theme::after {
+.e-shadow.theme::after {
     background: #1273eb none repeat scroll 0 0;
     content: "";
     height: 100%;
@@ -411,7 +411,7 @@ input {
     z-index: -1;
 }
 
-.shadow.theme-hard::after {
+.e-shadow.theme-hard::after {
     background: #1273eb none repeat scroll 0 0;
     content: "";
     height: 100%;
@@ -658,7 +658,7 @@ a:active {
     transition: all 0.35s ease-in-out;
 }
 
-.shadow .btn.btn-theme.effect::before {
+.e-shadow .btn.btn-theme.effect::before {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -676,7 +676,7 @@ a:active {
     background: transparent;
 }
 
-.shadow .btn.btn-theme.effect:hover {
+.e-shadow .btn.btn-theme.effect:hover {
     border: 2px solid #ffffff;
     color: #232323;
     background: transparent;
@@ -721,7 +721,7 @@ a:active {
     transition: all 0.35s ease-in-out;
 }
 
-.torch-red .shadow .btn.btn-theme.effect::before {
+.torch-red .e-shadow .btn.btn-theme.effect::before {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -739,7 +739,7 @@ a:active {
     background: transparent;
 }
 
-.torch-red .shadow .btn.btn-theme.effect:hover {
+.torch-red .e-shadow .btn.btn-theme.effect:hover {
     border: 2px solid #ffffff;
     color: #ee2852;
     background: transparent;
@@ -1293,6 +1293,9 @@ button:focus {
     font-weight: 600;
     text-transform: uppercase;
 }
+.breadcrumb-area .breadcrumb li {
+    font-weight: 400;
+}
 
 /* ==============================================================
      # Banner
@@ -1476,7 +1479,7 @@ button:focus {
     opacity: 0;
 }
 
-.banner-area .carousel-control.shadow {
+.banner-area .carousel-control.e-shadow {
     background: transparent none repeat scroll 0 0;
     color: #ffffff;
     font-size: 20px;
@@ -1492,7 +1495,7 @@ button:focus {
     z-index: 1;
 }
 
-.banner-area .carousel-control.shadow::after {
+.banner-area .carousel-control.e-shadow::after {
     background: #1e2726 none repeat scroll 0 0;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -1536,7 +1539,7 @@ button:focus {
     opacity: 0.5;
 }
 
-.banner-area:hover .carousel-control.shadow.left {
+.banner-area:hover .carousel-control.e-shadow.left {
     left: 20px;
 }
 
@@ -1569,7 +1572,7 @@ button:focus {
     border-left: 6px solid #ffffff;
 } */
 
-.banner-area:hover .carousel-control.shadow.right {
+.banner-area:hover .carousel-control.e-shadow.right {
     right: 20px;
 }
 
@@ -4016,7 +4019,7 @@ button:focus {
     background: #ffffff;
 }
 
-.partner-area.shadow-less::after {
+.partner-area.e-shadow-less::after {
     display: none;
 }
 
@@ -4766,6 +4769,9 @@ button:focus {
     background: transparent;
     padding: 0;
 }
+.faq-content-area .faq-content .card .card-header h4.collapsed {
+    color: #000;
+}
 
 .faq-content-area .faq-content .card .card-header h4 {
     margin: 0;
@@ -4775,6 +4781,7 @@ button:focus {
     padding-right: 50px;
     padding-left: 0;
     cursor: pointer;
+    color: #08899E;
 }
 
 .faq-content-area .faq-content .card .card-body {
@@ -4785,7 +4792,7 @@ button:focus {
 }
 
 .faq-content-area .ask-question a {
-    color: #1273eb;
+    color: #08899E;
     text-decoration: underline;
 }
 
@@ -4818,7 +4825,7 @@ button:focus {
     content: "";
     height: 100%;
     width: 400%;
-    background: #1273eb;
+    background: #08899E;
     z-index: -1;
 }
 
@@ -4865,7 +4872,7 @@ button:focus {
     top: -2px;
     font-weight: 600;
     background: #ffffff;
-    color: #1273eb;
+    color: #08899E;
     font-size: 12px;
     height: 28px;
     width: 28px;
@@ -5453,6 +5460,7 @@ button:focus {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     font-size: 36px;
     font-weight: 600;
     color: #232323;
@@ -7594,8 +7602,11 @@ footer .footer-bottom-box::after {
 .text-green2 {
     color: #08899e !important;
 }
-.border-20-60 {
+.border-white-20-60 {
     border: 20px solid rgba(255, 255, 255, 0.6);
+}
+.border-gray-15 {
+    border: 15px solid #F3F5F5;
 }
 .bg-green2 {
     background-color: #c1e8ec !important;
@@ -7614,16 +7625,69 @@ footer .footer-bottom-box::after {
     font-weight: 600 !important;
 }
 
-.new-partner-single {}
+.new-partner-single {
+    margin-bottom: 20px;
+}
+.new-partner-single.new-partner-single-sm {
+    max-width: 45%;
+}
+@media screen and (min-width: 576px) {
+    .new-partner-single.new-partner-single-sm {
+        max-width: 30%;
+    }
+}
+@media screen and (min-width: 992px) {
+    .new-partner-single.new-partner-single-sm {
+        max-width: 215px;
+    }
+}
 .new-partner-single img {
     filter: grayscale(100%);
     opacity: 0.6;
     width: 234px;
     padding: 0 10px;
-    margin-bottom: 20px;
     transition: all 0.3s;
 }
 .new-partner-single img:hover {
     filter: grayscale(0%);
     opacity: 1;
+}
+.owl-theme.new-partners-slider .owl-dots .owl-dot {
+    vertical-align: middle;
+}
+.owl-theme.new-partners-slider .owl-dots .owl-dot span {
+    margin: 5px 9px;
+    width: 5px;
+    height: 5px;
+    background-color: #cecece;
+}
+.owl-theme.new-partners-slider .owl-dots .owl-dot.active span {
+    margin: 5px 9px;
+    width: 10px;
+    height: 10px;
+    outline: 5px solid #F5F5F5;
+}
+
+.rounded-xl {
+    border-radius: 20px;
+}
+
+.btn-primary {
+    border-color: #08899e;
+    background-color: #08899e;
+    box-shadow: none !important;
+}
+.btn-primary:not(:disabled):not(.disabled):focus,
+.btn-primary:not(:disabled):not(.disabled):hover,
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+    border-color: #006F80 !important;
+    background-color: #006F80 !important;
+}
+
+.form-control.form-control-primary {
+    box-shadow: none !important;
+    border-color: #EEF8FA;
+    background-color: #EEF8FA;
 }

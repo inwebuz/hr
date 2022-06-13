@@ -20,7 +20,7 @@ class PartnersTableSeeder extends Seeder
         DB::table('partners')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 12; $i++) {
             Partner::create([
                 'name' => $i,
                 'slug' => Str::slug($i),
@@ -28,6 +28,7 @@ class PartnersTableSeeder extends Seeder
                 'is_featured' => 1,
                 'status' => 1,
                 'order' => $i * 10,
+                'body' => 'Описание страницы ...',
             ]);
         }
 

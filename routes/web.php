@@ -10,6 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompareController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CvController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\HomeController;
@@ -167,20 +168,24 @@ Route::group(
 
     // vacancies
     Route::get('vacancies', [VacancyController::class, 'index'])->name('vacancies.index');
-    Route::get('vacancy-categories/{vacancyCategory}', [VacancyController::class, 'category'])->name('vacancies.category');
+    Route::get('vacancy-categories/{vacancyCategory}-{slug}', [VacancyController::class, 'category'])->name('vacancies.category');
     Route::get('vacancies/{vacancy}-{slug}', [VacancyController::class, 'show'])->name('vacancies.show');
+
+    // cv
+    Route::get('cvs', [CvController::class, 'index'])->name('cvs.index');
+    Route::post('cvs', [CvController::class, 'store'])->name('cvs.store');
 
     // services
     Route::get('services', [ServiceController::class, 'index'])->name('services.index');
-    Route::get('services/{vacancy}-{slug}', [ServiceController::class, 'show'])->name('services.show');
+    Route::get('services/{service}-{slug}', [ServiceController::class, 'show'])->name('services.show');
 
     // employees
     Route::get('employees', [EmployeeController::class, 'index'])->name('employees.index');
-    Route::get('employees/{vacancy}-{slug}', [EmployeeController::class, 'show'])->name('employees.show');
+    Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
 
     // partners
     Route::get('partners', [PartnerController::class, 'index'])->name('partners.index');
-    Route::get('partners/{vacancy}-{slug}', [PartnerController::class, 'show'])->name('partners.show');
+    Route::get('partners/{partner}-{slug}', [PartnerController::class, 'show'])->name('partners.show');
 
     // brand view
     Route::get('brands', [BrandController::class, 'index'])->name('brands.index');

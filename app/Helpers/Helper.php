@@ -120,6 +120,8 @@ class Helper
                     foreach ($vacancyCategories as $vacancyCategory) {
                         $item->addItem(new MenuItem(new LinkItem($vacancyCategory->getTranslatedAttribute('name'), $vacancyCategory->url)));
                     }
+                } elseif ($page->id == 11) {
+                    $item->addItem(new MenuItem(new LinkItem(__('main.vacancies'), route('vacancies.index'))));
                 }
                 if (!$subPages->isEmpty()) {
                     foreach ($subPages as $subPage) {

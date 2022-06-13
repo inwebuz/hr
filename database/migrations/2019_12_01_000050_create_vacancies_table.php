@@ -16,6 +16,7 @@ class CreateVacanciesTable extends Migration
     {
         Schema::create('vacancies', function (Blueprint $table) {
             $table->id();
+            $table->integer('order')->default(1);
             $table->unsignedBigInteger('vacancy_category_id')->nullable();
             $table->string('name');
             $table->string('location')->nullable();

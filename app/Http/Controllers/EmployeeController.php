@@ -24,59 +24,22 @@ class EmployeeController extends Controller
         return view('employees.index', compact('page', 'breadcrumbs', 'employees'));
     }
 
-    public function show(Request $request, Brand $brand, $slug)
+    public function show(Request $request, Employee $employee)
     {
         $locale = app()->getLocale();
         $breadcrumbs = new Breadcrumbs();
 
-        $brand->load('translations');
+        $employee->load('translations');
 
-        // check slug
-        if ($brand->getTranslatedAttribute('slug') != $slug) {
-            abort(404);
-        }
+        $otherEmployeesText = Helper::staticText('other_consultants', 300);
+        $otherEmployees = Employee::active()->where('id', '!=', $employee->id)->inRandomOrder()->withTranslation($locale)->take(3)->get();
 
-        $page = Page::where('slug', 'brands')->withTranslation($locale)->firstOrFail();
+        $page = Page::where('slug', 'employees')->withTranslation($locale)->firstOrFail();
         $breadcrumbs->addItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url));
 
-        // $currentRegion = Helper::getCurrentRegion();
-        // $warehouseIDs = $currentRegion->warehouses->pluck('id')->toArray();
+        // $breadcrumbs->addItem(new LinkItem($employee->full_name, $employee->url, LinkItem::STATUS_INACTIVE));
 
-        // quantity per page
-        $quantityPerPage = $this->quantityPerPage;
-        $quantity = $request->input('quantity', $this->quantityPerPage[0]);
-        if (!in_array($quantity, $this->quantityPerPage)) {
-            $quantity = $this->quantityPerPage[0];
-        }
-
-        // sort - order
-        $sorts = $this->sorts;
-        $sortCurrent = $request->input('sort', '');
-        if (empty($sortCurrent) || !in_array($sortCurrent, $sorts)) {
-            $sortCurrent = $sorts[0];
-        }
-        $sortRaw = explode('-', $sortCurrent);
-        $sort = $sortRaw[0];
-        $order = $sortRaw[1];
-
-        $query = $brand->products()
-            // ->orderBy('products.' . $sort, $order)
-            ->active()
-            ->with(['categories' => function($query) use ($locale) {
-                $query->withTranslation($locale);
-            }])
-            ->withTranslation($locale)
-            ->orderBy('products.created_at');
-
-        $productAllQuantity = $query->count();
-
-        // get query products paginate
-        $products = $query->paginate($quantity);
-        $links = $products->links('partials.pagination');
-
-        $breadcrumbs->addItem(new LinkItem($brand->getTranslatedAttribute('name'), $brand->url, LinkItem::STATUS_INACTIVE));
-
-        return view('brands.show', compact('page', 'breadcrumbs', 'products', 'productAllQuantity', 'brand', 'links', 'quantity', 'quantityPerPage', 'sorts', 'sortCurrent'));
+        return view('employees.show', compact('page', 'breadcrumbs', 'employee', 'otherEmployeesText', 'otherEmployees'));
     }
 
 }

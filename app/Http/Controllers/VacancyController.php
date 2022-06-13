@@ -2,31 +2,54 @@
 
 namespace App\Http\Controllers;
 
-use App\Brand;
-use App\Category;
 use App\Helpers\Breadcrumbs;
 use App\Helpers\Helper;
 use App\Helpers\LinkItem;
 use App\Page;
-use App\Product;
+use App\Vacancy;
+use App\VacancyCategory;
 use Illuminate\Http\Request;
 
 class VacancyController extends Controller
 {
-    /**
-     * show products per page values
-     */
-    public $quantityPerPage = [32, 64, 128];
-    public $sorts = ['created_at-desc', 'price-asc', 'price-desc'];
-
     public function index()
     {
         $locale = app()->getLocale();
         $breadcrumbs = new Breadcrumbs();
-        $page = Page::where('slug', 'brands')->withTranslation($locale)->firstOrFail();
+        $page = Page::where('slug', 'vacancies')->withTranslation($locale)->firstOrFail();
         $breadcrumbs->addItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url, LinkItem::STATUS_INACTIVE));
-        $brands = Brand::active()->withTranslation($locale)->get();
-        return view('brands.index', compact('page', 'breadcrumbs', 'brands'));
+        $vacancyCategories = VacancyCategory::active()->orderBy('order')->with(['vacancies' => function($q){
+            $q->select(['id'])->active();
+        }])->withTranslation($locale)->get();
+        $vacanciesQuantity = Vacancy::active()->count();
+        return view('vacancies.index', compact('page', 'breadcrumbs', 'vacancyCategories', 'vacanciesQuantity'));
+    }
+
+    public function category(Request $request, VacancyCategory $vacancyCategory, $slug)
+    {
+        $locale = app()->getLocale();
+        $breadcrumbs = new Breadcrumbs();
+
+        $vacancyCategory->load('translations');
+
+        // check slug
+        if ($vacancyCategory->getTranslatedAttribute('slug') != $slug) {
+            abort(404);
+        }
+
+        $page = Page::where('slug', 'vacancies')->withTranslation($locale)->firstOrFail();
+        $breadcrumbs->addItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url));
+
+        $query = $vacancyCategory->vacancies()
+            ->active()
+            ->withTranslation($locale)
+            ->orderBy('vacancies.created_at');
+
+        // get query products paginate
+        $vacancies = $query->paginate(50);
+        $links = $vacancies->links('partials.pagination');
+
+        return view('vacancies.category', compact('page', 'breadcrumbs', 'vacancies', 'vacancyCategory', 'links'));
     }
 
     public function show(Request $request, Brand $brand, $slug)

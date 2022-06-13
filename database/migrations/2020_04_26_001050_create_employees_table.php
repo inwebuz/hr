@@ -21,6 +21,8 @@ class CreateEmployeesTable extends Migration
             $table->string('patronymic')->nullable();
             $table->string('slug')->nullable();
             $table->string('position')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone_number')->nullable();
             $table->text('image')->nullable();
             $table->text('background')->nullable();
             $table->text('images')->nullable();

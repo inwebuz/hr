@@ -60,6 +60,12 @@ class StaticTextsTableSeeder extends Seeder
         ]);
 
         StaticText::factory()->create([
+            'name' => 'Другие консультанты',
+            'description' => 'Наши опытные консультанты предоставят вам исчерпывающую информацию и помогут подобрать именно то что вы ищите',
+            'key' => 'other_consultants',
+        ]);
+
+        StaticText::factory()->create([
             'name' => 'Написать нам',
             'description' => 'Вы можете отправить нам ваше резюме, заполнив форму',
             'key' => 'write_us',
