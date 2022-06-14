@@ -20,12 +20,15 @@ class VacanciesTableSeeder extends Seeder
         DB::table('vacancies')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        for ($i = 1; $i <= 100; $i++) {
+        for ($i = 0; $i < 50; $i++) {
+            $vacancyNames = ['HR Generalist', 'Менеджер', 'Специалист по логистике', 'Водитель'];
+            $vacancyName = $vacancyNames[$i % 4];
+            $vacancyCategoryId = mt_rand(1, 13);
             Vacancy::create([
-                'name' => 'Водитель',
-                'slug' => Str::slug('Водитель'),
-                'image' => 'vacancies/' . $i . '.jpg',
-                'vacancy_category_id' => mt_rand(1, 13),
+                'name' => $vacancyName,
+                'slug' => Str::slug($vacancyName),
+                // 'image' => 'vacancies/' . $i . '.jpg',
+                'vacancy_category_id' => $vacancyCategoryId,
                 'status' => 1,
                 'description' => 'Требуется водитель на автомобиль Foton (пассажирский), проживающий в районе (40 лет победы, Кадышева, карасу 6) с далеких районов просьба не беспокоить. Водитель требуется для Развозки молочных продуктов и напитков.',
                 'body' => '<h4>Требования:</h4>

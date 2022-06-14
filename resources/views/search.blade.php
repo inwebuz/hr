@@ -6,24 +6,16 @@
 
 @section('content')
 
-<main class="main">
+@include('partials.page_top', ['title' => __('main.search_results')])
 
-    <section class="content-header">
-        <div class="container">
-            @include('partials.breadcrumbs')
-        </div>
-    </section>
-
-    <div class="container py-4 py-lg-5">
-
-        <h1>{{ __('main.search_results') }}</h1>
-
+<div class="py-5">
+    <div class="container">
         <form action="{{ route('search') }}" class="search-form">
 
             <div class="input-group input-group-lg mb-4">
                 <input type="text" name="q" class="form-control" placeholder="{{ __('main.search') }}" value="{{ $q }}">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit">
+                    <button class="btn btn-primary" type="submit">
                         {{ __('main.search') }}
                     </button>
                 </div>
@@ -31,11 +23,17 @@
 
             @if(!$searches->isEmpty())
 
-                <div class="row products-wrap">
+                <div class="">
                     @foreach ($searches as $search)
-                        <div class="col-lg-20 col-12 product-card__parent mb-4">
-                            @include('partials.product_one', ['product' => $search->searchable])
-                        </div>
+                        @if ($search->searchable)
+                        <a href="{{ $search->searchable->url }}" class="d-block mb-4">
+                            <h4 class="font-weight-bold mb-1 text-dark">{{ $search->searchable->getTranslatedAttribute('name') ?: $search->searchable->full_name }}</h4>
+                            @if ($search->searchable->getTranslatedAttribute('description'))
+                                <p class="text-gray">{{ $search->searchable->getTranslatedAttribute('description') }}</p>
+                            @endif
+                        </a>
+                        @endif
+
                     @endforeach
                 </div>
 
@@ -45,13 +43,12 @@
 
             @else
                 <div class="lead">
-                    {{ __('main.no_products') }}
+                    {{ __('main.nothing_found') }}
                 </div>
             @endif
         </form>
-
-
     </div>
-</main>
+</div>
+
 
 @endsection

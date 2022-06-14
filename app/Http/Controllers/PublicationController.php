@@ -32,13 +32,13 @@ class PublicationController extends Controller
 
         $breadcrumbs = new Breadcrumbs();
 
-        if ($page->parent_id) {
-            $parentPage = $page->parent;
-            if ($parentPage) {
-                $parentPage->load('translations');
-                $breadcrumbs->addItem(new LinkItem($parentPage->getTranslatedAttribute('name'), $parentPage->url));
-            }
-        }
+        // if ($page->parent_id) {
+        //     $parentPage = $page->parent;
+        //     if ($parentPage) {
+        //         $parentPage->load('translations');
+        //         $breadcrumbs->addItem(new LinkItem($parentPage->getTranslatedAttribute('name'), $parentPage->url));
+        //     }
+        // }
 
         // $siblingPages = Helper::siblingPages($page);
 
@@ -63,13 +63,13 @@ class PublicationController extends Controller
         //     abort(404);
         // }
 
-        $publications = $query->paginate(12);
+        $publications = $query->paginate(6);
 
         //$links = $publications->appends(['start' => Helper::formatDate($periodStart), 'end' => Helper::formatDate($periodEnd)])->links('partials.pagination');
         $links = $publications->links('partials.pagination');
 
-        // return view('publications.news', compact('breadcrumbs', 'page', 'paginationPage', 'publications', 'links'));
-        return view('publications.publications', compact('breadcrumbs', 'page', 'paginationPage', 'publications', 'links'));
+        return view('publications.news', compact('breadcrumbs', 'page', 'paginationPage', 'publications', 'links'));
+        // return view('publications.publications', compact('breadcrumbs', 'page', 'paginationPage', 'publications', 'links'));
     }
 
     public function articles()
@@ -390,6 +390,9 @@ class PublicationController extends Controller
 
         $publication->increment('views');
 
+        $prev = $publication->active()->where('publications.created_at', '<', $publication->created_at)->withTranslation($locale)->orderBy('publications.created_at', 'desc')->first();
+        $next = $publication->active()->where('publications.created_at', '>', $publication->created_at)->withTranslation($locale)->orderBy('publications.created_at', 'asc')->first();
+
         /* $reviewQuery = $publication->reviews()->active();
         $reviews = $reviewQuery->latest()->take(20)->get();
         $reviewsCount = $reviewQuery->count();
@@ -405,10 +408,9 @@ class PublicationController extends Controller
         $microdata->aggregateRating($aggregateRating);
         $microdata = $microdata->toScript(); */
 
-        $breadcrumbs->addItem(new LinkItem($publication->getTranslatedAttribute('name'), $publication->url, LinkItem::STATUS_INACTIVE));
+        // $breadcrumbs->addItem(new LinkItem($publication->getTranslatedAttribute('name'), $publication->url, LinkItem::STATUS_INACTIVE));
 
-        // return view('publications.show', compact('breadcrumbs', 'publication', 'page', 'reviews', 'microdata'));
-        return view('publications.show', compact('breadcrumbs', 'publication', 'page'));
+        return view('publications.show', compact('breadcrumbs', 'publication', 'page', 'prev', 'next'));
     }
 
     public function print(Publication $publication)

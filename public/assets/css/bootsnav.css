@@ -376,7 +376,7 @@ nav.navbar .quote-btn a {
     display: inline-block;
     font-size: 12px;
     font-weight: 600;
-    border: 2px solid #1273eb;
+    border: 2px solid #08899E;
     text-transform: uppercase;
     top: -2px;
     letter-spacing: 0.6px;
@@ -415,7 +415,7 @@ nav.bootsnav.navbar-sidebar.bg-dark ul.nav li.dropdown h6 {
 }
 
 .attr-nav ul.cart-list li.total a {
-    background: #1273eb none repeat scroll 0 0;
+    background: #08899E none repeat scroll 0 0;
     display: inline-block;
     font-weight: 600 !important;
     padding: 12px 15px;
@@ -423,7 +423,7 @@ nav.bootsnav.navbar-sidebar.bg-dark ul.nav li.dropdown h6 {
 }
 
 .attr-nav ul.cart-list li.total a:hover {
-    background: #1273eb none repeat scroll 0 0 !important;
+    background: #08899E none repeat scroll 0 0 !important;
     color: #ffffff !important;
 }
 
@@ -447,7 +447,7 @@ nav.bg-dark.navbar.bootsnav {
 nav.navbar.bootsnav ul.nav > li > a {
     color: #173e7f;
     background-color: transparent !important;
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: 0.06em;
     padding: 35px 15px;
     font-weight: 700;
@@ -601,7 +601,7 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a .badge {
     padding: 3px 10px;
     font-weight: 600;
     margin-left: 4px;
-    background: #1273eb;
+    background: #08899E;
     color: #ffffff;
     border-radius: 5px;
 }
@@ -663,7 +663,7 @@ nav.navbar.attr-border .attr-nav {
     font-size: 40px;
     margin-right: 20px;
     display: inline-block;
-    background: linear-gradient(to right, #1273eb, #4ac4f3, #1273eb);
+    background: linear-gradient(to right, #08899E, #4ac4f3, #08899E);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
@@ -776,7 +776,7 @@ nav.navbar.attr-border .attr-nav::before {
 }
 
 .attr-nav > ul > li > a span.badge {
-    background-color: #1273eb;
+    background-color: #08899E;
     color: #ffffff;
     height: 20px;
     line-height: 20px;
@@ -1067,7 +1067,7 @@ body.on-side .body-overlay {
 }
 
 .navbar .side .widget li a:hover {
-    color: #1273eb;
+    color: #08899E;
 }
 
 .torch-red .navbar .side .widget li a:hover {
@@ -1172,7 +1172,7 @@ nav.navbar.bootsnav ul.nav > li.dropdown > a.dropdown-toggle::after {
     display: inline-block;
     font-size: 30px;
     margin-right: 15px;
-    color: #1273eb;
+    color: #08899E;
 }
 
 .torch-red .side .widget.address ul li i {
@@ -1229,7 +1229,7 @@ nav.navbar.bootsnav ul.nav > li.dropdown > a.dropdown-toggle::after {
     border: none;
     background: #ffffff;
     border-radius: 5px;
-    color: #1273eb;
+    color: #08899E;
     font-size: 30px;
 }
 
@@ -1270,7 +1270,7 @@ nav.navbar.bootsnav ul.nav > li.dropdown > a.dropdown-toggle::after {
 }
 
 .side .widget ul.link li a {
-    color: #1273eb;
+    color: #08899E;
     display: block;
     font-weight: bold;
     letter-spacing: 1px;
@@ -1315,7 +1315,7 @@ nav.navbar.bootsnav .share ul > li > a {
 }
 
 nav.navbar.bootsnav .share.dark ul > li > a {
-    background-color: #1273eb;
+    background-color: #08899E;
     color: #ffffff;
 }
 
@@ -1324,7 +1324,7 @@ nav.navbar.bootsnav.color-yellow .share.dark ul > li > a {
 }
 
 nav.navbar.bootsnav .share ul > li > a:hover {
-    color: #1273eb;
+    color: #08899E;
 }
 
 .torch-red nav.navbar.bootsnav .share ul > li > a:hover {
@@ -1490,19 +1490,17 @@ nav.navbar.bootsnav {
         margin-top: 0;
     }
     nav.navbar.bootsnav ul.nav > li > a {
-        font-size: 13px;
-        letter-spacing: 0.06em;
         padding: 35px 15px;
         font-weight: 700;
     }
     nav.navbar.bootsnav ul.nav > li > a.active {
-        color: #1273eb;
+        color: #08899E;
     }
     .torch-red nav.navbar.bootsnav ul.nav > li > a.active {
         color: #ee2852;
     }
     nav.navbar.bootsnav.active-bg ul.nav > li > a.active {
-        background: #1273eb !important;
+        background: #08899E !important;
     }
     .torch-red nav.navbar.bootsnav.active-bg ul.nav > li > a.active {
         background: #ee2852 !important;
@@ -1518,7 +1516,7 @@ nav.navbar.bootsnav {
         content: "";
         height: 0px;
         width: 80%;
-        border-bottom: 3px solid #1273eb;
+        border-bottom: 3px solid #08899E;
     }
     .torch-red
         nav.navbar.bootsnav.active-border
@@ -1550,7 +1548,7 @@ nav.navbar.bootsnav {
         border-radius: 30px;
     }
     nav.navbar.bootsnav ul.nav > li.active > a {
-        color: #1273eb;
+        color: #08899E;
         border-radius: 30px;
     }
     .torch-red nav.navbar.bootsnav ul.nav > li.active > a {
@@ -1568,7 +1566,7 @@ nav.navbar.bootsnav {
         margin-right: 5px;
     }
     nav.bootsnav.navbar-sidebar ul.nav > li.active > a i {
-        background: #1273eb;
+        background: #08899E;
         color: #ffffff;
     }
     .torch-red nav.bootsnav.navbar-sidebar ul.nav > li.active > a i {
@@ -1579,7 +1577,7 @@ nav.navbar.bootsnav {
     }
     nav.navbar.bootsnav.active-full ul.nav > li > a.active,
     nav.navbar.bootsnav.active-full ul.nav > li > a:hover {
-        background: #1273eb none repeat scroll 0 0 !important;
+        background: #08899E none repeat scroll 0 0 !important;
         color: #ffffff;
     }
     .torch-red nav.navbar.bootsnav.active-full ul.nav > li > a.active,
@@ -1594,7 +1592,7 @@ nav.navbar.bootsnav {
         color: #ffffff;
     }
     nav.navbar.bootsnav ul.nav > li > a:hover {
-        color: #1273eb;
+        color: #08899E;
     }
     .torch-red nav.navbar.bootsnav ul.nav > li > a:hover {
         color: #ee2852;
@@ -1671,7 +1669,7 @@ nav.navbar.bootsnav {
         ul.dropdown-menu
         li
         a:hover {
-        color: #1273eb;
+        color: #08899E;
     }
     .torch-red
         nav.navbar.bootsnav
@@ -1691,7 +1689,7 @@ nav.navbar.bootsnav {
         color: #ff9800;
     }
     nav.navbar.bootsnav ul.navbar-left li.dropdown ul.dropdown-menu li a:hover {
-        color: #1273eb;
+        color: #08899E;
     }
     .torch-red
         nav.navbar.bootsnav
@@ -1815,7 +1813,7 @@ nav.navbar.bootsnav {
         ul.menu-col
         li
         a:hover {
-        color: #1273eb;
+        color: #08899E;
     }
     nav.navbar.bootsnav.color-yellow
         ul.dropdown-menu.megamenu-content
@@ -2062,7 +2060,7 @@ nav.navbar.bootsnav {
         color: #ffffff;
     }
     nav.bootsnav.navbar-sidebar ul.nav > li > a:hover {
-        color: #1273eb;
+        color: #08899E;
     }
     .torch-red nav.bootsnav.navbar-sidebar ul.nav > li > a:hover {
         color: #ee2852;
@@ -2206,9 +2204,9 @@ nav.navbar.bootsnav {
         display: inline-block;
         background: linear-gradient(
             to right,
-            #1273eb,
+            #08899E,
             #4ac4f3,
-            #1273eb
+            #08899E
         ) !important;
         -webkit-background-clip: text !important;
         -moz-background-clip: text !important;
@@ -2367,7 +2365,7 @@ nav.navbar.bootsnav {
     }
     nav.navbar.bootsnav ul.nav li.dropdown > ul.dropdown-menu li:hover > a {
         background-color: transparent !important;
-        color: #1273eb !important;
+        color: #08899E !important;
     }
     .torch-red
         nav.navbar.bootsnav
@@ -2879,7 +2877,7 @@ nav.navbar-transparent .attr-nav > ul > li.contact {
     font-size: 25px;
     position: relative;
     float: left;
-    color: #1273eb;
+    color: #08899E;
     top: 3px;
 }
 
@@ -2894,7 +2892,7 @@ nav.navbar-transparent .attr-nav > ul > li.contact i {
 .attr-nav > ul.link > li > a {
     padding: 4px 0 4px 10px !important;
     font-size: 18px;
-    color: #1273eb;
+    color: #08899E;
 }
 
 .torch-red .attr-nav > ul.link > li > a {
@@ -2926,7 +2924,7 @@ nav.navbar-transparent .attr-nav > ul > li.contact i {
 }
 
 .attr-nav.menu li:last-child a {
-    background: #1273eb none repeat scroll 0 0;
+    background: #08899E none repeat scroll 0 0;
     border-radius: 30px;
     color: #ffffff !important;
     padding: 5px 20px !important;

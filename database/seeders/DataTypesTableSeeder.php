@@ -11,7 +11,6 @@ use App\Brand;
 use App\BrandCategoryText;
 use App\Category;
 use App\Company;
-use App\CV;
 use App\Employee;
 use App\FixedCompany;
 use App\Gallery;
@@ -24,6 +23,7 @@ use App\Http\Controllers\Voyager\VoyagerUserController;
 use App\Http\Controllers\Voyager\VoyagerRoleController;
 use App\Http\Controllers\Voyager\VoyagerSubscriberController;
 use App\InstallmentPlan;
+use App\Models\Cv;
 use App\News;
 use App\Notification;
 use App\Order;
@@ -52,6 +52,7 @@ use App\Subscriber;
 use App\User;
 use App\UserApplication;
 use App\Vacancy;
+use App\VacancyCategory;
 use App\Video;
 use App\Warehouse;
 use Illuminate\Database\Seeder;
@@ -280,7 +281,7 @@ class DataTypesTableSeeder extends Seeder
                 'display_name_singular' => __('seeders.data_types.vacancy_category.singular'),
                 'display_name_plural'   => __('seeders.data_types.vacancy_category.plural'),
                 'icon'                  => 'voyager-categories',
-                'model_name'            => Gender::class,
+                'model_name'            => VacancyCategory::class,
             ],
             [
                 'slug'                  => 'vacancies',
@@ -289,14 +290,16 @@ class DataTypesTableSeeder extends Seeder
                 'display_name_plural'   => __('seeders.data_types.vacancy.plural'),
                 'icon'                  => 'voyager-news',
                 'model_name'            => Vacancy::class,
+                'server_side'           => 1,
             ],
             [
-                'slug'                  => 'c_v_s',
-                'name'                  => 'c_v_s',
-                'display_name_singular' => __('seeders.data_types.c_v.singular'),
-                'display_name_plural'   => __('seeders.data_types.c_v.plural'),
+                'slug'                  => 'cvs',
+                'name'                  => 'cvs',
+                'display_name_singular' => __('seeders.data_types.cv.singular'),
+                'display_name_plural'   => __('seeders.data_types.cv.plural'),
                 'icon'                  => 'voyager-file-text',
-                'model_name'            => CV::class,
+                'model_name'            => Cv::class,
+                'server_side'           => 1,
             ],
             [
                 'slug'                  => 'galleries',

@@ -34,11 +34,12 @@ class ContactController extends Controller
     public function index()
     {
         $locale = app()->getLocale();
-        $page = Page::where('id', 2)->withTranslation($locale)->firstOrFail(); // contacts page
+        $page = Page::where('slug', 'contacts')->withTranslation($locale)->firstOrFail(); // contacts page
         $breadcrumbs = new Breadcrumbs();
         $breadcrumbs->addItem(new LinkItem(__('main.nav.contacts'), route('contacts'), LinkItem::STATUS_INACTIVE));
         $address = Helper::staticText('contact_address', 300)->description ?? '';
-        return view('contacts', compact('breadcrumbs', 'page', 'address'));
+        $ourContacts = Helper::staticText('our_contacts', 300);
+        return view('contacts', compact('breadcrumbs', 'page', 'address', 'ourContacts'));
     }
 
     /**
@@ -48,10 +49,10 @@ class ContactController extends Controller
      */
     public function send(Request $request)
     {
-        $captchaKey = $request->input('captcha_key', '');
+        // $captchaKey = $request->input('captcha_key', '');
         $data = $request->validate([
-            'captcha_key' => 'required',
-            'captcha' => 'required|captcha_api:' . $captchaKey . ',flat',
+            // 'captcha_key' => 'required',
+            // 'captcha' => 'required|captcha_api:' . $captchaKey . ',flat',
             'name' => 'required',
             // 'email' => 'required',
             'phone' => 'required',

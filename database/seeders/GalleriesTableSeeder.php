@@ -25,6 +25,8 @@ class GalleriesTableSeeder extends Seeder
         Gallery::create([
             'name' => 'О нас',
             'slug' => Str::slug('О нас'),
+            'images' => '["galleries/01.jpg","galleries/02.jpg","galleries/03.jpg","galleries/04.jpg","galleries/05.jpg","galleries/06.jpg"]',
+            'status' => 1,
         ]);
 
     }

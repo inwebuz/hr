@@ -1,16 +1,17 @@
 @extends('layouts.app')
 
-@section('seo_title', $service->getTranslatedAttribute('seo_title') ?: $service->getTranslatedAttribute('name'))
-@section('meta_description', $service->getTranslatedAttribute('meta_description'))
-@section('meta_keywords', $service->getTranslatedAttribute('meta_keywords'))
+@section('seo_title', $vacancy->getTranslatedAttribute('seo_title') ?: $vacancy->getTranslatedAttribute('name'))
+@section('meta_description', $vacancy->getTranslatedAttribute('meta_description'))
+@section('meta_keywords', $vacancy->getTranslatedAttribute('meta_keywords'))
 
 @section('content')
-@include('partials.page_top', ['title' => $service->getTranslatedAttribute('name')])
+
+@include('partials.page_top', ['title' => $vacancy->getTranslatedAttribute('name')])
 
 <div class="py-5">
     <div class="container">
         <div class="text-block">
-            {!! $service->body !!}
+            {!! $vacancy->body !!}
         </div>
     </div>
 </div>

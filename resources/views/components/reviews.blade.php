@@ -2,7 +2,7 @@
 ============================================= -->
 <div class="testimonials-area bg-green2 default-padding bottom-less position-relative">
     <!-- Fixed Shape -->
-    <div class="fixed-shape" style="background-image: url(assets/img/shape/10-red.png);"></div>
+    <div class="fixed-shape" style="background-image: url({{ asset('assets/img/shape/10-primary.png') }});"></div>
     <!-- End Fixed Shape -->
     <div class="container">
         <div class="testimonial-items">
@@ -14,9 +14,9 @@
                             <div class="info">
                                 <p>{{ $review->body }}</p>
                                 <div class="provider">
-                                    <div class="thumb">
+                                    {{-- <div class="thumb">
                                         <img src="{{ asset('assets/img/100x100.png') }}" alt="Author">
-                                    </div>
+                                    </div> --}}
                                     <div class="content">
                                         <strong>{{ $review->name }}</strong>
                                         @if ($review->position)

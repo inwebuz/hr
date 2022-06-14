@@ -413,10 +413,11 @@ class DataRowsTableSeeder extends StandardSeeder
         // specific rows
         $rows = [
             'image_uz' => [
-                'method' => 'imageRow',
+                'method' => 'hiddenRow',
+                // 'method' => 'imageRow',
                 'data' => [
                     'display_name' => __('seeders.data_rows.image_uz'),
-                    'details' => $this->image(1400),
+                    // 'details' => $this->image(1400),
                 ],
             ],
             'type' => [
@@ -429,19 +430,22 @@ class DataRowsTableSeeder extends StandardSeeder
                 ],
             ],
             'text_color' => [
-                'method' => 'colorRow',
+                'method' => 'hiddenRow',
+                // 'method' => 'colorRow',
                 'data' => [
                     'display_name' => 'Цвет текста',
                 ],
             ],
             'description_top' => [
-                'method' => 'textAreaRow',
+                'method' => 'hiddenRow',
+                // 'method' => 'textAreaRow',
                 'data' => [
                     'display_name' => 'Верхнее короткое описание',
                 ],
             ],
             'description_bottom' => [
-                'method' => 'textAreaRow',
+                'method' => 'hiddenRow',
+                // 'method' => 'textAreaRow',
                 'data' => [
                     'display_name' => 'Нижнее короткое описание',
                 ],
@@ -500,14 +504,14 @@ class DataRowsTableSeeder extends StandardSeeder
                     'delete' => 1,
                 ],
             ],
-            'product_belongsto_category_relationship' => [
-                'method' => 'relationshipRow',
-                'data'   => [
-                    'display_name' => __('seeders.data_rows.category'),
-                    'details' => $this->relationship(Category::class, 'categories', 'belongsTo', 'category_id', 'id', 'full_name'),
-                    'browse' => 1,
-                ],
-            ],
+            // 'product_belongsto_category_relationship' => [
+            //     'method' => 'relationshipRow',
+            //     'data'   => [
+            //         'display_name' => __('seeders.data_rows.category'),
+            //         'details' => $this->relationship(Category::class, 'categories', 'belongsTo', 'category_id', 'id', 'full_name'),
+            //         'browse' => 1,
+            //     ],
+            // ],
             'image_mobile' => [
                 'method' => 'hiddenRow',
             ],
@@ -746,6 +750,27 @@ class DataRowsTableSeeder extends StandardSeeder
 
         // specific rows
         $rows = [
+            'last_name' => [
+                'method' => 'textRow',
+                'data' => [
+                    'display_name' => __('seeders.data_rows.last_name'),
+                    'browse' => 1,
+                ],
+            ],
+            'first_name' => [
+                'method' => 'textRow',
+                'data' => [
+                    'display_name' => __('seeders.data_rows.first_name'),
+                    'browse' => 1,
+                ],
+            ],
+            'patronymic' => [
+                'method' => 'hiddenRow',
+                'data' => [
+                    'display_name' => __('seeders.data_rows.patronymic'),
+                    'browse' => 1,
+                ],
+            ],
             'image' => [
                 'method' => 'imageRow',
                 'data' => [
@@ -2465,7 +2490,7 @@ class DataRowsTableSeeder extends StandardSeeder
                     'display_name' => __('seeders.data_rows.salary_from'),
                 ],
             ],
-            'images' => [
+            'image' => [
                 'method' => 'hiddenRow',
             ],
             'background' => [
@@ -2473,6 +2498,9 @@ class DataRowsTableSeeder extends StandardSeeder
                 'data' => [
                     'display_name' => __('seeders.data_rows.background'),
                 ],
+            ],
+            'images' => [
+                'method' => 'hiddenRow',
             ],
             'order' => [
                 'method' => 'hiddenRow',

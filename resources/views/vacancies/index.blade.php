@@ -10,7 +10,7 @@
 
 <!-- Start Career
 ============================================= -->
-<div class="earna-career py-5 bg-green2">
+<div class="earna-career py-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

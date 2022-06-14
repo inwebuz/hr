@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Employee;
 use App\Helpers\Breadcrumbs;
 use App\Helpers\Helper;
 use App\Helpers\LinkItem;
@@ -11,8 +12,13 @@ use App\Http\Resources\BrandResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ProductResource;
 use App\Page;
+use App\Partner;
 use App\Product;
+use App\Publication;
 use App\Search;
+use App\Service;
+use App\Vacancy;
+use App\VacancyCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
@@ -37,7 +43,18 @@ class SearchController extends Controller
                 ->whereRaw("MATCH(body) AGAINST('" . $q . "' IN BOOLEAN MODE)")
                 ->whereHasMorph(
                     'searchable',
-                    [Product::class, Category::class, Brand::class],
+                    [
+                        // Product::class,
+                        // Category::class,
+                        // Brand::class,
+                        Vacancy::class,
+                        VacancyCategory::class,
+                        Page::class,
+                        Publication::class,
+                        Service::class,
+                        Employee::class,
+                        Partner::class,
+                    ],
                     function ($q1) {
                         $q1->active();
                     }
@@ -46,11 +63,23 @@ class SearchController extends Controller
                     $q1->withTranslation($locale);
                 }]);
             $count = $query->count();
+
             if ($count == 0) {
                 $query = Search::where('body', 'like', '%' . $q . '%')
                     ->whereHasMorph(
                         'searchable',
-                        [Product::class, Category::class, Brand::class],
+                        [
+                            // Product::class,
+                            // Category::class,
+                            // Brand::class,
+                            Vacancy::class,
+                            VacancyCategory::class,
+                            Page::class,
+                            Publication::class,
+                            Service::class,
+                            Employee::class,
+                            Partner::class,
+                        ],
                         function ($q1) {
                             $q1->active();
                         }
@@ -90,10 +119,10 @@ class SearchController extends Controller
                 }
             } else {
                 // only products
-                $query->where('searchable_type', Product::class);
+                // $query->where('searchable_type', Product::class);
 
                 // get searches
-                $searches = $query->paginate(30);
+                $searches = $query->paginate(10);
             }
         }
 

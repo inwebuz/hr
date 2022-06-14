@@ -128,16 +128,16 @@ class Banner extends Model
             // self::TYPE_HOME_2 => 'Главная 2',
             // self::TYPE_HOME_3 => 'Главная 3',
             // self::TYPE_LINE_1 => 'Полоска 1 (1390x130)',
-            self::TYPE_MIDDLE_1 => 'Середина 1 (448x215)',
-            self::TYPE_MIDDLE_2 => 'Середина 2 (448x215)',
-            self::TYPE_MIDDLE_3 => 'Середина 3 (448x215)',
+            // self::TYPE_MIDDLE_1 => 'Середина 1 (448x215)',
+            // self::TYPE_MIDDLE_2 => 'Середина 2 (448x215)',
+            // self::TYPE_MIDDLE_3 => 'Середина 3 (448x215)',
             // self::TYPE_MOBILE_MENU => 'Мобильное меню',
             // self::TYPE_SIDEBAR_1 => 'Левая колонка 1 (382x534)',
             // self::TYPE_SIDEBAR_2 => 'Левая колонка 2 (382x534)',
             // self::TYPE_MENU_CATEGORY => 'Категории в меню (360x440)',
-            self::TYPE_MIDDLE_SLIDE => 'Слайд акции и скидки (542x390)',
-            self::TYPE_CATEGORY_TOP => 'Категория верхняя часть (1390x225)',
-            self::TYPE_CATEGORY_BOTTOM => 'Категория нижняя часть (1390x225)',
+            // self::TYPE_MIDDLE_SLIDE => 'Слайд акции и скидки (542x390)',
+            // self::TYPE_CATEGORY_TOP => 'Категория верхняя часть (1390x225)',
+            // self::TYPE_CATEGORY_BOTTOM => 'Категория нижняя часть (1390x225)',
         ];
     }
 

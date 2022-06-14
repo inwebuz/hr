@@ -36,7 +36,7 @@ class CvController extends Controller
     public function index()
     {
         $locale = app()->getLocale();
-        $page = Page::where('slug', 'cv')->withTranslation($locale)->firstOrFail();
+        $page = Page::where('slug', 'cvs')->withTranslation($locale)->firstOrFail();
         $breadcrumbs = new Breadcrumbs();
         $breadcrumbs->addItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url, LinkItem::STATUS_INACTIVE));
         return view('cvs.index', compact('breadcrumbs', 'page'));
@@ -52,7 +52,7 @@ class CvController extends Controller
             'email' => 'required',
             'phone_number' => 'required',
             'message' => '',
-            'file' => 'required|file|mimes:pdf,docx',
+            'file' => 'required|file|max:3072|mimes:pdf,docx',
         ]);
 
         $telegram_chat_id = config('services.telegram.chat_id');
@@ -67,8 +67,8 @@ class CvController extends Controller
         // send telegram
         $telegramMessage = view('telegram.admin.cv', compact('cv'))->render();
         $telegramService = new TelegramService();
-        $res = $telegramService->sendMessage($telegram_chat_id, $telegramMessage, 'HTML');
-        Log::debug($res->getBody()->getContents());
+        $telegramService->sendMessage($telegram_chat_id, $telegramMessage, 'HTML');
+        $telegramService->sendDocument($telegram_chat_id, Storage::path($cv->file));
 
         // send email
         // Mail::to(setting('contact.email'))->send(new ContactMail($contact));
@@ -77,134 +77,6 @@ class CvController extends Controller
 
         $data = [
             'message' => __('main.form.cv_form_success'),
-        ];
-
-        return response()->json($data);
-    }
-
-    /**
-     * Send installment payment request
-     *
-     * @return json
-     */
-    public function sendInstallmentPayment(Request $request)
-    {
-        $partners = config('services.installment_payment.partners');
-        $partnersKeys = array_keys($partners);
-
-        // $captchaKey = $request->input('captcha_key', '');
-        $data = $this->validate($request, [
-            // 'captcha_key' => 'required',
-            // 'captcha' => 'required|captcha_api:' . $captchaKey . ',flat',
-            // 'partner' => 'required|in:' . implode(',', $partnersKeys),
-            // 'id_in_partner_system' => 'required',
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email',
-            'phone_number' => 'required',
-            'passport_series' => 'required',
-            'passport_number' => 'required',
-            'card_number' => 'required',
-        ]);
-
-        $installmentPaymentProducts = [];
-        $contactInfo = '';
-        $category = null;
-        $product = null;
-        if (isset($request->product_id)) {
-            $product = Product::find((int)$request->product_id);
-            if ($product) {
-                $contactInfo .= '<a href="' . $product->url . '" target="_blank" >' . $product->name . '</a>' . "<br>\n";
-                $contactInfo .= 'SKU: ' . $product->sku . "<br>\n";
-                $installmentPaymentProduct = [
-                    'name' => $product->name,
-                    'sku' => $product->sku,
-                    'price' => $product->installment_price,
-                ];
-            }
-            if (isset($installmentPaymentProduct)) {
-                $installmentPaymentProducts[] = $installmentPaymentProduct;
-            }
-        } elseif (isset($request->category_id)) {
-            $category = Category::find((int)$request->category_id);
-            if ($category) {
-                $contactInfo .= '<a href="' . $category->url . '" target="_blank" >' . $category->name . '</a>' . "<br>\n";
-            }
-        }
-
-        $contactInfo .= __('main.customer') . ': ' . $data['last_name'] . ' ' . $data['first_name'] . "<br>\n";
-        $contactInfo .= __('main.phone_number') . ': ' . $data['phone_number'] . "<br>\n";
-        $contactInfo .= __('main.email') . ': ' . $data['email'] . "<br>\n";
-        $contactInfo .= __('main.passport_series') . ': ' . $data['passport_series'] . "<br>\n";
-        $contactInfo .= __('main.passport_number') . ': ' . $data['passport_number'] . "<br>\n";
-        $contactInfo .= __('main.card_number') . ': ' . $data['card_number'] . "<br>\n";
-        // $contactInfo .= __('main.partner') . ': ' . $data['partner'] . "<br>\n";
-        // $contactInfo .= __('main.id_in_partner_system') . ': ' . $data['id_in_partner_system'] . "<br>\n";
-
-        // save to database
-        $contact = Contact::create([
-            'name' => $data['last_name'] . ' ' . $data['first_name'],
-            'type' => Contact::TYPE_INSTALLMENT_PAYMENT,
-            'phone' => $data['phone_number'],
-            'info' => $contactInfo,
-        ]);
-        $installmentPayment = InstallmentPayment::create([
-            'last_name' => $data['last_name'],
-            'first_name' => $data['first_name'],
-            'email' => $data['email'],
-            'phone_number' => $data['phone_number'],
-            'passport_series' => $data['passport_series'],
-            'passport_number' => $data['passport_number'],
-            'card_number' => $data['card_number'],
-            // 'partner' => $data['partner'],
-            // 'id_in_partner_system' => $data['id_in_partner_system'],
-            'info' => '',
-            'products' => json_encode($installmentPaymentProducts),
-        ]);
-
-        if (!$contact) {
-            return [];
-        }
-
-        // create user if not exists
-        $checkUser = User::where('email', $data['email'])->first();
-        if (!$checkUser) {
-            $user = new User();
-            $password = Str::random(12);
-            $user->password = Hash::make($password);
-            $user->email = $data['email'];
-            $user->name = $data['first_name'] . ' ' . $data['last_name'];
-            $user->save();
-            Mail::to($data['email'])->send(new UserRegisteredMail($user, $password));
-        }
-
-        // send to client
-        // send email
-        Mail::to($data['email'])->send(new InstallmentPaymentClientMail($installmentPayment, $contact));
-
-        // send to partners
-        $installmentPaymentChatID = config('services.installment_payment.chat_id');
-        if ($installmentPaymentChatID) {
-            $telegramMessage = view('telegram.admin.installment_payment', compact('contact'))->render();
-            $telegramService = new TelegramService();
-            $telegramService->sendMessage($installmentPaymentChatID, $telegramMessage, 'HTML');
-        }
-
-        // send email
-        // if ($sendPartner['email']) {
-        //     Mail::to($sendPartner['email'])->send(new InstallmentPaymentAdminMail($installmentPayment, $contact));
-        // }
-        // foreach($partners as $partner) {
-        //     // send email
-        //     if ($partner['email']) {
-        //         Mail::to($partner['email'])->send(new InstallmentPaymentAdminMail($installmentPayment, $contact));
-        //     }
-        // }
-
-        // return redirect()->route('home', ['#contact-form'])->withSuccess(__('home.contact_message_success'));
-
-        $data = [
-            'message' => __('main.form.contact_form_success'),
         ];
 
         return response()->json($data);

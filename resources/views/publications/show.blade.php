@@ -7,50 +7,79 @@
 
 @section('content')
 
-<main class="main">
+@include('partials.page_top', ['title' => $publication->getTranslatedAttribute('name')])
 
-    <section class="content-header">
-        <div class="container">
-            @include('partials.breadcrumbs')
-        </div>
-    </section>
+<div class="blog-area single full-blog full-blog py-5 position-relative">
+    <div class="container">
+        <div class="blog-items">
+            <div class="row">
+                <div class="blog-content wow fadeInUp col-lg-10 offset-lg-1 col-md-12">
+                    <div class="item">
 
-	<div class="container py-4 py-lg-5">
+                        <div class="blog-item-box">
 
-        <h1>{{ $publication->getTranslatedAttribute('name') }}</h1>
+                            <div class="thumb">
+                                @if($publication->image)
+                                    <img src="{{ $publication->img }}" class="img-fluid" alt="{{ $publication->getTranslatedAttribute('name') }}">
+                                @endif
 
-        @can('edit', $publication)
-            <div class="my-4">
-                <a href="{{ url('admin/publications/' . $publication->id . '/edit') }}" class="btn btn-lg btn-primary"
-                    target="_blank">Редактировать (ID: {{ $publication->id }})</a>
+                                <div class="date">{{ Helper::formatDate($publication->created_at, true) }}</div>
+                            </div>
+
+                            {{-- @if($publication->video_code)
+                            <div class="fit-big-videos mb-4">
+                                {!! $publication->video_code !!}
+                            </div>
+                            @endif
+                            @if($publication->file)
+                                <div class="pb-4">
+                                    <a href="{{ Helper::getFileUrl($publication->file) }}" class="text-dark" download="{{ Helper::getFileOriginalName($publication->file) }}">{{ __('main.to_download') }} {{ $publication->file_name }}</a>
+                                </div>
+                            @endif
+                            --}}
+
+                            <div class="info">
+                                {!! $publication->getTranslatedAttribute('body') !!}
+
+                                <div class="mt-4">
+                                    <h5 class="mb-2">{{ __('main.to_share') }}</h5>
+                                    <div class="addthis_inline_share_toolbox"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Start Post Pagination -->
+                    <div class="post-pagi-area">
+                        @if ($prev)
+                        <a href="{{ $prev->url }}" class="text-left">
+                            <i class="fas fa-angle-double-left d-none d-lg-inline-block"></i> {{ __('main.previous_news') }}
+                            <h5 class="text-dark d-none d-lg-block">{{ $prev->getTranslatedAttribute('name') }}</h5>
+                        </a>
+                        @else
+                        <span></span>
+                        @endif
+
+                        @if ($next)
+                        <a href="{{ $next->url }}" class="text-right">
+                            {{ __('main.next_news') }} <i class="fas fa-angle-double-right d-none d-lg-inline-block"></i>
+                            <h5 class="text-dark d-none d-lg-block">{{ $next->getTranslatedAttribute('name') }}</h5>
+                        </a>
+                        @else
+                        <span></span>
+                        @endif
+                    </div>
+                    <!-- End Post Pagination -->
+
+                </div>
             </div>
-        @endcan
-
-        <div class="my-3">
-            <span class="publication-date d-inline-block text-dark">{{ Helper::formatDate($publication->created_at, true) }}</span>
-            {{-- <span class="page-views"><i class="fa fa-eye"></i>&nbsp;{{ $publication->views }}</span> --}}
         </div>
-
-        @if($publication->video_code)
-            <div class="fit-big-videos mb-4">
-                {!! $publication->video_code !!}
-            </div>
-        @endif
-
-        <div class="text-block pb-5">
-            {{-- @if($publication->image)
-                <img src="{{ $publication->img }}" class="img-fluid float-left mr-3 mb-3" alt="{{ $publication->name }}">
-            @endif --}}
-            {!! $publication->getTranslatedAttribute('body') !!}
-        </div>
-
-        @if($publication->file)
-            <div class="pb-4">
-                <a href="{{ Helper::getFileUrl($publication->file) }}" class="text-dark" download="{{ Helper::getFileOriginalName($publication->file) }}">{{ __('main.to_download') }} {{ $publication->file_name }}</a>
-            </div>
-        @endif
-
     </div>
-</ma>
+</div>
 
+@endsection
+
+@section('scripts')
+{!! setting('site.share_buttons_code') !!}
 @endsection

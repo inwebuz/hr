@@ -47,10 +47,10 @@ class Page extends Model
 
     protected $guarded = [];
 
-    // protected $dispatchesEvents = [
-    //     'saved' => ModelSaved::class,
-    //     'deleted' => ModelDeleted::class,
-    // ];
+    protected $dispatchesEvents = [
+        'saved' => ModelSaved::class,
+        'deleted' => ModelDeleted::class,
+    ];
 
     public function save(array $options = [])
     {

@@ -4,6 +4,7 @@ namespace App\Services;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7\Utils;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
@@ -41,24 +42,27 @@ class TelegramService
         return $this->send('POST', 'sendMessage', $params);
     }
 
-    public function sendFile($chat_id, $file, $otherParams = [])
+    public function sendDocument($chat_id, $file, $otherParams = [])
     {
         $formData = [];
-        $formData['chat_id'] = $chat_id;
-        $formData['text'] = $message;
-        if (in_array($parse_mode, ['HTML', 'Markdown', 'MarkdownV2'])) {
-            $formData['parse_mode'] = $parse_mode;
-        }
+        $formData[] = [
+            'name' => 'chat_id',
+            'contents' => $chat_id,
+        ];
+        $formData[] = [
+            'name' => 'document',
+            'contents' => Utils::tryFopen($file, 'r'),
+        ];
 
         if (is_array($otherParams) && count($otherParams)) {
             $formData = array_merge($otherParams, $formData);
         }
 
         $params = [
-            'form_params' => $formData,
+            'multipart' => $formData,
         ];
 
-        return $this->send('POST', 'sendMessage', $params);
+        return $this->send('POST', 'sendDocument', $params);
     }
 
     public function sendLocation($chat_id, $latitude, $longitude, $otherParams = [])

@@ -160,7 +160,7 @@
             </div>
             <div class="col-lg-6 offset-lg-1 contact-form-box">
                 <div class="form-box">
-                    <form action="{{ route('contacts.send') }}" method="POST" class="contact-form">
+                    <form action="{{ route('cvs.store') }}" method="POST" class="cv-form">
                         @csrf
 
                         <div class="form-result"></div>
@@ -168,7 +168,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <input class="form-control" name="name" placeholder="{{ __('main.form.your_name') }}" type="text">
+                                    <input class="form-control" name="name" placeholder="{{ __('main.form.your_name') }}" type="text" required>
                                     <span class="alert-error"></span>
                                 </div>
                             </div>
@@ -176,13 +176,13 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="email" placeholder="{{ __('main.email') }}" type="email">
+                                    <input class="form-control" name="email" placeholder="{{ __('main.email') }}" type="email" required>
                                     <span class="alert-error"></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="phone_number" placeholder="{{ __('main.phone_number') }}" type="text">
+                                    <input class="form-control" name="phone_number" placeholder="{{ __('main.phone_number') }}" type="text" required>
                                     <span class="alert-error"></span>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group comments">
-                                    <textarea class="form-control" name="message" placeholder="{{ __('main.message') }}"></textarea>
+                                    <textarea class="form-control" name="message" placeholder="{{ __('main.message') }}" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -198,13 +198,13 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="text-white">{{ __('main.cv_pdf_or_docs') }}</label>
-                                    <input type="file" name="file" class="border-0">
+                                    <input type="file" name="file" class="border-0" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <button type="submit" name="submit" id="submit">
+                                <button type="submit" class="btn btn-md btn-primary effect">
                                     {{ __('main.to_send') }}
                                 </button>
                             </div>

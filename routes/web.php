@@ -12,6 +12,7 @@ use App\Http\Controllers\CompareController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CvController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
@@ -174,6 +175,9 @@ Route::group(
     // cv
     Route::get('cvs', [CvController::class, 'index'])->name('cvs.index');
     Route::post('cvs', [CvController::class, 'store'])->name('cvs.store');
+
+    // gallery galleries
+    Route::get('gallery', [GalleryController::class, 'show'])->name('gallery');
 
     // services
     Route::get('services', [ServiceController::class, 'index'])->name('services.index');

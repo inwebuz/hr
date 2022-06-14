@@ -102,7 +102,7 @@ class PagesTableSeeder extends Seeder
 
             $subpage = Page::factory()->create([
                 'name' => 'Галерея',
-                'slug' => 'galleries',
+                'slug' => 'gallery',
                 'order' => 70020,
                 'show_in' => 2,
                 'parent_id' => $page->id,
@@ -117,7 +117,7 @@ class PagesTableSeeder extends Seeder
 
             $subpage = Page::factory()->create([
                 'name' => 'Подача резюме',
-                'slug' => 'cv',
+                'slug' => 'cvs',
                 'order' => 100,
                 'show_in' => 2,
                 'description' => '',

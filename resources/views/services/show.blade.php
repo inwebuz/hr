@@ -5,6 +5,7 @@
 @section('meta_keywords', $service->getTranslatedAttribute('meta_keywords'))
 
 @section('content')
+
 @include('partials.page_top', ['title' => $service->getTranslatedAttribute('name')])
 
 <div class="py-5">

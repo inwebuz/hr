@@ -18,8 +18,8 @@ class VacancyController extends Controller
         $breadcrumbs = new Breadcrumbs();
         $page = Page::where('slug', 'vacancies')->withTranslation($locale)->firstOrFail();
         $breadcrumbs->addItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url, LinkItem::STATUS_INACTIVE));
-        $vacancyCategories = VacancyCategory::active()->orderBy('order')->with(['vacancies' => function($q){
-            $q->select(['id'])->active();
+        $vacancyCategories = VacancyCategory::active()->orderBy('order')->with(['vacancies' => function($query){
+            $query->select(['id', 'vacancy_category_id'])->active();
         }])->withTranslation($locale)->get();
         $vacanciesQuantity = Vacancy::active()->count();
         return view('vacancies.index', compact('page', 'breadcrumbs', 'vacancyCategories', 'vacanciesQuantity'));

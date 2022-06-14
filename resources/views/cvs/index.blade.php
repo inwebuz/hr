@@ -10,7 +10,11 @@
 
 <div class="py-5">
     <div class="container">
-        @include('partials.cv_form')
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                @include('partials.cv_form')
+            </div>
+        </div>
     </div>
 </div>
 

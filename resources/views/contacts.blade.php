@@ -12,104 +12,115 @@
 
 @section('content')
 
-<main class="main">
+@include('partials.page_top', ['title' => $page->getTranslatedAttribute('name')])
 
-    <section class="content-header">
-        <div class="container">
-            @include('partials.breadcrumbs')
-        </div>
-    </section>
-
-    <div class="container py-4 py-lg-5">
-
-        <h1>{{ $page->getTranslatedAttribute('name') }}</h1>
-
-        <div class="row mb-5">
-            <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
-
-                <h3 class="contact-title mb-4">{{ __('main.our_contacts') }}</h3>
-
-                <div class="media contact-info mb-3">
-                    {{-- <i class="fa fa-map-marker mr-3 mt-1"></i> --}}
-                    <div class="media-body">
-                        <span>{{ $address }}</span>
-                    </div>
-                </div>
-                <div class="media contact-info mb-3">
-                    {{-- <i class="fa fa-phone mr-3 mt-1"></i> --}}
-                    <div class="media-body">
-                        <span><a href="tel:{{ Helper::phone($phone) }}" class="black-link">{{ $phone }}</a></span>
-                        @if ($phone2)
-                            <br>
-                            <span><a href="tel:{{ Helper::phone($phone2) }}" class="black-link">{{ $phone2 }}</a></span>
-                        @endif
-                    </div>
-                </div>
-                <div class="media contact-info mb-3">
-                    {{-- <i class="fa fa-envelope mr-3 mt-1"></i> --}}
-                    <div class="media-body">
-                        <span><a href="mailto:{{ $email }}" class="black-link">{{ $email }}</a></span>
-                    </div>
-                </div>
-
-                <div class="contact-map my-4">
-                    {!! setting('contact.map') !!}
-                </div>
-
-            </div>
-            <div class="col-lg-6 order-lg-1">
-
-                <h3 class="contact-title">{{ __('main.write_us') }}</h3>
-
-                <form class="contact-form" method="post"  action="{{ route('contacts.send') }}">
-
-                    @csrf
-
-                    <div class="form-result"></div>
-
-                    <div class="form-group">
-                        <label for="form_name">{{ __('main.form.your_name') }}&nbsp;<span class="text-danger">*</span></label>
-                        <input class="form-control" name="name" id="form_name" type="text" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="form_phone">{{ __('main.form.phone') }}&nbsp;<span class="text-danger">*</span></label>
-                        <input class="form-control" name="phone" id="form_phone" type="text" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="form_message">{{ __('main.form.message') }}</label>
-                        <textarea class="form-control" name="message" id="form_message" rows="4"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="form_security_code">{{ __('main.form.security_code') }}</label>
-                        <div class="row gutters-5">
-                            <div class="col-lg-6 mb-3 mb-lg-0">
-                                <input type="text" name="captcha" class="form-control" id="form_security_code" placeholder="{{ __('main.form.security_code') }}" required>
+<div class="contact-us-area py-5 position-relative">
+    <div class="container">
+        <div class="row align-center">
+            <div class="col-lg-5 info">
+                <div class="content">
+                    <h2 class="font-weight-bold">{{ $ourContacts->getTranslatedAttribute('name') }}</h2>
+                    <p>{{ $ourContacts->getTranslatedAttribute('description') }}</p>
+                    <ul>
+                        <li>
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="captcha-container">
-                                    <img src="{{ asset('images/captcha.png') }}" alt="Captcha" class="img-fluid rounded">
+                            <div class="content">
+                                <h5>{{ __('main.address') }}</h5>
+                                <p>{{ $address }}</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="content">
+                                <h5>{{ __('main.nav.contacts') }}</h5>
+                                <p>
+                                    @if ($phone)
+                                        <a href="tel:{{ Helper::phone($phone) }}" class="text-dark">{{ $phone }}</a>
+                                    @endif
+                                    @if ($phone2)
+                                        <br>
+                                        <a href="tel:{{ Helper::phone($phone2) }}" class="text-dark">{{ $phone2 }}</a>
+                                    @endif
+                                    @if ($email)
+                                        <br>
+                                        <a href="mailto:{{ $email }}" class="text-primary">{{ $email }}</a>
+                                    @endif
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-7 contact-form-box">
+                <div class="form-box">
+                    <form class="contact-form" method="post"  action="{{ route('contacts.send') }}">
+
+                        @csrf
+
+                        <div class="form-result"></div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="name" placeholder="{{ __('main.form.your_name') }}" type="text" required>
+                                    <span class="alert-error"></span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-group mt-3">
-                        <button type="submit" class="btn btn-primary radius-6">{{ __('main.form.send') }}</button>
-                    </div>
-                </form>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="phone" placeholder="{{ __('main.form.phone') }}" type="text" required>
+                                    <span class="alert-error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group comments">
+                                    <textarea class="form-control" name="message" placeholder="{{ __('main.form.message') }}" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <div class="form-group">
+                            <label for="form_security_code">{{ __('main.form.security_code') }}</label>
+                            <div class="row gutters-5">
+                                <div class="col-lg-6 mb-3 mb-lg-0">
+                                    <input type="text" name="captcha" class="form-control" id="form_security_code" placeholder="{{ __('main.form.security_code') }}" required>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="captcha-container">
+                                        <img src="{{ asset('images/captcha.png') }}" alt="Captcha" class="img-fluid rounded">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-md effect btn-primary">{{ __('main.form.send') }}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
-        @if ($page->getTranslatedAttribute('body'))
-            <div class="text-block my-5">
+        {{-- @if ($page->getTranslatedAttribute('body'))
+            <div class="text-block mt-4">
                 {!! $page->getTranslatedAttribute('body') !!}
             </div>
-        @endif
-
+        @endif --}}
     </div>
+</div>
 
-</main>
+<div class="maps-area">
+    <div class="google-maps">
+        {!! setting('contact.map') !!}
+    </div>
+</div>
 
 @endsection

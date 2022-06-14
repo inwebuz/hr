@@ -12,7 +12,7 @@
         <a href="{{ $publication->url }}" class="d-block">
             <img src="{{ $publication->medium_img }}" class="img-fluid" alt="{{ $publication->getTranslatedAttribute('name') }}">
         </a>
-        <div class="date">{{ Helper::formatDate($publication->created_at) }}</div>
+        <div class="date">{{ Helper::formatDate($publication->created_at, true) }}</div>
     </div>
     <div class="info">
         <h4>

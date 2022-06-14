@@ -137,7 +137,8 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Код кнопки Поделиться',
-                'value'        => '<img src="/images/share.jpg" alt="Share" class="img-fluid">',
+                // 'value'        => '<img src="/images/share.jpg" alt="Share" class="img-fluid">',
+                'value'        => '<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-62a81bbdbc8cfc11"></script>',
                 'details'      => '',
                 'type'         => 'text_area',
                 'order'        => 20,
@@ -337,17 +338,17 @@ class SettingsTableSeeder extends Seeder
             ])->save();
         }
 
-        $setting = $this->findSetting('contact.footer_map');
-        if (!$setting->exists) {
-            $setting->fill([
-                'display_name' => 'Код карты (футер)',
-                'value'        => '<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A14f7af4a8cb4a7e1f03d71f822ec528a05c8512cb0392b616d6f85bd84676f7d&amp;source=constructor" width="420" height="180"></iframe>',
-                'details'      => '',
-                'type'         => 'text_area',
-                'order'        => 7,
-                'group'        => 'Contact',
-            ])->save();
-        }
+        // $setting = $this->findSetting('contact.footer_map');
+        // if (!$setting->exists) {
+        //     $setting->fill([
+        //         'display_name' => 'Код карты (футер)',
+        //         'value'        => '<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A14f7af4a8cb4a7e1f03d71f822ec528a05c8512cb0392b616d6f85bd84676f7d&amp;source=constructor" width="420" height="180"></iframe>',
+        //         'details'      => '',
+        //         'type'         => 'text_area',
+        //         'order'        => 7,
+        //         'group'        => 'Contact',
+        //     ])->save();
+        // }
 
         // $setting = $this->findSetting('contact.work_hours');
         // if (!$setting->exists) {
