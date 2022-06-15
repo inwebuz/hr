@@ -453,6 +453,12 @@ nav.navbar.bootsnav ul.nav > li > a {
     font-weight: 700;
 }
 
+@media all and (max-width: 1199px) {
+    nav.navbar.bootsnav ul.nav > li > a {
+        font-size: 14px;
+    }
+}
+
 nav.navbar.bootsnav.bg-dark ul.nav > li > a {
     color: #ffffff;
 }
@@ -1415,7 +1421,7 @@ nav.navbar.bootsnav {
     }
 }
 
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1199px) {
     nav.navbar.bootsnav ul.nav > li > a {
         padding: 35px 12px !important;
     }

@@ -1717,7 +1717,7 @@
 /* Custom layout. */
 @media only screen and (max-width: 500px) {
     nav.navbar.navbar-sticky .navbar-brand {
-        margin-right: 60px !important;
+        margin-right: 90px !important;
     }
     .project-details-area .project-info .share h4 {
         display: none;
