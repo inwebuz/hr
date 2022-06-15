@@ -771,6 +771,13 @@ class DataRowsTableSeeder extends StandardSeeder
                     'browse' => 1,
                 ],
             ],
+            'position' => [
+                'method' => 'textRow',
+                'data' => [
+                    'display_name' => __('seeders.data_rows.position'),
+                    'browse' => 1,
+                ],
+            ],
             'image' => [
                 'method' => 'imageRow',
                 'data' => [
