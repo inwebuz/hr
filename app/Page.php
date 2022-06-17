@@ -91,6 +91,11 @@ class Page extends Model
         return $this->morphMany(Review::class, 'reviewable');
     }
 
+    public function activeReviews()
+    {
+        return $this->reviews()->active();
+    }
+
     public function searches()
     {
         return $this->morphMany(Search::class, 'searchable');

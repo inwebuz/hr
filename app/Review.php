@@ -18,6 +18,19 @@ class Review extends Model
 
     protected $guarded = [];
 
+    protected static function boot()
+    {
+        parent::boot();
+        self::saving(function ($model) {
+            if (!$model->reviewable_id) {
+                $model->reviewable_id = 1;
+            }
+            if (!$model->reviewable_type) {
+                $model->reviewable_type = Page::class;
+            }
+        });
+    }
+
     public function reviewable()
     {
         return $this->morphTo();
