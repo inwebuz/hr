@@ -108,9 +108,9 @@
     </div>
     <div class="container">
         <div class="services-items text-center">
-            <div class="row">
+            <div class="thumb-services-carousel owl-carousel owl-theme">
                 @foreach ($services as $service)
-                <div class="col-lg-4 col-md-6 single-item">
+                <div class="single-item pt-4 px-3">
                     @include('partials.service_one')
                 </div>
                 @endforeach
@@ -217,7 +217,7 @@
 </div>
 <!-- End Contact Area -->
 
-<!-- Start Blog
+{{-- <!-- Start Blog
 ============================================= -->
 <div class="blog-area bg-green2 default-padding bottom-less position-relative">
     <div class="container">
@@ -242,7 +242,7 @@
         </div>
     </div>
 </div>
-<!-- End Blog Area -->
+<!-- End Blog Area --> --}}
 
 <x-reviews></x-reviews>
 

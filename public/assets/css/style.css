@@ -3211,6 +3211,8 @@ button:focus {
 
 .thumb-services-area .services-items .item .info h4 {
     font-weight: 600;
+    height: 48px;
+    overflow: hidden;
 }
 
 .thumb-services-area .services-items .item .info > i {
@@ -5595,6 +5597,9 @@ button:focus {
 
 .blog-area .blog-items .item {
     box-shadow: 0 5px 30px 0 rgb(214 215 216 / 40%);
+    max-width: 330px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .blog-area .blog-items .item .thumb img {

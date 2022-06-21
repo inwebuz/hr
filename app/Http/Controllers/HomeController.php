@@ -44,7 +44,7 @@ class HomeController extends Controller
         $writeUs = Helper::staticText('write_us', 300);
         $newsText = Helper::staticText('news', 300);
 
-        $services = Service::active()->featured()->orderBy('order')->withTranslation($locale)->take(3)->get();
+        $services = Service::active()->orderBy('order')->withTranslation($locale)->take(20)->get();
         $servicesPage = Page::active()->where('slug', 'services')->withTranslation($locale)->firstOrFail();
 
         $news = Publication::active()->news()->latest()->withTranslation($locale)->take(3)->get();

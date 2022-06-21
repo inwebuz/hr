@@ -331,7 +331,7 @@
          ===============================================*/
         $('.thumb-services-carousel').owlCarousel({
             loop: false,
-            margin: 30,
+            margin: 10,
             nav: false,
             navText: [
                 "<i class='fa fa-angle-left'></i>",
@@ -343,10 +343,10 @@
                 0: {
                     items: 1
                 },
-                600: {
+                960: {
                     items: 2
                 },
-                1000: {
+                1200: {
                     items: 3
                 }
             }

@@ -12,7 +12,10 @@
                         @foreach ($reviews as $review)
                         <div class="item">
                             <div class="info">
-                                <p>{{ $review->body }}</p>
+                                <p class="mb-2">{{ $review->body }}</p>
+                                <div>
+                                    @include('partials.stars', ['rating' => $review->rating])
+                                </div>
                                 <div class="provider">
                                     {{-- <div class="thumb">
                                         <img src="{{ asset('assets/img/100x100.png') }}" alt="Author">

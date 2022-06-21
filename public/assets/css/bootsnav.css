@@ -1423,10 +1423,12 @@ nav.navbar.bootsnav {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     nav.navbar.bootsnav ul.nav > li > a {
-        padding: 35px 12px !important;
+        font-size: 13px;
+        padding: 35px 9px !important;
     }
     nav.navbar.bootsnav.sticked ul.nav > li > a {
-        padding: 30px 12px !important;
+        font-size: 13px;
+        padding: 30px 9px !important;
     }
 }
 

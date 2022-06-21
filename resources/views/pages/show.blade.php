@@ -10,29 +10,14 @@
 
 
 <div class="py-5">
-    @if ($page->id == 8)
+    @if (in_array($page->id, [2, 8, 11]))
         <div class="container mt-4 font-weight-bold">
             <div class="row">
+                @foreach ($page->children as $child)
                 <div class="col-lg-4 mb-4">
-                    <a href="{{ route('news') }}" class="d-block p-4 border rounded-lg bg-light">{{ __('main.news') }}</a>
+                    <a href="{{ $child->url }}" class="d-block p-4 border rounded-lg bg-light">{{ $child->getTranslatedAttribute('name') }}</a>
                 </div>
-                <div class="col-lg-4 mb-4">
-                    <a href="{{ route('gallery') }}" class="d-block p-4 border rounded-lg bg-light">{{ __('main.gallery') }}</a>
-                </div>
-            </div>
-        </div>
-    @elseif ($page->id == 11)
-        <div class="container font-weight-bold mt-4">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <a href="{{ route('vacancies.index') }}" class="d-block p-4 border rounded-lg bg-light">{{ __('main.vacancies') }}</a>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <a href="{{ route('cvs.index') }}" class="d-block p-4 border rounded-lg bg-light">{{ __('main.cv') }}</a>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <a href="{{ route('contacts') }}" class="d-block p-4 border rounded-lg bg-light">{{ __('main.nav.contacts') }}</a>
-                </div>
+                @endforeach
             </div>
         </div>
     @endif

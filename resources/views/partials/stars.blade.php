@@ -6,8 +6,8 @@
 	@for($i = $max; $i >= 1; $i--)
         <input id="star-{{ $i }}-{{ $random }}" type="radio" name="rating-{{ $random }}" value="{{ $i }}" @if($i == $rating) checked @endif>
         <label for="star-{{ $i }}-{{ $random }}">
-            {{-- <i class="fa fa-star" ></i> --}}
-            <svg width="18" height="18" fill="#FCB300"><use xlink:href="#star"></use></svg>
+            <i class="fa fa-star" ></i>
+            {{-- <svg width="18" height="18" fill="#FCB300"><use xlink:href="#star"></use></svg> --}}
         </label>
 	@endfor
 </div>
