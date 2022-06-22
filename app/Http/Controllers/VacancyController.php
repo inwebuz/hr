@@ -18,7 +18,7 @@ class VacancyController extends Controller
         $breadcrumbs = new Breadcrumbs();
         $page = Page::where('slug', 'vacancies')->withTranslation($locale)->firstOrFail();
         $breadcrumbs->addItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url, LinkItem::STATUS_INACTIVE));
-        $vacancyCategories = VacancyCategory::active()->orderBy('order')->with(['vacancies' => function($query){
+        $vacancyCategories = VacancyCategory::active()->orderBy('order')->whereNull('parent_id')->with(['vacancies' => function($query){
             $query->select(['id', 'vacancy_category_id'])->active();
         }])->withTranslation($locale)->get();
         $vacanciesQuantity = Vacancy::active()->count();
@@ -61,59 +61,24 @@ class VacancyController extends Controller
         return view('vacancies.category', compact('page', 'breadcrumbs', 'vacancies', 'vacancyCategory', 'links'));
     }
 
-    public function show(Request $request, Brand $brand, $slug)
+    public function show(Request $request, Vacancy $vacancy, $slug)
     {
         $locale = app()->getLocale();
         $breadcrumbs = new Breadcrumbs();
 
-        $brand->load('translations');
+        $vacancy->load('translations');
 
         // check slug
-        if ($brand->getTranslatedAttribute('slug') != $slug) {
+        if ($vacancy->getTranslatedAttribute('slug') != $slug) {
             abort(404);
         }
 
-        $page = Page::where('slug', 'brands')->withTranslation($locale)->firstOrFail();
+        $page = Page::where('slug', 'vacancies')->withTranslation($locale)->firstOrFail();
         $breadcrumbs->addItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url));
 
-        // $currentRegion = Helper::getCurrentRegion();
-        // $warehouseIDs = $currentRegion->warehouses->pluck('id')->toArray();
+        $breadcrumbs->addItem(new LinkItem($vacancy->getTranslatedAttribute('name'), $vacancy->url, LinkItem::STATUS_INACTIVE));
 
-        // quantity per page
-        $quantityPerPage = $this->quantityPerPage;
-        $quantity = $request->input('quantity', $this->quantityPerPage[0]);
-        if (!in_array($quantity, $this->quantityPerPage)) {
-            $quantity = $this->quantityPerPage[0];
-        }
-
-        // sort - order
-        $sorts = $this->sorts;
-        $sortCurrent = $request->input('sort', '');
-        if (empty($sortCurrent) || !in_array($sortCurrent, $sorts)) {
-            $sortCurrent = $sorts[0];
-        }
-        $sortRaw = explode('-', $sortCurrent);
-        $sort = $sortRaw[0];
-        $order = $sortRaw[1];
-
-        $query = $brand->products()
-            // ->orderBy('products.' . $sort, $order)
-            ->active()
-            ->with(['categories' => function($query) use ($locale) {
-                $query->withTranslation($locale);
-            }])
-            ->withTranslation($locale)
-            ->orderBy('products.created_at');
-
-        $productAllQuantity = $query->count();
-
-        // get query products paginate
-        $products = $query->paginate($quantity);
-        $links = $products->links('partials.pagination');
-
-        $breadcrumbs->addItem(new LinkItem($brand->getTranslatedAttribute('name'), $brand->url, LinkItem::STATUS_INACTIVE));
-
-        return view('brands.show', compact('page', 'breadcrumbs', 'products', 'productAllQuantity', 'brand', 'links', 'quantity', 'quantityPerPage', 'sorts', 'sortCurrent'));
+        return view('vacancies.show', compact('page', 'breadcrumbs', 'vacancy'));
     }
 
 }

@@ -17,7 +17,7 @@
                         <div class="p-4 border bg-light mb-4">
                             <div class="row">
                                 @foreach ($vacancyCategory->children as $child)
-                                    <div class="col-lg-3 col-sm-6">
+                                    <div class="col-lg-3 col-sm-6 my-1">
                                         <a href="{{ $child->url }}" class="text-dark">{{ $child->getTranslatedAttribute('name') }}</a>
                                     </div>
                                 @endforeach
