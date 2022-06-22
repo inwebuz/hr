@@ -116,9 +116,18 @@ class Helper
                         $item->addItem(new MenuItem(new LinkItem($service->getTranslatedAttribute('name'), $service->url)));
                     }
                 } elseif ($page->slug == 'vacancies') {
-                    $vacancyCategories = VacancyCategory::active()->orderBy('order')->withTranslation($locale)->get();
+                    $vacancyCategories = VacancyCategory::active()->whereNull('parent_id')->orderBy('order')->withTranslation($locale)->with(['children' => function($query) use ($locale) {
+                        $query->active()->orderBy('order')->withTranslation($locale);
+                    }])->get();
                     foreach ($vacancyCategories as $vacancyCategory) {
-                        $item->addItem(new MenuItem(new LinkItem($vacancyCategory->getTranslatedAttribute('name'), $vacancyCategory->url)));
+                        $menuItem = new MenuItem(new LinkItem($vacancyCategory->getTranslatedAttribute('name'), $vacancyCategory->url));
+                        if (!$vacancyCategory->children->isEmpty()) {
+                            foreach ($vacancyCategory->children as $child) {
+                                $menuItem->addItem(new LinkItem($child->getTranslatedAttribute('name'), $child->url));
+                            }
+                        }
+                        $item->addItem($menuItem);
+
                     }
                 }
                 if (!$subPages->isEmpty()) {

@@ -44,9 +44,9 @@
                         <h4>
                             <a href="{{ $vacancyCategory->url }}">{{ $vacancyCategory->getTranslatedAttribute('name') }}</a>
                         </h4>
-                        <ul>
+                        {{-- <ul>
                             <li>{{ __('main.vacancies') }}: {{ $vacancyCategory->vacancies->count() }}</li>
-                        </ul>
+                        </ul> --}}
                     </div>
                     <div class="button">
                         <a class="btn btn-primary effect btn-md" href="{{ $vacancyCategory->url }}">{{ __('main.view_more') }}</a>

@@ -21,6 +21,8 @@ class VacancyCategory extends Model
     const STATUS_INACTIVE = 0;
     const STATUS_ACTIVE = 1;
 
+    public $additional_attributes = ['full_name'];
+
     public static $imgSizes = [
         'medium' => [200, 200],
     ];
@@ -38,6 +40,15 @@ class VacancyCategory extends Model
         'saved' => ModelSaved::class,
         'deleted' => ModelDeleted::class,
     ];
+
+    protected static function booted()
+    {
+        static::saving(function ($vacancyCategory) {
+            if ($vacancyCategory->id == $vacancyCategory->parent_id) {
+                $vacancyCategory->parent_id = null;
+            }
+        });
+    }
 
     public function searches()
     {
@@ -116,5 +127,77 @@ class VacancyCategory extends Model
         $slug = $this->getTranslatedAttribute('slug', $lang) ?: $this->slug;
         $url = 'vacancy-categories/' . $this->id . '-' . $slug;
         return LaravelLocalization::localizeURL($url, $lang);
+    }
+
+    public function getFullNameAttribute()
+    {
+        $names = array_reverse($this->fullName($this));
+        $name = array_pop($names);
+        if (count($names)) {
+            $name .= ' (' . implode(' > ', $names) . ')';
+        }
+        return $name;
+    }
+
+    public function getHierarchyNameAttribute()
+    {
+        $names = array_reverse($this->fullName($this));
+        return implode(' > ', $names);
+    }
+
+    public function getNameBrowseAttribute()
+    {
+        return $this->full_name;
+    }
+
+    public function parentId()
+    {
+        return $this->belongsTo(self::class);
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(self::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(self::class, 'parent_id');
+    }
+
+    public function childrenIds($vacancyCategory, $ids = [])
+    {
+        $ids[] = $vacancyCategory->id;
+        if (!$vacancyCategory->children->isEmpty()) {
+            foreach ($vacancyCategory->children as $child) {
+                if (!in_array($child->id, $ids)) {
+                    $ids = $this->childrenIds($child, $ids);
+                }
+            }
+        }
+        return $ids;
+    }
+
+    private function fullName($vacancyCategory)
+    {
+        $ids = self::parentIDs($vacancyCategory);
+        $categories = VacancyCategory::whereIn('id', $ids)->withTranslation(app()->getLocale())->get();
+        $names = [];
+        foreach ($ids as $id) {
+            $c = $categories->where('id', $id)->first();
+            if ($c) {
+                $names[] = $c->getTranslatedAttribute('name');
+            }
+        }
+        return $names;
+    }
+
+    public static function parentIDs($vacancyCategory, $ids = [])
+    {
+        $ids[] = $vacancyCategory->id;
+        if ($vacancyCategory->parent && !in_array($vacancyCategory->parent->id, $ids)) {
+            $ids = self::parentIDs($vacancyCategory->parent, $ids);
+        }
+        return $ids;
     }
 }

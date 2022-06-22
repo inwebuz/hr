@@ -4728,10 +4728,6 @@ button:focus {
      # Faq
 =================================================================== */
 
-.faq-content-area .faq-content {
-    margin-top: -25px;
-}
-
 .faq-content-area .thumb {
     padding-left: 35px;
 }
@@ -7204,6 +7200,7 @@ footer .f-items .f-item.link li a {
 
 footer .f-items .f-item.link li a:hover {
     margin-left: 10px;
+    color: #08899E;
 }
 
 footer .f-items .f-item.link li a i {
@@ -7219,6 +7216,10 @@ footer .f-items .f-item .address li {
 footer .f-items .f-item .address li .content,
 footer .f-items .f-item .address li .content a {
     color: #fff;
+}
+
+footer .f-items .f-item .address li .content a:hover {
+    color: #08899E;
 }
 
 footer .f-items .f-item .address li i {
@@ -7596,8 +7597,17 @@ footer .footer-bottom-box::after {
 .text-green2 {
     color: #1eb197 !important;
 }
+a.text-dark:hover {
+    color: #08899E !important;
+}
+.font-weight-normal {
+    font-weight: 400 !important;
+}
 .font-weight-semibold {
     font-weight: 600 !important;
+}
+.font-weight-bold {
+    font-weight: 700 !important;
 }
 
 .new-partner-single {
@@ -7627,15 +7637,18 @@ footer .footer-bottom-box::after {
     filter: grayscale(0%);
     opacity: 1;
 }
+.owl-theme.thumb-services-carousel .owl-dots .owl-dot,
 .owl-theme.new-partners-slider .owl-dots .owl-dot {
     vertical-align: middle;
 }
+.owl-theme.thumb-services-carousel .owl-dots .owl-dot span,
 .owl-theme.new-partners-slider .owl-dots .owl-dot span {
     margin: 5px 9px;
     width: 5px;
     height: 5px;
     background-color: #cecece;
 }
+.owl-theme.thumb-services-carousel .owl-dots .owl-dot.active span,
 .owl-theme.new-partners-slider .owl-dots .owl-dot.active span {
     margin: 5px 9px;
     width: 10px;

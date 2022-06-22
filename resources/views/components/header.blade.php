@@ -1,9 +1,10 @@
 @php
 $phone = Helper::setting('contact.phone');
 $email = Helper::setting('contact.email');
-$siteTitle = Helper::setting('site.title')
+$siteTitle = Helper::setting('site.title');
 @endphp
-{{-- @if (auth()->check() && auth()->user()->isAdmin())
+{{-- @if (auth()->check() &&
+    auth()->user()->isAdmin())
 <div class="py-3 px-3 text-light position-fixed"
     style="top: 0; left: 0; z-index: 10000;width: 220px;background-color: #000;">
     <div class="container-fluid">
@@ -36,9 +37,9 @@ $siteTitle = Helper::setting('site.title')
                 <ul>
                     <li class="search mr-3"><a href="javascript:;"><i class="ti-search"></i></a></li>
                     @foreach ($switcher->getValues() as $key => $item)
-                    <li>
-                        <a href="{{ $item->url }}" class="px-1 text-uppercase @if($item->key == $switcher->getActive()->key) active @endif">{{ $item->key }}</a>
-                    </li>
+                        <li>
+                            <a href="{{ $item->url }}" class="px-1 text-uppercase @if ($item->key == $switcher->getActive()->key) active @endif">{{ $item->key }}</a>
+                        </li>
                     @endforeach
                 </ul>
             </div>
@@ -60,22 +61,31 @@ $siteTitle = Helper::setting('site.title')
                 <ul class="nav navbar-nav navbar-center" data-in="#" data-out="#">
 
                     @foreach ($headerMenuItems as $item)
-                    @if ($item->hasItems())
-                    <li class="dropdown">
-                        <a href="{{ $item->url }}" class="dropdown-toggle" data-toggle="dropdown" >{{ $item->name }}</a>
-                        <ul class="dropdown-menu">
-                            @foreach ($item->getItems() as $subItem)
-                            <li>
-                                <a href="{{ $subItem->url }}">{{ $subItem->name }}</a>
+                        @if ($item->hasItems())
+                            <li class="dropdown">
+                                <a href="{{ $item->url }}" class="dropdown-toggle" data-toggle="dropdown">{{ $item->name }}</a>
+                                <ul class="dropdown-menu">
+                                    @foreach ($item->getItems() as $subItem)
+                                        <li>
+                                            <a href="{{ $subItem->url }}" class="d-block">{{ $subItem->name }}</a>
+                                            @if ($subItem->hasItems())
+                                                <ul class="list-unstyled">
+                                                    @foreach ($subItem->getItems() as $subChildItem)
+                                                        <li>
+                                                            <a href="{{ $subChildItem->url }}" class="py-2 py-lg-1 px-4 font-weight-normal d-block">- {{ $subChildItem->name }}</a>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                    @else
-                    <li>
-                        <a href="{{ $item->url }}">{{ $item->name }}</a>
-                    </li>
-                    @endif
+                        @else
+                            <li>
+                                <a href="{{ $item->url }}">{{ $item->name }}</a>
+                            </li>
+                        @endif
                     @endforeach
                 </ul>
             </div><!-- /.navbar-collapse -->

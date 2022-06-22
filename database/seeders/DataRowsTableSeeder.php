@@ -2434,6 +2434,23 @@ class DataRowsTableSeeder extends StandardSeeder
 
         // specific rows
         $rows = [
+
+            'parent_id' => [
+                'method' => 'hiddenRow',
+                'data'   => [
+                    'display_name' => __('seeders.data_rows.parent'),
+                    'edit' => 1,
+                    'add' => 1,
+                    'delete' => 1,
+                ],
+            ],
+            'vacancy_category_belongsto_parent_relationship' => [
+                'method' => 'relationshipRow',
+                'data'   => [
+                    'display_name' => __('seeders.data_rows.parent'),
+                    'details' => $this->relationship(Category::class, 'vacancy_categories', 'belongsTo', 'parent_id', 'id', 'full_name'),
+                ],
+            ],
             'image' => [
                 'method' => 'hiddenRow',
             ],

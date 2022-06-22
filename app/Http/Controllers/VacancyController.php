@@ -30,7 +30,10 @@ class VacancyController extends Controller
         $locale = app()->getLocale();
         $breadcrumbs = new Breadcrumbs();
 
-        $vacancyCategory->load('translations');
+        $vacancyCategory->load('translations', 'parent');
+        $vacancyCategory->load(['children' => function($query) use ($locale){
+            $query->active()->orderBy('order')->withTranslation($locale);
+        }]);
 
         // check slug
         if ($vacancyCategory->getTranslatedAttribute('slug') != $slug) {
@@ -39,6 +42,12 @@ class VacancyController extends Controller
 
         $page = Page::where('slug', 'vacancies')->withTranslation($locale)->firstOrFail();
         $breadcrumbs->addItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url));
+
+        if ($vacancyCategory->parent) {
+            $vacancyCategory->parent->load('translations');
+            $breadcrumbs->addItem(new LinkItem($vacancyCategory->parent->getTranslatedAttribute('name'), $vacancyCategory->parent->url));
+
+        }
 
         $query = $vacancyCategory->vacancies()
             ->active()

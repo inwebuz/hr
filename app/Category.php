@@ -50,6 +50,15 @@ class Category extends Model
         'deleted' => ModelDeleted::class,
     ];
 
+    protected static function booted()
+    {
+        static::saving(function ($category) {
+            if ($category->id == $category->parent_id) {
+                $category->parent_id = null;
+            }
+        });
+    }
+
     public function searches()
     {
         return $this->morphMany(Search::class, 'searchable');
@@ -226,6 +235,7 @@ class Category extends Model
         </svg>';
     }
 
+
     /**
      * Get full name (with parents' names)
      */
@@ -307,19 +317,24 @@ class Category extends Model
         $ids[] = $category->id;
         if (!$category->children->isEmpty()) {
             foreach ($category->children as $child) {
-                $ids = $this->childrenIds($child, $ids);
+                if (!in_array($child->id, $ids)) {
+                    $ids = $this->childrenIds($child, $ids);
+                }
             }
         }
         return $ids;
     }
 
-    private function fullName($category, $names = [])
+    private function fullName($category)
     {
-        $names[] = $category->getTranslatedAttribute('name');
-        if ($category->parent) {
-            $parent = $category->parent;
-            $parent->load('translations');
-            $names = $this->fullName($parent, $names);
+        $ids = self::parentIDs($category);
+        $categories = Category::whereIn('id', $ids)->withTranslation(app()->getLocale())->get();
+        $names = [];
+        foreach ($ids as $id) {
+            $c = $categories->where('id', $id)->first();
+            if ($c) {
+                $names[] = $c->getTranslatedAttribute('name');
+            }
         }
         return $names;
     }
@@ -327,7 +342,7 @@ class Category extends Model
     public static function parentIDs($category, $ids = [])
     {
         $ids[] = $category->id;
-        if ($category->parent) {
+        if ($category->parent && !in_array($category->parent->id, $ids)) {
             $ids = self::parentIDs($category->parent, $ids);
         }
         return $ids;
