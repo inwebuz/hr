@@ -1661,6 +1661,9 @@ nav.navbar.bootsnav {
         font-weight: 600;
         font-size: 12px;
     }
+    nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a:hover {
+        color: #08899E;
+    }
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li:last-child > a {
         border-bottom: none;
     }
