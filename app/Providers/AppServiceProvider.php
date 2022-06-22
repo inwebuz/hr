@@ -38,9 +38,9 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         Voyager::replaceAction(ViewAction::class, MyViewAction::class);
         Voyager::addAction(OrderViewAction::class);
-        Voyager::addAction(UserApiTokensAction::class);
+        // Voyager::addAction(UserApiTokensAction::class);
         Voyager::addAction(ProductAttributesAction::class);
-        Voyager::addAction(ReviewablePageAction::class);
+        // Voyager::addAction(ReviewablePageAction::class);
         Voyager::addAction(ProductGroupSettingsAction::class);
         Voyager::useModel('MenuItem', MenuItem::class);
     }
