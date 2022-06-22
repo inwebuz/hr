@@ -14,7 +14,7 @@
                         @foreach ($principles as $key => $principle)
                         <li class="d-flex align-items-center">
                             <div class="icon">
-                                <span class="text-primary py-2 px-3 text-center mr-3 d-inline-block rounded-circle font-weight-bold bg-light">{{ $key }}</span>
+                                <span class="text-primary py-2 px-3 text-center mr-3 d-inline-block rounded-circle font-weight-bold bg-light">{{ $key + 1 }}</span>
                             </div>
                             <div class="info">
                                 <p>{{ $principle->getTranslatedAttribute('description') }}</p>
