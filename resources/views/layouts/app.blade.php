@@ -38,9 +38,9 @@
     <link href="{{ asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/css/bootsnav.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/bootsnav.css?v=' . $assetsVersion) }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/style.css?v=' . $assetsVersion) }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/responsive.css?v=' . $assetsVersion) }}" rel="stylesheet" />
     <!-- ========== End Stylesheet ========== -->
     <link rel="stylesheet" href="{{ asset('css/custom.css?v=' . $assetsVersion) }}">
 
@@ -92,8 +92,8 @@
     <script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/js/count-to.js') }}"></script>
     <script src="{{ asset('assets/js/YTPlayer.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootsnav.js') }}"></script>
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/bootsnav.js?v=' . $assetsVersion) }}"></script>
+    <script src="{{ asset('assets/js/main.js?v=' . $assetsVersion) }}"></script>
     <script src="{{ asset('js/imask.js') }}"></script>
     <script src="{{ asset('js/custom.js?v=' . $assetsVersion) }}"></script>
 
