@@ -1,10 +1,10 @@
 @php
-$siteTitle = Helper::setting('site.title');
-$phone = Helper::setting('contact.phone');
-$phone2 = Helper::setting('contact.phone2');
-$email = Helper::setting('contact.email');
-$map = Helper::setting('contact.map');
-$telegram = Helper::setting('contact.telegram');
+$siteTitle = Helper::setting('site.title', 5);
+$phone = Helper::setting('contact.phone', 5);
+$phone2 = Helper::setting('contact.phone2', 5);
+$email = Helper::setting('contact.email', 5);
+$map = Helper::setting('contact.map', 5);
+$telegram = Helper::setting('contact.telegram', 5);
 @endphp
 
 <footer class="bg-blue text-white">

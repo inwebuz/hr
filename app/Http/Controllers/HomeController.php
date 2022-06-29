@@ -39,10 +39,10 @@ class HomeController extends Controller
         // slides
         $slides = Helper::banners('slide');
 
-        $founder = Helper::staticText('founder', 300);
-        $homeSeo = Helper::staticText('home_seo', 300);
-        $writeUs = Helper::staticText('write_us', 300);
-        $newsText = Helper::staticText('news', 300);
+        $founder = Helper::staticText('founder', 5);
+        $homeSeo = Helper::staticText('home_seo', 5);
+        $writeUs = Helper::staticText('write_us', 5);
+        $newsText = Helper::staticText('news', 5);
 
         $services = Service::active()->orderBy('order')->withTranslation($locale)->take(20)->get();
         $servicesPage = Page::active()->where('slug', 'services')->withTranslation($locale)->firstOrFail();

@@ -12,7 +12,7 @@
     <div class="container">
         <div class="d-flex flex-wrap justify-content-center justify-content-lg-start">
             @foreach ($partners as $partner)
-                <div class="new-partner-single new-partner-single-sm text-center shadow rounded-xl mx-2">
+                <div class="new-partner-single new-partner-single-sm text-center shadow rounded-xl">
                     <a href="{{ $partner->url }}" class="d-block">
                         <img src="{{ $partner->medium_img }}" alt="{{ $partner->getTranslatedAttribute('name') }}" class="img-fluid">
                     </a>

@@ -46,8 +46,8 @@ class Header extends Component
         $switcher = Helper::languageSwitcher();
         $activeLanguageRegional = Helper::getActiveLanguageRegional();
 
-        $address = Helper::staticText('contact_address', 300)->getTranslatedAttribute('description');
-        $workHours = Helper::staticText('work_hours', 300)->getTranslatedAttribute('description');
+        $address = Helper::staticText('contact_address', 5)->getTranslatedAttribute('description');
+        $workHours = Helper::staticText('work_hours', 5)->getTranslatedAttribute('description');
 
         $cartQuantity = app('cart')->getTotalQuantity();
         $wishlistQuantity = app('wishlist')->getTotalQuantity();

@@ -1,7 +1,7 @@
 @php
-$phone = Helper::setting('contact.phone');
-$email = Helper::setting('contact.email');
-$siteTitle = Helper::setting('site.title');
+$phone = Helper::setting('contact.phone', 5);
+$email = Helper::setting('contact.email', 5);
+$siteTitle = Helper::setting('site.title', 5);
 @endphp
 {{-- @if (auth()->check() &&
     auth()->user()->isAdmin())

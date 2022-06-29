@@ -23,20 +23,31 @@
 
             @foreach ($slides as $key => $slide)
             <div class="carousel-item @if($key == 0) active @endif">
+                @if ($slide->getTranslatedAttribute('url'))
+                    <a href="{{ $slide->getTranslatedAttribute('url') }}" class="d-block">
+                @endif
                 <div class="slider-thumb bg-fixed" style="background-image: url({{ $slide->img }});"></div>
                 <div class="box-table">
-                    <div class="box-cell e-shadow dark-hard">
+                    {{-- <div class="box-cell e-shadow dark-hard"> --}}
+                    <div class="box-cell">
                         <div class="container">
                             <div class="content">
-                                <h2 data-animation="animated zoomInLeft">{{ $slide->getTranslatedAttribute('name') }}</h2>
-                                <p class="animated slideInRight">{{ $slide->getTranslatedAttribute('description') }}</p>
+                                @if ($slide->getTranslatedAttribute('name'))
+                                    <h2 data-animation="animated zoomInLeft">{{ $slide->getTranslatedAttribute('name') }}</h2>
+                                @endif
+                                @if ($slide->getTranslatedAttribute('description'))
+                                    <p class="animated slideInRight">{{ $slide->getTranslatedAttribute('description') }}</p>
+                                @endif
                                 @if ($slide->getTranslatedAttribute('button_text') && $slide->getTranslatedAttribute('url'))
-                                <a data-animation="animated zoomInUp" class="btn btn-outline-light effect btn-md" href="{{ $slide->getTranslatedAttribute('url') }}">{{ $slide->getTranslatedAttribute('button_text') }}</a>
+                                    <button data-animation="animated zoomInUp" class="btn btn-outline-light effect btn-md">{{ $slide->getTranslatedAttribute('button_text') }}</button>
                                 @endif
                             </div>
                         </div>
                     </div>
                 </div>
+                @if ($slide->getTranslatedAttribute('url'))
+                    </a>
+                @endif
             </div>
             @endforeach
         </div>
@@ -123,9 +134,9 @@
 <!-- Start Contact Area
 ============================================= -->
 @php
-    $phone = Helper::setting('contact.phone');
-    $phone2 = Helper::setting('contact.phone2');
-    $email = Helper::setting('contact.email');
+    $phone = Helper::setting('contact.phone', 5);
+    $phone2 = Helper::setting('contact.phone2', 5);
+    $email = Helper::setting('contact.email', 5);
 @endphp
 <div class="contact-area default-padding bg-theme inc-shape">
     <div class="container">

@@ -42,9 +42,9 @@ class Footer extends Component
         $logo = $siteLogo ? Voyager::image($siteLogo) : '/img/logo.png';
         $logoLight = $siteLightLogo ? Voyager::image($siteLightLogo) : '/img/logo.png';
 
-        $address = Helper::staticText('contact_address', 300)->getTranslatedAttribute('description');
-        $workHours = Helper::staticText('work_hours', 300)->getTranslatedAttribute('description');
-        $footerText = Helper::staticText('footer_text', 300)->getTranslatedAttribute('description');
+        $address = Helper::staticText('contact_address', 5)->getTranslatedAttribute('description');
+        $workHours = Helper::staticText('work_hours', 5)->getTranslatedAttribute('description');
+        $footerText = Helper::staticText('footer_text', 5)->getTranslatedAttribute('description');
 
         // $categories = Helper::categories();
 

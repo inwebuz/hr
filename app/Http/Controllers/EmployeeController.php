@@ -31,7 +31,7 @@ class EmployeeController extends Controller
 
         $employee->load('translations');
 
-        $otherEmployeesText = Helper::staticText('other_consultants', 300);
+        $otherEmployeesText = Helper::staticText('other_consultants', 5);
         $otherEmployees = Employee::active()->where('id', '!=', $employee->id)->inRandomOrder()->withTranslation($locale)->take(3)->get();
 
         $page = Page::where('slug', 'employees')->withTranslation($locale)->firstOrFail();

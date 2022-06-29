@@ -27,7 +27,7 @@ class Reviews extends Component
     public function render()
     {
 
-        $reviewsText = Helper::staticText('reviews', 300);
+        $reviewsText = Helper::staticText('reviews', 5);
         $reviews = Review::active()->main()->latest()->take(6)->get();
         return view('components.reviews', compact('reviewsText', 'reviews'));
     }
