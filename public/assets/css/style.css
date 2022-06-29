@@ -5610,6 +5610,13 @@ a:active {
     line-height: 1.4;
 }
 
+.blog-area .blog-items .info a {
+    color: #000;
+}
+.blog-area .blog-items .info a:hover {
+    color: #08899E;
+}
+
 .blog-area .blog-items .info h2 a,
 .blog-area .blog-items .info h3 a,
 .blog-area .blog-items .info h4 a,
