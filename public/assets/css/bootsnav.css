@@ -1640,10 +1640,7 @@ nav.navbar.bootsnav {
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu.dropdown-menu-2-column {
         width: 450px;
         padding: 10px 0;
-    }
-    nav.navbar.bootsnav li.dropdown ul.dropdown-menu.dropdown-menu-2-column > li {
-        width: 50%;
-        float: left;
+        columns: 2;
     }
 
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu.cart-list {
