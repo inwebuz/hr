@@ -1637,6 +1637,15 @@ nav.navbar.bootsnav {
         padding: 0;
         width: 250px;
     }
+    nav.navbar.bootsnav li.dropdown ul.dropdown-menu.dropdown-menu-2-column {
+        width: 450px;
+        padding: 10px 0;
+    }
+    nav.navbar.bootsnav li.dropdown ul.dropdown-menu.dropdown-menu-2-column > li {
+        width: 50%;
+        float: left;
+    }
+
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu.cart-list {
         left: auto;
         min-width: 300px;

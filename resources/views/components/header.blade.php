@@ -64,7 +64,7 @@ $siteTitle = Helper::setting('site.title', 5);
                         @if ($item->hasItems())
                             <li class="dropdown">
                                 <a href="{{ $item->url }}" class="dropdown-toggle" data-toggle="dropdown">{{ $item->name }}</a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu @if($item->url == route('vacancies.index')) dropdown-menu-2-column @endif">
                                     @foreach ($item->getItems() as $subItem)
                                         <li>
                                             <a href="{{ $subItem->url }}" class="d-block">{{ $subItem->name }}</a>
