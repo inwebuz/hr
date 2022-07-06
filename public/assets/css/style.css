@@ -6362,7 +6362,6 @@ a:active {
 .blog-area.single .post-pagi-area a {
     display: inline-block;
     font-weight: 600;
-    color: #999999;
     border-radius: 30px;
     width: 45%;
 }
@@ -7567,6 +7566,10 @@ footer .footer-bottom-box::after {
     margin-right: 30px;
     font-size: 18px;
     color: #fff;
+}
+.footer-social > li > a:hover {
+    /* color: #08899E; */
+    transform: translateY(-5px);
 }
 
 .bg-blue {

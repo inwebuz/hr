@@ -1638,9 +1638,12 @@ nav.navbar.bootsnav {
         width: 250px;
     }
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu.dropdown-menu-2-column {
-        width: 450px;
+        width: 500px;
         padding: 10px 0;
         columns: 2;
+    }
+    nav.navbar.bootsnav li.dropdown ul.dropdown-menu.dropdown-menu-2-column > li {
+        display: inline-block;
     }
 
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu.cart-list {
