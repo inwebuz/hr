@@ -38,7 +38,7 @@ $siteTitle = Helper::setting('site.title', 5);
                     <li class="search mr-3"><a href="javascript:;"><i class="ti-search"></i></a></li>
                     @foreach ($switcher->getValues() as $key => $item)
                         <li>
-                            <a href="{{ $item->url }}" class="px-1 text-uppercase @if ($item->key == $switcher->getActive()->key) active text-primary @endif">{{ $item->key }}</a>
+                            <a href="{{ $item->url }}" class="px-1 text-uppercase @if ($item->key == $switcher->getActive()->key) active text-primary font-weight-bold @endif">{{ $item->key }}</a>
                         </li>
                     @endforeach
                 </ul>

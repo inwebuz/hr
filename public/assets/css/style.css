@@ -142,15 +142,14 @@ ul {
 
 a,
 a:active,
-a:focus,
-a:hover {
+a:focus {
     outline: none;
     text-decoration: none;
     color: #08899E;
 }
 
 a:hover {
-    color: #006F80;
+    color: #004B56;
 }
 
 a {
@@ -7578,9 +7577,6 @@ footer .footer-bottom-box::after {
 
 .text-white {
     color: #fff !important;
-}
-.text-green2 {
-    color: #08899e !important;
 }
 .border-white-20-60 {
     border: 20px solid rgba(255, 255, 255, 0.6);

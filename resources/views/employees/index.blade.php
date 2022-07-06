@@ -6,7 +6,7 @@
 
 @section('content')
 
-@include('partials.page_top', ['title' => $page->getTranslatedAttribute('name')])
+@include('partials.page_top', ['title' => $page->getTranslatedAttribute('name'), 'description' => $page->getTranslatedAttribute('description')])
 
 <!-- Start Team Area
 ============================================= -->
