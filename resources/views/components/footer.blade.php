@@ -9,7 +9,7 @@ $telegram = Helper::setting('contact.telegram', 5);
 
 <footer class="bg-blue text-white">
     <div class="container">
-        <div class="f-items default-padding">
+        <div class="f-items ">
             <div class="row">
                 <div class="col-lg-4 col-md-6 item">
                     <div class="f-item about">

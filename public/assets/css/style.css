@@ -7111,6 +7111,10 @@ footer img {
     font-weight: 600;
 }
 
+footer .f-items {
+    padding: 54px 0 55px;
+}
+
 footer .f-items .f-item.about {
     padding-right: 40px;
     margin-right: 10px;
