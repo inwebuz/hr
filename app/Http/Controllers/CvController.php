@@ -68,7 +68,7 @@ class CvController extends Controller
 
         // vacancy
         $vacancy = null;
-        if ($data['vacancy_id']) {
+        if (!empty($data['vacancy_id'])) {
             $vacancy = Vacancy::find($data['vacancy_id']);
         }
 
