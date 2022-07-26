@@ -112,9 +112,10 @@ class TelegramService
         try {
             return $this->client->request($method, $url, $params);
         } catch (ClientException $e) {
+            Log::debug($e->getResponse()->getBody()->getContents());
             return $e->getResponse();
         } catch (Throwable $e) {
-            // Log::debug($e->getMessage());
+            Log::debug($e->getMessage());
         }
         return false;
     }

@@ -146,6 +146,7 @@
                     <h2>{{ $writeUs->getTranslatedAttribute('name') }}</h2>
                     <p>{{ $writeUs->getTranslatedAttribute('description') }}</p>
                     <ul>
+                        @if ($phone || $phone2)
                         <li>
                             <i class="fas fa-phone"></i>
                             <p>
@@ -158,6 +159,8 @@
                                 @endif
                             </p>
                         </li>
+                        @endif
+                        @if ($email)
                         <li>
                             <i class="far fa-envelope"></i>
                             <p>
@@ -166,6 +169,7 @@
                                 @endif
                             </p>
                         </li>
+                        @endif
                     </ul>
                 </div>
             </div>
