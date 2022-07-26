@@ -95,7 +95,7 @@ class ContactController extends Controller
         $telegramService->sendMessage($telegram_chat_id, $telegramMessage, 'HTML');
 
         // send email
-        Mail::to(setting('contact.email'))->send(new ContactMail($contact, $product));
+        // Mail::to(setting('contact.email'))->send(new ContactMail($contact, $product));
 
         // return redirect()->route('home', ['#contact-form'])->withSuccess(__('home.contact_message_success'));
 
@@ -199,12 +199,12 @@ class ContactController extends Controller
             $user->email = $data['email'];
             $user->name = $data['first_name'] . ' ' . $data['last_name'];
             $user->save();
-            Mail::to($data['email'])->send(new UserRegisteredMail($user, $password));
+            // Mail::to($data['email'])->send(new UserRegisteredMail($user, $password));
         }
 
         // send to client
         // send email
-        Mail::to($data['email'])->send(new InstallmentPaymentClientMail($installmentPayment, $contact));
+        // Mail::to($data['email'])->send(new InstallmentPaymentClientMail($installmentPayment, $contact));
 
         // send to partners
         $installmentPaymentChatID = config('services.installment_payment.chat_id');

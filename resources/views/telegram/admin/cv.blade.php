@@ -3,3 +3,4 @@
 <b>Телефон:</b> {{ $cv->phone_number }}
 <b>E-mail:</b> {{ $cv->email }}
 <b>Сообщение:</b> {{ $cv->message }}
+@if($vacancy) <b>Вакансия:</b> {{ $vacancy->name }} @endif

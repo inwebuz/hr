@@ -163,7 +163,7 @@ class OrderController extends Controller
 
         try {
             // send email to admin
-            Mail::to(setting('contact.email'))->send(new NewOrderAdminMail($order));
+            // Mail::to(setting('contact.email'))->send(new NewOrderAdminMail($order));
         } catch (\Throwable $th) {
             //throw $th;
         }
@@ -171,12 +171,12 @@ class OrderController extends Controller
         try {
             // send email to client
             if ($order->email) {
-                Mail::to($order->email)->send(new NewOrderClientMail($order));
+                // Mail::to($order->email)->send(new NewOrderClientMail($order));
             }
         } catch (\Throwable $th) {
             //throw $th;
         }
-		
+
         return redirect()->to($order->url)->withSuccess(__('main.order_accepted') . '. ' . __('main.status') . ': ' . $order->status_title);
     }
 

@@ -22,6 +22,7 @@ use App\Mail\UserRegisteredMail;
 use App\Models\Cv;
 use App\Services\TelegramService;
 use App\User;
+use App\Vacancy;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Exception\RequestException;
@@ -48,6 +49,7 @@ class CvController extends Controller
         $data = $request->validate([
             // 'captcha_key' => 'required',
             // 'captcha' => 'required|captcha_api:' . $captchaKey . ',flat',
+            'vacancy_id' => 'nullable|exists:vacancies,id',
             'name' => 'required',
             'email' => 'required',
             'phone_number' => 'required',
@@ -64,8 +66,14 @@ class CvController extends Controller
         // save to database
         $cv = Cv::create($data);
 
+        // vacancy
+        $vacancy = null;
+        if ($data['vacancy_id']) {
+            $vacancy = Vacancy::find($data['vacancy_id']);
+        }
+
         // send telegram
-        $telegramMessage = view('telegram.admin.cv', compact('cv'))->render();
+        $telegramMessage = view('telegram.admin.cv', compact('cv', 'vacancy'))->render();
         $telegramService = new TelegramService();
         $telegramService->sendMessage($telegram_chat_id, $telegramMessage, 'HTML');
         $telegramService->sendDocument($telegram_chat_id, Storage::path($cv->file));

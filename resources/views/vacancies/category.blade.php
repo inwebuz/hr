@@ -48,7 +48,7 @@
                                                 <div class="text-block mt-5">
                                                     <h4>{{ __('main.send_cv_form_title') }}</h4>
                                                 </div>
-                                                @include('partials.cv_form')
+                                                @include('partials.cv_form', ['vacancy_id' => $vacancy->id])
                                             </div>
                                         </div>
                                     </div>

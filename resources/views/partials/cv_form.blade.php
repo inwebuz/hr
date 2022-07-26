@@ -2,8 +2,8 @@
     <form action="{{ route('cvs.store') }}" method="POST" class="cv-form" enctype="multipart/form-data">
         @csrf
 
-        @if (isset($cv_id))
-            <input type="hidden" name="cv_id" value="{{ $cv_id }}">
+        @if (isset($vacancy_id))
+            <input type="hidden" name="vacancy_id" value="{{ $vacancy_id }}">
         @endif
 
         <div class="form-result"></div>
