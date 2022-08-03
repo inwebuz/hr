@@ -68,11 +68,15 @@
 
     {{-- @include('partials.svg') --}}
 
-    <x-header />
+    <div class="d-flex flex-column h-100">
+        <x-header />
 
-    @yield('content')
+        <div class="flex-grow-1">
+            @yield('content')
+        </div>
 
-    <x-footer />
+        <x-footer />
+    </div>
 
     @yield('after_footer_blocks')
 
