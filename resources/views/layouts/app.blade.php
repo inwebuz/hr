@@ -39,6 +39,7 @@
     <link href="{{ asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/bootsnav.css?v=' . $assetsVersion) }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
     <link href="{{ asset('assets/css/style.css?v=' . $assetsVersion) }}" rel="stylesheet">
     <link href="{{ asset('assets/css/responsive.css?v=' . $assetsVersion) }}" rel="stylesheet" />
     <!-- ========== End Stylesheet ========== -->
@@ -99,6 +100,7 @@
     <script src="{{ asset('assets/js/bootsnav.js?v=' . $assetsVersion) }}"></script>
     <script src="{{ asset('assets/js/main.js?v=' . $assetsVersion) }}"></script>
     <script src="{{ asset('js/imask.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <script src="{{ asset('js/custom.js?v=' . $assetsVersion) }}"></script>
 
     {{-- <script src="{{ asset('js/app.js?v=' . $assetsVersion) }}"></script> --}}

@@ -678,3 +678,8 @@
 }
 /* end product groups */
 
+
+.review-certificate-img img {
+    max-height: 500px;
+    width: auto;
+}

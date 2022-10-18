@@ -4394,7 +4394,7 @@ a:active {
 }
 
 .testimonials-area .item {
-    padding: 120px 50px;
+    padding: 120px 40px 60px;
     position: relative;
     z-index: 1;
 }
@@ -4457,10 +4457,14 @@ a:active {
     border-left: 1px solid #c7c7c7;
 }
 
+.testimonials-area .testimonials-carousel {
+    padding-bottom: 50px;
+}
 .testimonials-area .testimonials-carousel .owl-nav {
     position: absolute;
-    right: 30px;
-    bottom: 135px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
 }
 
 .testimonials-area .testimonials-carousel .owl-nav .owl-prev,

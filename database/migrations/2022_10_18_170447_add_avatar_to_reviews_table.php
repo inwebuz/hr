@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddAvatarToReviewsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->text('avatar')->nullable();
+            $table->text('certificate1')->nullable();
+            $table->text('certificate2')->nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->dropColumn(['avatar', 'certificate1', 'certificate2']);
+        });
+    }
+}

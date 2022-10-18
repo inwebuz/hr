@@ -4,10 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use TCG\Voyager\Facades\Voyager;
+use TCG\Voyager\Traits\Resizable;
 
 class Review extends Model
 {
     use HasFactory;
+    use Resizable;
 
     /**
      * Statuses.
@@ -17,6 +20,13 @@ class Review extends Model
     const STATUS_PENDING = 2;
 
     protected $guarded = [];
+
+    public static $avatarSizes = [
+        'micro' => [80, 80],
+    ];
+    public static $certificateSizes = [
+        'small' => [200, 280],
+    ];
 
     protected static function boot()
     {
@@ -52,5 +62,35 @@ class Review extends Model
     public function scopeMain($query)
     {
         return $query->where('reviewable_id', 1)->where('reviewable_type', 'App\Page');
+    }
+
+    public function getAvatarImgAttribute()
+    {
+        return $this->avatar ? Voyager::image($this->avatar) : asset('images/no-image.jpg');
+    }
+
+    public function getAvatarMicroImgAttribute()
+    {
+        return $this->avatar ? Voyager::image($this->getThumbnail($this->avatar, 'micro')) : asset('images/no-image.jpg');
+    }
+
+    public function getCertificate1ImgAttribute()
+    {
+        return $this->certificate1 ? Voyager::image($this->certificate1) : asset('images/no-image.jpg');
+    }
+
+    public function getCertificate1SmallImgAttribute()
+    {
+        return $this->certificate1 ? Voyager::image($this->getThumbnail($this->certificate1, 'small')) : asset('images/no-image.jpg');
+    }
+
+    public function getCertificate2ImgAttribute()
+    {
+        return $this->certificate2 ? Voyager::image($this->certificate2) : asset('images/no-image.jpg');
+    }
+
+    public function getCertificate2SmallImgAttribute()
+    {
+        return $this->certificate2 ? Voyager::image($this->getThumbnail($this->certificate2, 'small')) : asset('images/no-image.jpg');
     }
 }
