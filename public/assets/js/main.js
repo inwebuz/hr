@@ -208,8 +208,25 @@
             nav: true,
             margin:30,
             dots: false,
-            autoplay: false,
+            rewind: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
             items: 1,
+            navText: [
+                "<i class='arrow_left'></i>",
+                "<i class='arrow_right'></i>"
+            ]
+        });
+
+        $('.certificates-carousel').owlCarousel({
+            loop: false,
+            nav: true,
+            margin:30,
+            dots: false,
+            rewind: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            items: 2,
             navText: [
                 "<i class='arrow_left'></i>",
                 "<i class='arrow_right'></i>"

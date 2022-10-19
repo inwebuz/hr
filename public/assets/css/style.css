@@ -4457,9 +4457,11 @@ a:active {
     border-left: 1px solid #c7c7c7;
 }
 
+.testimonials-area .certificates-carousel,
 .testimonials-area .testimonials-carousel {
     padding-bottom: 50px;
 }
+.testimonials-area .certificates-carousel .owl-nav,
 .testimonials-area .testimonials-carousel .owl-nav {
     position: absolute;
     left: 50%;
@@ -4467,10 +4469,12 @@ a:active {
     bottom: 0;
 }
 
+.testimonials-area .certificates-carousel .owl-nav .owl-prev,
+.testimonials-area .certificates-carousel .owl-nav .owl-next,
 .testimonials-area .testimonials-carousel .owl-nav .owl-prev,
 .testimonials-area .testimonials-carousel .owl-nav .owl-next {
     background: transparent;
-    color: #232323;
+    color: #1db09a;
     font-size: 25px;
     margin: 0;
 }

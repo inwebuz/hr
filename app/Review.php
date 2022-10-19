@@ -24,6 +24,7 @@ class Review extends Model
     public static $avatarSizes = [
         'micro' => [80, 80],
     ];
+
     public static $certificateSizes = [
         'small' => [200, 280],
     ];

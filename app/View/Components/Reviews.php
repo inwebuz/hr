@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Helpers\Helper;
+use App\Models\Certificate;
 use App\Review;
 use App\StaticText;
 use Illuminate\View\Component;
@@ -26,9 +27,9 @@ class Reviews extends Component
      */
     public function render()
     {
-
         $reviewsText = Helper::staticText('reviews', 5);
         $reviews = Review::active()->main()->latest()->take(6)->get();
-        return view('components.reviews', compact('reviewsText', 'reviews'));
+        $certificates = Certificate::orderBy('order')->latest()->take(20)->get();
+        return view('components.reviews', compact('reviewsText', 'reviews', 'certificates'));
     }
 }

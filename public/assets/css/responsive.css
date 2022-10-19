@@ -661,6 +661,7 @@
     .owl-carousel.owl-theme .owl-nav {
         display: none;
     }
+    .testimonials-area .certificates-carousel .owl-nav,
     .testimonials-area .testimonials-carousel .owl-nav {
         display: block;
     }
