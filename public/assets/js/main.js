@@ -208,8 +208,8 @@
             nav: true,
             margin:30,
             dots: false,
-            rewind: true,
-            autoplay: true,
+            rewind: false,
+            autoplay: false,
             autoplayTimeout: 5000,
             items: 1,
             navText: [
@@ -223,8 +223,8 @@
             nav: true,
             margin:30,
             dots: false,
-            rewind: true,
-            autoplay: true,
+            rewind: false,
+            autoplay: false,
             autoplayTimeout: 3000,
             items: 2,
             navText: [

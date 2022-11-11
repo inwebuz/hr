@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-4 thumb">
                     <div class="thumb-box">
-                        <img src="{{ asset('assets/img/principles.jpg') }}" alt="">
+                        <img src="{{ asset('assets/img/principles2.jpg') }}" alt="">
                         <div class="shape" style="background-image: url({{ asset('assets/img/shape/1.png') }});"></div>
                     </div>
                 </div>
