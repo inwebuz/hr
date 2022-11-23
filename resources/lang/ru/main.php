@@ -577,7 +577,7 @@ return [
         'confirm_password' => 'Подтвердите пароль',
         'contact_form_success' => 'Сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время',
         'current_password' => 'Текущий пароль',
-        'cv_form_success' => 'Резюме успешно отправлен',
+        'cv_form_success' => 'Резюме успешно отправлено',
         'email' => 'E-mail',
         'message' => 'Сообщение',
         'name' => 'Имя',
