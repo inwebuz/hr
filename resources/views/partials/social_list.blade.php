@@ -55,7 +55,7 @@
 @endif
 @if ($vkontakte)
     <li>
-        <a href="{{ $linkedin }}" title="Vkontakte" target="_blank" rel="nofollow">
+        <a href="{{ $vkontakte }}" title="Vkontakte" target="_blank" rel="nofollow">
             <i class="fab fa-vk"></i>
         </a>
     </li>
