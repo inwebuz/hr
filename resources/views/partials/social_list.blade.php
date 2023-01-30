@@ -5,6 +5,8 @@
     $instagram = Helper::setting('contact.instagram', 5);
     $youtube = Helper::setting('contact.youtube', 5);
     $linkedin = Helper::setting('contact.linkedin', 5);
+    $tiktok = Helper::setting('contact.tiktok', 5);
+    $vkontakte = Helper::setting('contact.vkontakte', 5);
 @endphp
 @if ($telegram)
     {{-- <li><a class="social-btn telegram" href="{{ setting('contact.telegram') }}" title="Telegram" target="_blank" rel="nofollow"><i class="ion-paper-airplane fab fa-telegram-plane"></i></a></li> --}}
@@ -41,6 +43,20 @@
     <li>
         <a href="{{ $linkedin }}" title="Linkedin" target="_blank" rel="nofollow">
             <i class="fab fa-linkedin"></i>
+        </a>
+    </li>
+@endif
+@if ($tiktok)
+    <li>
+        <a href="{{ $tiktok }}" title="Tiktok" target="_blank" rel="nofollow">
+            <i class="fab fa-tiktok"></i>
+        </a>
+    </li>
+@endif
+@if ($vkontakte)
+    <li>
+        <a href="{{ $linkedin }}" title="Vkontakte" target="_blank" rel="nofollow">
+            <i class="fab fa-vk"></i>
         </a>
     </li>
 @endif
