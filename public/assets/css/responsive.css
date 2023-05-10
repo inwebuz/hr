@@ -14,11 +14,11 @@
     }
 
     /* Banner */
-    body,
+    /* body,
     .banner-area,
     .banner-area div {
         height: auto;
-    }
+    } */
 
     .banner-area .content {
         padding-top: 120px;
@@ -700,11 +700,11 @@
     }
 
     /* Banner Area */
-    body,
+    /* body,
     .banner-area,
     .banner-area div {
         height: auto;
-    }
+    } */
 
     .banner-area .content,
     .banner-area .double-items {
