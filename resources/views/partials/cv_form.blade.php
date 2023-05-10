@@ -1,5 +1,5 @@
 <div class="form-box">
-    <form action="{{ route('cvs.store') }}" method="POST" class="cv-form" enctype="multipart/form-data">
+    <form action="{{ route('cvs.store') }}" method="POST" class="cv-form overflow-hidden" enctype="multipart/form-data">
         @csrf
 
         @if (isset($vacancy_id))

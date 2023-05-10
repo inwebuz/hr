@@ -175,7 +175,7 @@
             </div>
             <div class="col-lg-6 offset-lg-1 contact-form-box">
                 <div class="form-box">
-                    <form action="{{ route('cvs.store') }}" method="POST" class="cv-form">
+                    <form action="{{ route('cvs.store') }}" method="POST" class="cv-form overflow-hidden">
                         @csrf
 
                         <div class="form-result"></div>

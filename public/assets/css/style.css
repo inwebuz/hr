@@ -1439,10 +1439,10 @@ a:active {
     }
 }
 
-.carousel-inner .carousel-item > .slider-thumb {
+/* .carousel-inner .carousel-item > .slider-thumb {
     -webkit-animation: zoom 20s;
     animation: zoom 20s;
-}
+} */
 
 .banner-area .carousel-zoom .slider-thumb {
     height: 100%;
