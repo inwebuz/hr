@@ -26,7 +26,7 @@
                 @if ($slide->getTranslatedAttribute('url'))
                     <a href="{{ $slide->getTranslatedAttribute('url') }}" class="d-block">
                 @endif
-                <div class="slider-thumb bg-fixed" style="background-image: url({{ $slide->img }});"></div>
+                <div class="slider-thumb bg-cover" style="background-image: url({{ $slide->img }});"></div>
                 <div class="box-table">
                     {{-- <div class="box-cell e-shadow dark-hard"> --}}
                     <div class="box-cell">
