@@ -115,8 +115,8 @@ return [
          */
         'locales' => [
             'ru',
-            'uz',
-            'en',
+            // 'uz',
+            // 'en',
         ],
     ],
 
