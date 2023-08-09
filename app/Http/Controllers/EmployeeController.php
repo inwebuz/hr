@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Category;
 use App\Employee;
+use App\EmployeeCategory;
 use App\Helpers\Breadcrumbs;
 use App\Helpers\Helper;
 use App\Helpers\LinkItem;
@@ -20,8 +21,13 @@ class EmployeeController extends Controller
         $breadcrumbs = new Breadcrumbs();
         $page = Page::where('slug', 'employees')->withTranslation($locale)->firstOrFail();
         $breadcrumbs->addItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url, LinkItem::STATUS_INACTIVE));
-        $employees = Employee::active()->orderBy('order')->withTranslation($locale)->get();
-        return view('employees.index', compact('page', 'breadcrumbs', 'employees'));
+        // $employees = Employee::active()->orderBy('order')->withTranslation($locale)->get();
+        $employeeCategories = EmployeeCategory::with([
+            'employees' => function($q) use ($locale) {
+                $q->active()->orderBy('order')->withTranslation($locale);
+            }
+        ])->orderBy('order')->withTranslation($locale)->get();
+        return view('employees.index', compact('page', 'breadcrumbs', 'employeeCategories'));
     }
 
     public function show(Request $request, Employee $employee)

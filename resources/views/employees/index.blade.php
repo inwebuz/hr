@@ -6,23 +6,33 @@
 
 @section('content')
 
-@include('partials.page_top', ['title' => $page->getTranslatedAttribute('name'), 'description' => $page->getTranslatedAttribute('description')])
+    @include('partials.page_top', ['title' => $page->getTranslatedAttribute('name'), 'description' => $page->getTranslatedAttribute('description')])
 
-<!-- Start Team Area
-============================================= -->
-<div class="team-area py-5">
-    <div class="container">
-        <div class="team-items text-center">
-            <div class="row">
-                @foreach ($employees as $employee)
-                <div class="single-item col-lg-4 col-md-6">
-                    @include('partials.employee_one')
-                </div>
-                @endforeach
-            </div>
+    <!-- Start Team Area
+    ============================================= -->
+    <div class="team-area py-5">
+        <div class="container">
+
+            @foreach ($employeeCategories as $employeeCategory)
+                @if ($employeeCategory->employees->isNotEmpty())
+                    <div class="team-items text-center">
+                        <h3 class="text-secondary font-weight-bold mb-5">{{ $employeeCategory->getTranslatedAttribute('name') }}</h3>
+                        <div class="row">
+                            @foreach ($employeeCategory->employees as $employee)
+                                <div class="single-item col-lg-4 col-md-6">
+                                    @include('partials.employee_one')
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+                <br>
+                <br>
+            @endforeach
+
+
         </div>
     </div>
-</div>
-<!-- End Team Area -->
+    <!-- End Team Area -->
 
 @endsection

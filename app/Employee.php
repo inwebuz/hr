@@ -44,6 +44,10 @@ class Employee extends Model
         return $this->morphMany(Search::class, 'searchable');
     }
 
+    public function employeeCategory() {
+        return $this->belongsTo(EmployeeCategory::class);
+    }
+
     /**
      * scope active
      */
