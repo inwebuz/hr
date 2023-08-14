@@ -105,6 +105,17 @@ class Banner extends Model
     }
 
     /**
+     * Get main image
+     */
+    public function getImgMobileAttribute()
+    {
+        $locale = app()->getLocale();
+        $localeImage = 'image_mobile_' . $locale;
+        $image = !empty($this->$localeImage) ? $this->$localeImage : $this->image_mobile;
+        return $image ? Voyager::image($image) : asset('images/no-image.jpg');
+    }
+
+    /**
      * Get increment clicks url
      */
     public function getIncrementClicksUrlAttribute()

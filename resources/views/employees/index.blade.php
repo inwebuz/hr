@@ -17,7 +17,7 @@
                 @if ($employeeCategory->employees->isNotEmpty())
                     <div class="team-items text-center">
                         <h3 class="text-secondary font-weight-bold mb-5">{{ $employeeCategory->getTranslatedAttribute('name') }}</h3>
-                        <div class="row">
+                        <div class="row justify-content-center">
                             @foreach ($employeeCategory->employees as $employee)
                                 <div class="single-item col-lg-4 col-md-6">
                                     @include('partials.employee_one')
