@@ -7650,7 +7650,9 @@ a.text-dark:hover {
 .new-partner-single img {
     filter: grayscale(100%);
     opacity: 0.6;
-    width: 234px;
+    width: 234px !important;
+    display: block;
+    margin: 0 auto;
     padding: 0 10px;
     transition: all 0.3s;
 }
