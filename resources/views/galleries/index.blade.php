@@ -13,11 +13,16 @@
         <div class="case-items-area">
             <div class="masonary">
                 <div id="portfolio-grid" class="gallery-items colums-3">
-                    @foreach ($gallery->imgs as $key => $img)
+                    @php
+                        $imgs = array_reverse($gallery->imgs);
+                        $mediumImgs = array_reverse($gallery->medium_imgs);
+                        $largeImgs = array_reverse($gallery->large_imgs);
+                    @endphp
+                    @foreach ($imgs as $key => $img)
                     <div class="pf-item">
                         <div class="item">
                             <div class="thumb">
-                                <img src="{{ in_array($key % 6, [1, 3, 4]) ? $gallery->large_imgs[$key] : $gallery->medium_imgs[$key] }}" alt="{{ $gallery->getTranslatedAttribute('name') . ' ' . $key }}">
+                                <img src="{{ in_array($key % 6, [1, 3, 4]) ? $largeImgs[$key] : $mediumImgs[$key] }}" alt="{{ $gallery->getTranslatedAttribute('name') . ' ' . $key }}">
                             </div>
                             <div class="content">
                                 <div class="button">
