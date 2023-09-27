@@ -31,7 +31,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         // $schedule->command(SynchroPhotos::class)->everyFifteenMinutes();
         // $schedule->command(ProcessProducts::class)->hourly();
-        $schedule->command(ProductsRating::class)->twiceDaily();
+        // $schedule->command(ProductsRating::class)->twiceDaily();
         // $schedule->command(ProcessProducts::class)->everyMinute();
         // $schedule->command(SynchroSmartup::class)->everyTwoHours();
     }
