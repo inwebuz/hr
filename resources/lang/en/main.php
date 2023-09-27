@@ -478,6 +478,7 @@ return [
         'subscribe_form_success' => 'You have successfully subscribed to news',
         'to_confirm' => 'Confirm',
         'to_save' => 'Save',
+        'where_did_you_hear_about_us' => 'Откуда вы о нас узнали?',
         'you_have_successfully_unsubscribed_from_news' => 'You have successfully unsubscribed from news',
         'your_email' => 'Your E-mail',
         'your_name' => 'Your name',

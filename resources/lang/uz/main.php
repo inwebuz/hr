@@ -591,6 +591,7 @@ return [
         'subscribe_form_success' => 'Siz yangiliklarga obuna bo‘ldingiz',
         'to_confirm' => 'Tasdiqlash',
         'to_save' => 'Saqlash',
+        'where_did_you_hear_about_us' => 'Откуда вы о нас узнали?',
         'you_have_successfully_unsubscribed_from_news' => 'Siz yangliklarga bo‘lgan obunani bekor qildingiz',
         'your_email' => 'Sizning E-mail',
         'your_name' => 'Ismingiz',

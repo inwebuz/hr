@@ -205,6 +205,14 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="source" placeholder="{{ __('main.form.where_did_you_hear_about_us') }}" type="text" required>
+                                    <span class="alert-error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
                                 <div class="form-group comments">
                                     <textarea class="form-control" name="message" placeholder="{{ __('main.message') }}" required></textarea>
                                 </div>

@@ -50,11 +50,12 @@ class CvController extends Controller
             // 'captcha_key' => 'required',
             // 'captcha' => 'required|captcha_api:' . $captchaKey . ',flat',
             'vacancy_id' => 'nullable|exists:vacancies,id',
-            'name' => 'required',
-            'email' => 'required',
-            'phone_number' => 'required',
+            'name' => 'required|max:191',
+            'email' => 'required|max:191',
+            'phone_number' => 'required|max:191',
             'message' => '',
             'file' => 'required|file|max:3072|mimes:pdf,docx',
+            'source' => 'required|max:65000',
         ]);
 
         $telegram_chat_id = config('services.telegram.chat_id');
