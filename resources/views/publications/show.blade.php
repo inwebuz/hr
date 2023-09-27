@@ -7,7 +7,7 @@
 
 @section('content')
 
-@include('partials.page_top', ['title' => $publication->getTranslatedAttribute('name')])
+@include('partials.page_top_full_left', ['title' => $publication->getTranslatedAttribute('name')])
 
 <div class="blog-area single full-blog full-blog py-5 position-relative">
     <div class="container">
