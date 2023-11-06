@@ -23,7 +23,7 @@
     @endif
     <div class="container">
         <div class="text-block">
-            {!! $page->body !!}
+            {!! $page->getTranslatedAttribute('body') !!}
         </div>
     </div>
 
