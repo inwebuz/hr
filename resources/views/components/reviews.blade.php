@@ -24,7 +24,7 @@
                             @foreach ($reviews as $review)
                             <div class="item">
                                 <div class="info">
-                                    <p class="mb-2">{{ $review->body }}</p>
+                                    <p class="mb-2">{{ $review->getTranslatedAttribute('body') }}</p>
                                     {{-- <div>
                                         @include('partials.stars', ['rating' => $review->rating])
                                     </div> --}}
@@ -34,11 +34,11 @@
                                         </div>
                                         <div class="content">
                                             <div class="lh-125">
-                                                <strong>{{ $review->name }}</strong>
+                                                <strong>{{ $review->getTranslatedAttribute('name') }}</strong>
                                             </div>
-                                            @if ($review->position)
+                                            @if ($review->getTranslatedAttribute('position'))
                                             <div class="lh-125">
-                                                <span>{{ $review->position }}</span>
+                                                <span>{{ $review->getTranslatedAttribute('position') }}</span>
                                             </div>
                                             @endif
 

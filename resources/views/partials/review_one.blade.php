@@ -26,7 +26,7 @@
             <img src="img/products/302.png" alt="">
         </div>
     </div> --}}
-    <h5>{{ $review->name }}</h5>
+    <h5>{{ $review->getTranslatedAttribute('name') }}</h5>
     <div class="d-flex align-items-center mb-2">
         <div class="review-rating mr-2">
             @include('partials.stars_input', ['rating' => $review->rating])
@@ -60,5 +60,5 @@
         </ul> --}}
         <span>{{ Helper::formatDate($review->created_at, true) }}</span>
     </div>
-    <p>{{ $review->body }}</p>
+    <p>{{ $review->getTranslatedAttribute('body') }}</p>
 </div>

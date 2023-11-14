@@ -62,10 +62,10 @@
                                 <div class="standard-review mb-4">
                                     <div class="standard-review-info mb-2">
                                         <small class="d-inline-block px-2 py-1 rounded bg-light text-dark mr-2">{{ Helper::formatDate($review->created_at) }}</small>
-                                        <span class="review-author">{{ $review->name }}</span>
+                                        <span class="review-author">{{ $review->getTranslatedAttribute('name') }}</span>
                                     </div>
                                     <div class="standard-review-message text-gray">
-                                        {{ $review->body }}
+                                        {{ $review->getTranslatedAttribute('body') }}
                                     </div>
                                     <hr>
                                 </div>

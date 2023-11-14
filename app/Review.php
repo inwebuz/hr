@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Facades\Voyager;
@@ -11,6 +12,7 @@ class Review extends Model
 {
     use HasFactory;
     use Resizable;
+    use Translatable;
 
     /**
      * Statuses.
@@ -20,6 +22,8 @@ class Review extends Model
     const STATUS_PENDING = 2;
 
     protected $guarded = [];
+
+    protected $translatable = ['name', 'position', 'body'];
 
     public static $avatarSizes = [
         'micro' => [80, 80],
