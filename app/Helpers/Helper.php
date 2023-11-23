@@ -343,7 +343,7 @@ class Helper
 
         $model = null;
         $foundModel = false;
-        $hasSlugRoutes = ['page', 'category', 'publications.show', 'product'];
+        $hasSlugRoutes = ['page', 'category', 'publications.show', 'product', 'vacancies.category', 'services.show'];
         foreach ($hasSlugRoutes as $hasSlugRoute) {
             if ($routeName == $hasSlugRoute) {
                 $routeParams = array_values($route->parameters);
