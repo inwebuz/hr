@@ -349,7 +349,7 @@ return [
     'search_products' => 'Search products',
     'search_results' => 'Search results',
     'search_the_catalogue' => 'Search',
-    'send_cv_form_title' => 'Вы можете отправить нам ваше резюме, заполнив форму',
+    'send_cv_form_title' => 'You can send us your CV by filling out the form',
     'send_password_reset_link' => 'Send password reset link',
     'serrubric' => 'Рубрика услуги',
     'serrubrics' => 'Рубрики услуг',

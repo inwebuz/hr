@@ -37,7 +37,7 @@
                                     <div class="card">
                                         <div class="card-header" id="vacancy-heading-{{ $vacancy->id }}">
                                             <h4 class="mb-0 collapsed" data-toggle="collapse" data-target="#vacancy-collapse-{{ $vacancy->id }}" aria-expanded="false"
-                                                aria-controls="vacancy-collapse-{{ $vacancy->id }}">{{ $vacancy->getTranslatedAttribute('name') }}</h4>
+                                                aria-controls="vacancy-collapse-{{ $vacancy->id }}">{{ $vacancy->getTranslatedAttribute('name') ?? $vacancy->name }}</h4>
                                         </div>
                                         <div id="vacancy-collapse-{{ $vacancy->id }}" class="collapse" aria-labelledby="vacancy-heading-{{ $vacancy->id }}" data-parent="#vacancy-accordion">
                                             <div class="card-body">
