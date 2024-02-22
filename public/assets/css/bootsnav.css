@@ -1644,6 +1644,7 @@ nav.navbar.bootsnav {
     }
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu.dropdown-menu-2-column > li {
         display: inline-block;
+        min-width: 180px;
     }
 
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu.cart-list {
