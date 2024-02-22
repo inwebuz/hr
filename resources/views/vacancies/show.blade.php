@@ -11,7 +11,7 @@
 <div class="py-5">
     <div class="container">
         <div class="text-block">
-            {!! $vacancy->body !!}
+            {!! $vacancy->getTranslatedAttribute('body') !!}
         </div>
     </div>
 </div>

@@ -34,7 +34,7 @@
                 <div class="pb-5"></div>
 
                 {{--<div class="text-block mt-5">
-                    {!! $page->body !!}
+                    {!! $page->getTranslatedAttribute('body') !!}
                 </div>--}}
 
             </div>

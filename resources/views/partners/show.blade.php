@@ -10,7 +10,7 @@
 <div class="py-5">
     <div class="container">
         <div class="text-block">
-            {!! $partner->body !!}
+            {!! $partner->getTranslatedAttribute('body') !!}
         </div>
     </div>
 </div>
