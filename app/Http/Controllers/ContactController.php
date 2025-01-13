@@ -37,7 +37,7 @@ class ContactController extends Controller
         $page = Page::where('slug', 'contacts')->withTranslation($locale)->firstOrFail(); // contacts page
         $breadcrumbs = new Breadcrumbs();
         $breadcrumbs->addItem(new LinkItem(__('main.nav.contacts'), route('contacts'), LinkItem::STATUS_INACTIVE));
-        $address = Helper::staticText('contact_address', 5)->description ?? '';
+        $address = Helper::staticText('contact_address', 5)->getTranslatedAttribute('description') ?? '';
         $ourContacts = Helper::staticText('our_contacts', 5);
         return view('contacts', compact('breadcrumbs', 'page', 'address', 'ourContacts'));
     }
